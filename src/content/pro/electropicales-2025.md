@@ -4,7 +4,7 @@ slug: electropicales-2025
 category: pro
 order: 4
 year: 2025
-client: Electropicales Festival
+client: Association Festival Electropicales 2025
 tagline: Communication digitale — Instagram, Facebook, TikTok, en amont et en live.
 cover: /images/electropicales-2025/66413459d19041df9156c2e7.jpg
 tags: [Social Media, TikTok, Reels, Événementiel]
