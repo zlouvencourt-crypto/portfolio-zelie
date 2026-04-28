@@ -25,9 +25,8 @@ cibles:
   secondaire: Familles, partenaires institutionnels, communauté sportive locale.
 
 livrables:
-  - Vidéos TikTok (teasing, présentation, challenges)
+  - Visuels réseaux sociaux TikTok
   - Contenus live jour J
-  - Stories et vidéos backstage
   - Suivi de performance
 
 contraintes: Temporelles, institutionnelles, techniques, juridiques.
