@@ -33,9 +33,9 @@ contraintes: Formats stricts pour impression (4×3 et A5). Cohérence visuelle e
 direction: Univers visuel évoquant l'échange culturel Réunion-Maurice. Couleurs australes chaudes et ensoleillées, typographies élégantes et accessibles, mise en valeur des artistes et œuvres.
 
 gallery:
-  - { src: /images/regards-croises/9233ca252bb1484885f19e91.jpg, alt: "", ratio: "3/4", span: 6 }
-  - { src: /images/regards-croises/9eb937721eca4fa09c8f108f.png, alt: "", ratio: "3/4", span: 6 }
-  - { src: /images/regards-croises/a3d4120041f74d09840c9f2d.png, alt: "", ratio: "16/10", span: 12 }
-  - { src: /images/regards-croises/c79c44c6b8ab4c11b4798d85.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/regards-croises/f9889a08824047439cba6902.png, alt: "", ratio: "4/5", span: 6 }
+  - { src: /images/regards-croises/9eb937721eca4fa09c8f108f.png, alt: "", ratio: "7/10", span: 4 }
+  - { src: /images/regards-croises/a3d4120041f74d09840c9f2d.png, alt: "", ratio: "7/10", span: 4 }
+  - { src: /images/regards-croises/f9889a08824047439cba6902.png, alt: "", ratio: "7/10", span: 4 }
+  - { src: /images/regards-croises/9233ca252bb1484885f19e91.jpg, alt: "", ratio: "4/3", span: 8 }
+  - { src: /images/regards-croises/c79c44c6b8ab4c11b4798d85.png, alt: "", ratio: "9/10", span: 4 }
 ---
