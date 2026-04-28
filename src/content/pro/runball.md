@@ -34,7 +34,7 @@ contraintes: Temporelles, institutionnelles, techniques, juridiques.
 gallery:
   - { src: /images/runball/83b59b50f619445d82d435ac.jpg, alt: "", ratio: "4/5", span: 6 }
   - { src: /images/runball/b5569876b7a54093b542e381.jpg, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/runball/dc3d07f710814b09bc55bad6.jpg, alt: "", ratio: "16/10", span: 12 }
-  - { src: /images/runball/de8a379658b34980b81296f2.jpg, alt: "", ratio: "3/4", span: 6 }
-  - { src: /images/runball/e8f8e3fff29042d6af436d65.jpg, alt: "", ratio: "3/4", span: 6 }
+  - { src: /images/runball/dc3d07f710814b09bc55bad6.jpg, alt: "", ratio: "11/12", span: 8 }
+  - { src: /images/runball/de8a379658b34980b81296f2.jpg, alt: "", ratio: "4/5", span: 6 }
+  - { src: /images/runball/e8f8e3fff29042d6af436d65.jpg, alt: "", ratio: "4/5", span: 6 }
 ---
