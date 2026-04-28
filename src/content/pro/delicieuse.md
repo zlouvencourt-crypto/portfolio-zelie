@@ -6,7 +6,7 @@ order: 5
 year: 2024
 client: La Délicieuse — Saint-Denis
 tagline: Soirées mensuelles à thème — l'Extravagance.
-cover: /images/delicieuse/01668cf1582748a1b8295416.png
+cover: /images/delicieuse/199d538d145e4943b51d7299.png
 tags: [Social Media, Direction artistique, Événementiel]
 role: Direction artistique et social media
 featured: false
