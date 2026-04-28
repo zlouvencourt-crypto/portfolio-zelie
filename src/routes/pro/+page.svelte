@@ -7,11 +7,12 @@
 
 <article class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
 	<section class="container-page pt-40 pb-16">
-		<img
-			src="/images/wexx-oi-projet-inconnu/8e8c5d71c8044f9e94c3ee83fe137b3b.png"
-			alt="Logo WEXX OI"
-			class="mb-6 h-auto w-32 max-w-full"
-		/>
+		<figure class="mb-10 max-w-[42ch]">
+			<blockquote class="font-display-italic text-base leading-relaxed text-[color:var(--color-ink)]/80">
+				« Communiquer, c'est mettre en commun. »
+			</blockquote>
+			<figcaption class="eyebrow mt-3 text-[color:var(--color-rose)]">— Dominique Wolton</figcaption>
+		</figure>
 		<p class="eyebrow text-[color:var(--color-wine)]">Alternance — WEXX OI, La Réunion</p>
 		<p class="mt-10 max-w-[60ch] text-lg leading-relaxed text-[color:var(--color-ink)]/75">
 			Deux années d'alternance au sein d'une agence événementielle réunionnaise — stratégie digitale, direction artistique, production vidéo et gestion de festivals.
