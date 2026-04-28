@@ -30,7 +30,7 @@
 					Portfolio<br />2024 - 2026
 				</p>
 				<p class="eyebrow hidden text-right text-[color:var(--color-rose-soft)] md:block">
-					Saint-Denis<br />La Réunion
+					La Réunion
 				</p>
 			</div>
 
