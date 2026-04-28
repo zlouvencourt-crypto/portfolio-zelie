@@ -2,7 +2,7 @@
 title: Air Austral
 slug: air-austral
 category: scolaire
-order: 6
+order: 10
 year: 2025
 client: Air Austral
 tagline: Campagne digitale interne — valoriser les engagements RSE.

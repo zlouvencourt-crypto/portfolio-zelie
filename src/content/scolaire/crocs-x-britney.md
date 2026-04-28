@@ -2,7 +2,7 @@
 title: Crocs × Britney
 slug: crocs-x-britney
 category: scolaire
-order: 10
+order: 11
 year: 2025
 client: Crocs × Britney Spears
 tagline: Collaboration pop — étude en cours.
