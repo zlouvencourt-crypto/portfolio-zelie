@@ -6,7 +6,7 @@ order: 8
 year: 2025
 client: Runball Festival
 tagline: Festival sportif et festif — TikTok comme levier principal d'engagement.
-cover: /images/runball/0e6da016ad624fd294e770b4.jpg
+cover: /images/runball/83b59b50f619445d82d435ac.jpg
 tags: [TikTok, Live, Événementiel sportif]
 role: Communication TikTok et live
 featured: false
