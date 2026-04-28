@@ -34,14 +34,13 @@ contraintes: Sujet sensible — informer sans dramatiser. Codes visuels adaptés
 direction: Esthétique impactante et directe. Couleurs contrastées, typographies fortes, visuels immersifs au ton clair et bienveillant.
 
 gallery:
-  - { src: /images/proxite/3f529c0913fc4ae0aa001b22.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/proxite/7d41efa294ef4c69a4bfad19.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/proxite/7dc8c7d9dc774c7da4aa296b.png, alt: "", ratio: "16/10", span: 12 }
-  - { src: /images/proxite/85fd37e6620c466c89390ad7.png, alt: "", ratio: "3/4", span: 4 }
-  - { src: /images/proxite/928bf2c613004fd2b16640a4.png, alt: "", ratio: "3/4", span: 4 }
-  - { src: /images/proxite/a785c08572af41b48401096f.png, alt: "", ratio: "3/4", span: 4 }
-  - { src: /images/proxite/c4a2be171ff8495798a5297e.png, alt: "", ratio: "4/5", span: 6 }
+  - { src: /images/proxite/3f529c0913fc4ae0aa001b22.png, alt: "", ratio: "7/10", span: 4 }
+  - { src: /images/proxite/928bf2c613004fd2b16640a4.png, alt: "", ratio: "7/10", span: 4 }
+  - { src: /images/proxite/c4a2be171ff8495798a5297e.png, alt: "", ratio: "7/10", span: 4 }
+  - { src: /images/proxite/7dc8c7d9dc774c7da4aa296b.png, alt: "", ratio: "4/5", span: 6 }
   - { src: /images/proxite/c5d98cbdc655470db9eef58b.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/proxite/dabe0541f3f84ae9b2782254.png, alt: "", ratio: "16/9", span: 12 }
-  - { src: /images/proxite/eb51494b8bbd46df816e74eb.png, alt: "", ratio: "4/5", span: 12 }
+  - { src: /images/proxite/dabe0541f3f84ae9b2782254.png, alt: "", ratio: "4/5", span: 6 }
+  - { src: /images/proxite/eb51494b8bbd46df816e74eb.png, alt: "", ratio: "4/5", span: 6 }
+  - { src: /images/proxite/85fd37e6620c466c89390ad7.png, alt: "", ratio: "5/3", span: 12 }
+  - { src: /images/proxite/7d41efa294ef4c69a4bfad19.png, alt: "", ratio: "6/5", span: 12 }
 ---
