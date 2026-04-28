@@ -43,4 +43,5 @@ gallery:
   - { src: /images/merchandesign-electropicales/6edcef80f5f24481be9162ac.png, alt: "", ratio: "4/5", span: 6 }
   - { src: /images/merchandesign-electropicales/95a96ab3bb434d49b8152645.png, alt: "", ratio: "4/5", span: 6 }
   - { src: /images/merchandesign-electropicales/d069cb90d89a4e0e8eb13340.png, alt: "", ratio: "16/10", span: 12 }
+  - { src: /images/merchandesign-electropicales/video/merch-vertical.mp4, alt: "Vidéo verticale merchandising", ratio: "9/16", span: 6, video: true }
 ---
