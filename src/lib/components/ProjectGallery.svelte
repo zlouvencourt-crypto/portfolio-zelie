@@ -27,7 +27,7 @@
 
 	type Group = { label: string | null; items: GalleryItem[] };
 
-	const groups = $derived<Group[]>(() => {
+	const groups: Group[] = $derived.by(() => {
 		const list: Group[] = [];
 		let current: Group | null = null;
 		for (const item of items) {
@@ -48,7 +48,7 @@
 			<p class="eyebrow text-[color:var(--color-wine)]">Galerie</p>
 
 			<div class="mt-10 space-y-20">
-				{#each groups() as group, gi (gi)}
+				{#each groups as group, gi (gi)}
 					<div>
 						{#if group.label}
 							<h3 class="mb-8 font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-[color:var(--color-ink)]">
