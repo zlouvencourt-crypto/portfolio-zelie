@@ -59,7 +59,7 @@
 						class="eyebrow inline-flex items-center gap-3 rounded-full border border-[color:var(--color-bg)] px-6 py-3 transition-colors hover:bg-[color:var(--color-bg)] hover:text-[color:var(--color-ink)]"
 						cursorLabel="voir"
 					>
-						<span>Voir le travail</span>
+						<span>Mes projets</span>
 						<span aria-hidden="true">→</span>
 					</MagneticLink>
 				</div>
