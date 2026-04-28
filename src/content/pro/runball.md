@@ -4,7 +4,7 @@ slug: runball
 category: pro
 order: 8
 year: 2025
-client: Runball Festival
+client: Ville de Saint-Denis, Ligue de Basket-ball de La Réunion
 tagline: Festival sportif et festif — TikTok comme levier principal d'engagement.
 cover: /images/runball/83b59b50f619445d82d435ac.jpg
 tags: [TikTok, Live, Événementiel sportif]
