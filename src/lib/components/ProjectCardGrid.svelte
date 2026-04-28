@@ -10,7 +10,7 @@
 	const href = $derived(`/${entry.meta.category}/${entry.meta.slug}`);
 </script>
 
-<a {href} class="project-card-grid group relative block overflow-hidden rounded-lg">
+<a {href} class="project-card-grid group relative block overflow-hidden rounded-lg shadow-md transition-shadow duration-500 ease-[var(--ease-out-expo)] hover:shadow-xl">
 	<div class="relative w-full">
 		<img
 			src={entry.meta.cover}
