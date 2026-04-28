@@ -38,19 +38,19 @@ contraintes:
 direction: Trois piliers — immersion, mystère, cohérence sonore et visuelle.
 
 gallery:
-  - { section: "Affiches des soirées", src: /images/denise/2285161eedd247ca82509b1a.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches des soirées", src: /images/denise/258185f921bc49a5808be4e6.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches des soirées", src: /images/denise/3b63f9f04e144edbac2c3abb.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches des soirées", src: /images/denise/6830e07fce72468b8524c012.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches des soirées", src: /images/denise/6f298ee19ede47e6849dee96.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches des soirées", src: /images/denise/a093e95f0a124a41ac393708.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches des soirées", src: /images/denise/ac767e8848f34d3a87e2fdc4.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches des soirées", src: /images/denise/b86885d635a948d189f5f27c.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/2285161eedd247ca82509b1a.png, alt: "Buena Vista", caption: "Buena Vista", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/258185f921bc49a5808be4e6.png, alt: "XOXO New York", caption: "XOXO New York", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/3b63f9f04e144edbac2c3abb.png, alt: "Snow and Glow", caption: "Snow and Glow", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/6830e07fce72468b8524c012.png, alt: "Fogo do Rio", caption: "Fogo do Rio", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/6f298ee19ede47e6849dee96.png, alt: "Perle d'Orient", caption: "Perle d'Orient", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/a093e95f0a124a41ac393708.png, alt: "Le Duc", caption: "Le Duc", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/ac767e8848f34d3a87e2fdc4.png, alt: "Mowglu", caption: "Mowglu", ratio: "4/5", span: 4 }
+  - { section: "Affiches des soirées et line up", src: /images/denise/b86885d635a948d189f5f27c.png, alt: "Fab B2B Raf", caption: "Fab B2B Raf", ratio: "4/5", span: 4 }
   - { section: "Stories", src: /images/denise/2a9ebc811c4645469212e293.png, alt: "", ratio: "9/16", span: 4 }
   - { section: "Stories", src: /images/denise/2f66e2c525c34a07a04e7ebf.png, alt: "", ratio: "9/16", span: 4 }
   - { section: "Stories", src: /images/denise/71cbf398c7dc4ed481960524.png, alt: "", ratio: "9/16", span: 4 }
-  - { section: "Photos des soirées", src: /images/denise/21ec9606e3db4be4878c6450.jpg, alt: "", ratio: "4/5", span: 6 }
-  - { section: "Photos des soirées", src: /images/denise/8aa4a31c58e949f5adcbf5d3.jpg, alt: "", ratio: "4/5", span: 6 }
-  - { section: "Photos des soirées", src: /images/denise/e7175d8ab8534d9ba6aacaa3.jpg, alt: "", ratio: "4/5", span: 6 }
-  - { section: "Photos des soirées", src: /images/denise/fcd554c3b3184a7a9352e713.jpg, alt: "", ratio: "4/5", span: 6 }
+  - { section: "Photos des soirées", src: /images/denise/21ec9606e3db4be4878c6450.jpg, alt: "Brésilienne en costume", caption: "La brésilienne en costume", ratio: "4/5", span: 6 }
+  - { section: "Photos des soirées", src: /images/denise/8aa4a31c58e949f5adcbf5d3.jpg, alt: "Logo Denise en néon", caption: "Logo Denise en néon", ratio: "4/5", span: 6 }
+  - { section: "Photos des soirées", src: /images/denise/e7175d8ab8534d9ba6aacaa3.jpg, alt: "Deux filles", caption: "Les deux filles", ratio: "4/5", span: 6 }
+  - { section: "Photos des soirées", src: /images/denise/fcd554c3b3184a7a9352e713.jpg, alt: "DJ", caption: "Les DJ", ratio: "4/5", span: 6 }
 ---

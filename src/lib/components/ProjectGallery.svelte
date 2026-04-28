@@ -78,6 +78,11 @@
 											parallax={2}
 										/>
 									{/if}
+									{#if item.caption}
+										<p class="mt-3 font-sans text-sm font-light text-[color:var(--color-ink)]/70">
+											{item.caption}
+										</p>
+									{/if}
 								</div>
 							{/each}
 						</div>

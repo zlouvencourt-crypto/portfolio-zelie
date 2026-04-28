@@ -7,7 +7,8 @@ export const galleryItemSchema = z.object({
 	span: z.number().int().min(1).max(12).optional(),
 	video: z.boolean().optional(),
 	poster: z.string().optional(),
-	section: z.string().optional()
+	section: z.string().optional(),
+	caption: z.string().optional()
 });
 
 export const projectMetaSchema = z.object({
