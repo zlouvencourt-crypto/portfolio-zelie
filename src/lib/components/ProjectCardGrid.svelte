@@ -11,7 +11,7 @@
 </script>
 
 <a {href} class="project-card-grid group relative block overflow-hidden rounded-lg">
-	<div class="relative aspect-[4/5] w-full overflow-hidden">
+	<div class="relative aspect-square w-full overflow-hidden">
 		<img
 			src={entry.meta.cover}
 			alt={entry.meta.title}
