@@ -25,9 +25,9 @@ cibles:
   secondaire: Personnes créatives, indépendantes, attachées à leur style.
 
 gallery:
-  - { src: /images/fiat-500/148baf09a6ca45758e2f5d94.png, alt: "", ratio: "3/4", span: 4 }
-  - { src: /images/fiat-500/3ea34dcb82524c84877a57ff.png, alt: "", ratio: "3/4", span: 4 }
-  - { src: /images/fiat-500/54609e13122545178ed03546.png, alt: "", ratio: "3/4", span: 4 }
-  - { src: /images/fiat-500/99ed18bf79c34eb381958613.png, alt: "", ratio: "16/10", span: 12 }
-  - { src: /images/fiat-500/a152bdf5c5e3451294c0b157.png, alt: "", ratio: "4/5", span: 12 }
+  - { src: /images/fiat-500/54609e13122545178ed03546.png, alt: "", ratio: "7/10", span: 6 }
+  - { src: /images/fiat-500/a152bdf5c5e3451294c0b157.png, alt: "", ratio: "7/10", span: 6 }
+  - { src: /images/fiat-500/3ea34dcb82524c84877a57ff.png, alt: "", ratio: "7/5", span: 6 }
+  - { src: /images/fiat-500/99ed18bf79c34eb381958613.png, alt: "", ratio: "7/5", span: 6 }
+  - { src: /images/fiat-500/148baf09a6ca45758e2f5d94.png, alt: "", ratio: "7/12", span: 4 }
 ---
