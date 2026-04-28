@@ -20,9 +20,11 @@
 	</section>
 
 	<section class="container-page pb-48">
-		<div class="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-20">
+		<div class="columns-1 gap-10 md:columns-2 md:gap-14">
 			{#each entries as entry (entry.meta.slug)}
-				<ProjectCardGrid {entry} />
+				<div class="mb-10 break-inside-avoid md:mb-14">
+					<ProjectCardGrid {entry} />
+				</div>
 			{/each}
 		</div>
 	</section>

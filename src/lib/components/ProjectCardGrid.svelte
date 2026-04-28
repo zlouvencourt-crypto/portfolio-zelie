@@ -11,11 +11,11 @@
 </script>
 
 <a {href} class="project-card-grid group relative block overflow-hidden rounded-lg">
-	<div class="relative aspect-square w-full overflow-hidden">
+	<div class="relative w-full">
 		<img
 			src={entry.meta.cover}
 			alt={entry.meta.title}
-			class="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
+			class="block h-auto w-full object-contain transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03]"
 			loading="lazy"
 		/>
 
