@@ -6,7 +6,7 @@ order: 1
 year: 2024
 client: WEXX OI
 tagline: Stratégie digitale & storytelling — une influenceuse réunionnaise fictive, chaque mois une destination.
-cover: /images/denise/213a52e37b1346daa58a1a10.png
+cover: /images/denise/21ec9606e3db4be4878c6450.jpg
 tags: [Stratégie digitale, Social Media, Storytelling, Meta Ads]
 role: Stratégie digitale et production
 featured: true
