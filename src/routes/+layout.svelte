@@ -3,7 +3,6 @@
 	import SmoothScroll from '$components/SmoothScroll.svelte';
 	import Navigation from '$components/Navigation.svelte';
 	import Footer from '$components/Footer.svelte';
-	import Cursor from '$components/Cursor.svelte';
 	import PageTransition from '$components/PageTransition.svelte';
 	import { page } from '$app/state';
 
@@ -24,7 +23,6 @@
 </svelte:head>
 
 <SmoothScroll>
-	<Cursor />
 	<Navigation />
 	<main>
 		{@render children()}
