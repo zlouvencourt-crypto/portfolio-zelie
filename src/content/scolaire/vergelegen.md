@@ -13,7 +13,11 @@ role: Direction artistique et rédaction
 featured: true
 
 brief: Valoriser le domaine VERGELEGEN comme lieu d'exception pour l'organisation de mariages, à travers la création d'un article rédactionnel et d'une couverture de flyer.
-contexte: Le domaine VERGELEGEN souhaite renforcer son attractivité et affirmer son positionnement premium de prestation de mariage.
+contexte: Projet réalisé dans le cadre de mon BTS Communication à l'École du Numérique. Le domaine VERGELEGEN souhaite renforcer son attractivité et affirmer son positionnement premium de prestation de mariage.
+
+livrables:
+  - Affiche
+  - Page de magazine
 
 objectifs:
   information: Présenter les prestations mariage proposées par le domaine.
