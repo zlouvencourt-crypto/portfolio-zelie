@@ -5,6 +5,20 @@
 	type Props = { items: GalleryItem[] };
 	let { items }: Props = $props();
 
+	let lightboxItem = $state<GalleryItem | null>(null);
+
+	const openLightbox = (item: GalleryItem) => {
+		if (item.video) return;
+		lightboxItem = item;
+	};
+	const closeLightbox = () => {
+		lightboxItem = null;
+	};
+
+	const onKey = (e: KeyboardEvent) => {
+		if (e.key === 'Escape' && lightboxItem) closeLightbox();
+	};
+
 	const spanClass = (span?: number): string => {
 		const n = span ?? 6;
 		const safe = Math.min(12, Math.max(1, n));
@@ -42,6 +56,8 @@
 	});
 </script>
 
+<svelte:window on:keydown={onKey} />
+
 {#if items.length}
 	<section class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
 		<div class="container-page section">
@@ -71,12 +87,21 @@
 											></video>
 										</div>
 									{:else}
-										<ImageReveal
-											src={item.src}
-											alt={item.alt || ''}
-											ratio={item.ratio ?? '4/5'}
-											parallax={2}
-										/>
+										<button
+											type="button"
+											onclick={() => openLightbox(item)}
+											class="group block w-full cursor-zoom-in overflow-hidden p-0 text-left"
+											aria-label="Agrandir l'image"
+										>
+											<div class="transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.02]">
+												<ImageReveal
+													src={item.src}
+													alt={item.alt || ''}
+													ratio={item.ratio ?? '4/5'}
+													parallax={2}
+												/>
+											</div>
+										</button>
 									{/if}
 									{#if item.caption}
 										<p class="mt-3 font-sans text-sm font-light text-[color:var(--color-ink)]/70">
@@ -91,4 +116,35 @@
 			</div>
 		</div>
 	</section>
+{/if}
+
+{#if lightboxItem}
+	<div
+		class="fixed inset-0 z-[200] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm md:p-10"
+		role="dialog"
+		aria-modal="true"
+		aria-label="Image agrandie"
+	>
+		<button
+			type="button"
+			onclick={closeLightbox}
+			class="absolute inset-0 cursor-zoom-out"
+			aria-label="Fermer"
+		></button>
+
+		<button
+			type="button"
+			onclick={closeLightbox}
+			class="absolute right-5 top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:bg-white hover:text-black"
+			aria-label="Fermer"
+		>
+			<span aria-hidden="true" class="text-lg leading-none">×</span>
+		</button>
+
+		<img
+			src={lightboxItem.src}
+			alt={lightboxItem.alt || ''}
+			class="relative z-[5] max-h-[90vh] max-w-[95vw] object-contain"
+		/>
+	</div>
 {/if}
