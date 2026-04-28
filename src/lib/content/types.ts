@@ -21,6 +21,7 @@ export const projectMetaSchema = z.object({
 	tagline: z.string().optional(),
 	cover: z.string(),
 	coverPortrait: z.string().optional(),
+	coverVideo: z.string().optional(),
 	tags: z.array(z.string()).default([]),
 	role: z.string().optional(),
 

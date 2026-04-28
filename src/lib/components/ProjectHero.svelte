@@ -8,12 +8,25 @@
 
 <section class="project-hero relative w-full overflow-hidden bg-[color:var(--color-ink)] text-[color:var(--color-bg)]">
 	<div class="absolute inset-0">
-		<img
-			src={meta.cover}
-			alt=""
-			aria-hidden="true"
-			class="h-full w-full object-cover opacity-45"
-		/>
+		{#if meta.coverVideo}
+			<video
+				src={meta.coverVideo}
+				poster={meta.cover}
+				autoplay
+				muted
+				loop
+				playsinline
+				aria-hidden="true"
+				class="h-full w-full object-cover opacity-55"
+			></video>
+		{:else}
+			<img
+				src={meta.cover}
+				alt=""
+				aria-hidden="true"
+				class="h-full w-full object-cover opacity-45"
+			/>
+		{/if}
 		<div class="absolute inset-0 bg-black/35"></div>
 		<div class="absolute inset-0 bg-gradient-to-b from-[color:var(--color-ink)]/50 via-[color:var(--color-ink)]/20 to-[color:var(--color-ink)]"></div>
 	</div>
