@@ -3,7 +3,7 @@ title: Soirée des 80 ans Chevillard
 slug: chevillard-80-ans
 category: pro
 order: 10
-year: 2024
+year: 2026
 client: Chevillard
 tagline: Direction artistique et coordination événementielle des 80 ans de l'enseigne.
 cover: /images/chevillard-80-ans/cover.jpg
