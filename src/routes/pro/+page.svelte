@@ -7,6 +7,9 @@
 
 <article class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
 	<section class="container-page pt-40 pb-16">
+		<h1 class="mb-10 font-display text-[clamp(2rem,4vw,3.5rem)] font-light tracking-tight leading-none text-[color:var(--color-ink)]">
+			WEXX OI
+		</h1>
 		<figure class="mb-10 max-w-[42ch]">
 			<blockquote class="font-display-italic text-base leading-relaxed text-[color:var(--color-ink)]/80">
 				« Communiquer, c'est mettre en commun. »
