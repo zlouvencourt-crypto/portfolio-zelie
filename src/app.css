@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Palette — boutique chaude inspirée Scarlet */
-	--color-bg: #f2ece0;
-	--color-cream: #fbf7ee;
-	--color-ink: #1f0b0f;
-	--color-wine: #6b1a24;
-	--color-wine-soft: #8a2835;
-	--color-rose: #b08a78;
-	--color-rose-soft: #d4b8a8;
+	/* Palette — minimaliste corporate */
+	--color-bg: #faf6f0;
+	--color-cream: #faf6f0;
+	--color-ink: #461412;
+	--color-wine: #ed809d;
+	--color-wine-soft: #ed809d;
+	--color-rose: #ed809d;
+	--color-rose-soft: #ed809d;
 
 	/* Typographies */
 	--font-display: 'Fraunces', 'Times New Roman', serif;
