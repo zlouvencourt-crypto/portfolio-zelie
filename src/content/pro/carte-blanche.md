@@ -3,7 +3,7 @@ title: Carte Blanche
 slug: carte-blanche
 category: pro
 order: 6
-year: 2025
+year: 2024
 client: Association Electropicales
 tagline: Patrimoine et création musicale locale — performances filmées dans les lieux historiques de La Réunion.
 cover: /images/carte-blanche/14a646418e4e4acd9525bc43.jpeg
