@@ -3,8 +3,8 @@ title: La Délicieuse
 slug: delicieuse
 category: pro
 order: 9
-year: 2024
-client: La Délicieuse — Saint-Denis
+year: "2024-2025-2026"
+client: WEXX OI, Noon, Le Honey Club
 tagline: Soirées mensuelles à thème — l'Extravagance.
 cover: /images/delicieuse/199d538d145e4943b51d7299.png
 tags: [Social Media, Direction artistique, Événementiel]
