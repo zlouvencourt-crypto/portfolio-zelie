@@ -3,8 +3,8 @@ title: Denise
 slug: denise
 category: pro
 order: 1
-year: 2024
-client: WEXX OI
+year: "2024 - 2025"
+client: WEXX OI, Noon? Le Honey Club
 tagline: Stratégie digitale & storytelling — une influenceuse réunionnaise fictive, chaque mois une destination.
 cover: /images/denise/2285161eedd247ca82509b1a.png
 tags: [Stratégie digitale, Social Media, Storytelling, Meta Ads]
@@ -12,7 +12,7 @@ role: Stratégie digitale et production
 featured: true
 
 contexte: Dans le cadre de mon alternance chez WEXX OI, agence réunionnaise spécialisée en communication, DENISE est un concept immersif mettant en scène une influenceuse réunionnaise fictive qui voyage chaque mois vers de nouvelles destinations, avec des soirées à thème.
-brief: Comment développer la notoriété et générer des ventes dans un marché saturé ? Concevoir et piloter une stratégie digitale complète alignée avec le storytelling, orientée conversion.
+brief: Comment développer et générer des ventes tout en concevant et pilotant une stratégie digitale complète alignée avec le storytelling.
 
 objectifs:
   information: Annoncer les destinations mensuelles.
@@ -21,6 +21,7 @@ objectifs:
 
 cibles:
   principale: Réunionnais 18–50 ans utilisateurs de réseaux sociaux intéressés par les expériences immersives.
+  coeur: Femmes 22–35 ans actives sur Instagram, en quête d'expériences nightlife premium et immersives à La Réunion.
   secondaire: Professionnels urbains 25–35 ans.
 
 livrables:
