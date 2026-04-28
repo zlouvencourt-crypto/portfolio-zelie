@@ -23,6 +23,16 @@ cibles:
   coeur: 16–20 ans, lycéens et étudiants.
   secondaire: Parents, enseignants, éducateurs, influenceurs jeunesse, associations.
 
+livrables:
+  - Affiches de campagne sur les quatre thématiques
+  - Visuels social media et stories
+  - Charte graphique de la campagne
+  - Plan éditorial et déploiement
+
+contraintes: Sujet sensible — informer sans dramatiser. Codes visuels adaptés aux 15–25 ans, lisibilité forte sur supports numériques et physiques.
+
+direction: Esthétique impactante et directe. Couleurs contrastées, typographies fortes, visuels immersifs au ton clair et bienveillant.
+
 gallery:
   - { src: /images/proxite/3f529c0913fc4ae0aa001b22.png, alt: "", ratio: "4/5", span: 6 }
   - { src: /images/proxite/7d41efa294ef4c69a4bfad19.png, alt: "", ratio: "4/5", span: 6 }
