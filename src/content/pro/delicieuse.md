@@ -35,13 +35,13 @@ contraintes: Temporelles, budgétaires, techniques, juridiques, stratégiques.
 direction: Couleurs vives, esthétique audacieuse, ton dynamique, teasing progressif, expérience immersive.
 
 gallery:
-  - { section: "Affiches et stories", src: /images/delicieuse/25a0b36b8db3465eb9ba114c.png, alt: "", ratio: "4/5", span: 4 }
-  - { section: "Affiches et stories", src: /images/delicieuse/9d1fa3106ff34c409bf04182.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Affiches et stories", src: /images/delicieuse/25a0b36b8db3465eb9ba114c.png, alt: "", ratio: "4/5", span: 6 }
+  - { section: "Affiches et stories", src: /images/delicieuse/9d1fa3106ff34c409bf04182.png, alt: "", ratio: "4/5", span: 6 }
   - { section: "Affiches et stories", src: /images/delicieuse/01668cf1582748a1b8295416.png, alt: "", ratio: "9/16", span: 4 }
   - { section: "Affiches et stories", src: /images/delicieuse/83b6ce09094248a4a48b642c.png, alt: "", ratio: "9/16", span: 4 }
   - { section: "Affiches et stories", src: /images/delicieuse/db07db520869426a8078f0da.png, alt: "", ratio: "9/16", span: 4 }
-  - { section: "Affiches et stories", src: /images/delicieuse/e192126d91c2474787fbc844.png, alt: "", ratio: "9/16", span: 4 }
-  - { section: "Affiches et stories", src: /images/delicieuse/585a05fa566e42fc8971b468.png, alt: "", ratio: "9/16", span: 4 }
+  - { section: "Affiches et stories", src: /images/delicieuse/e192126d91c2474787fbc844.png, alt: "", ratio: "9/16", span: 6 }
+  - { section: "Affiches et stories", src: /images/delicieuse/585a05fa566e42fc8971b468.png, alt: "", ratio: "9/16", span: 6 }
   - { section: "Photos des soirées", src: /images/delicieuse/199d538d145e4943b51d7299.png, alt: "", ratio: "4/5", span: 6 }
   - { section: "Photos des soirées", src: /images/delicieuse/26471ddef4af4eecbb8cef4a.png, alt: "", ratio: "4/5", span: 6 }
   - { section: "Photos des soirées", src: /images/delicieuse/418cc5e65f364a6b81e17b42.png, alt: "", ratio: "4/5", span: 6 }
