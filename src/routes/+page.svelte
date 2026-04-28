@@ -27,7 +27,7 @@
 		<div class="container-page relative flex h-full flex-col justify-between py-32">
 			<div class="flex items-start justify-between">
 				<p class="eyebrow text-[color:var(--color-rose-soft)]">
-					Portfolio<br />2023 — {year}
+					Portfolio<br />2024 - 2026
 				</p>
 				<p class="eyebrow hidden text-right text-[color:var(--color-rose-soft)] md:block">
 					Saint-Denis<br />La Réunion
