@@ -6,7 +6,7 @@ order: 6
 year: 2025
 client: Air Austral
 tagline: Campagne digitale interne — valoriser les engagements RSE.
-cover: /images/air-austral/25988bcc0d0a474a9de7bef0.jpg
+cover: /images/air-austral/6f15bab9321544c1a2d0978c.png
 tags: [RSE, Newsletter, Social Media]
 role: Conception et direction artistique
 featured: false
