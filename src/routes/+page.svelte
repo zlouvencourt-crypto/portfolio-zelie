@@ -12,7 +12,7 @@
 
 <article>
 	<!-- HERO -->
-	<section class="relative h-[100svh] w-full overflow-hidden bg-[color:var(--color-ink)] text-[color:var(--color-bg)]">
+	<section class="relative h-[100svh] w-full overflow-hidden bg-[color:var(--color-ink)] text-white">
 		<video
 			src="/images/accueil/video/accueil-1080p.mp4"
 			class="absolute inset-0 h-full w-full object-cover opacity-70"
@@ -26,10 +26,10 @@
 
 		<div class="container-page relative flex h-full flex-col justify-between py-32">
 			<div class="flex items-start justify-between">
-				<p class="eyebrow text-[color:var(--color-rose-soft)]">
+				<p class="eyebrow text-white">
 					Portfolio<br />2024 - 2026
 				</p>
-				<p class="eyebrow hidden text-right text-[color:var(--color-rose-soft)] md:block">
+				<p class="eyebrow hidden text-right text-white md:block">
 					La Réunion
 				</p>
 			</div>
@@ -42,7 +42,7 @@
 					trigger="mount"
 					stagger={0.022}
 					duration={1.4}
-					class="font-display text-[clamp(4rem,14vw,14rem)] leading-[0.9]"
+					class="font-display text-[clamp(4rem,14vw,14rem)] leading-[0.9] text-white"
 				/>
 				<div class="mt-10 flex flex-wrap items-end justify-between gap-10">
 					<SplitText
@@ -51,12 +51,12 @@
 						mode="words"
 						trigger="mount"
 						delay={0.45}
-						class="font-display-italic text-[clamp(1rem,1.4vw,1.5rem)] text-[color:var(--color-rose-soft)]"
+						class="font-display-italic text-[clamp(1rem,1.4vw,1.5rem)] text-white"
 					/>
 					<MagneticLink
 						href="/scolaire"
 						strength={0.25}
-						class="eyebrow inline-flex items-center gap-3 rounded-full border border-[color:var(--color-bg)] px-6 py-3 transition-colors hover:bg-[color:var(--color-bg)] hover:text-[color:var(--color-ink)]"
+						class="eyebrow inline-flex items-center gap-3 rounded-full border border-white px-6 py-3 text-white transition-colors hover:bg-white hover:text-[color:var(--color-ink)]"
 						cursorLabel="voir"
 					>
 						<span>Mes projets</span>
