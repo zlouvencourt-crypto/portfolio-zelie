@@ -34,10 +34,10 @@ contraintes: Préserver l'ADN inclusif et coloré de la marque. Cohérence sur l
 direction: Esthétique streetwear, couleurs vives héritées de la marque, mise en scène inclusive et énergique.
 
 gallery:
-  - { src: /images/benetton/05fbc00d00d0477087ff7a62.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/benetton/15237b1312b94cf69343618f.jpg, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/benetton/7c4742881f044591aeaf2bd7.jpg, alt: "", ratio: "3/4", span: 6 }
-  - { src: /images/benetton/803960f573b748c2b86ecdc6.jpg, alt: "", ratio: "3/4", span: 6 }
-  - { src: /images/benetton/82d58965d1e54de8b74ac563.png, alt: "", ratio: "16/10", span: 12 }
-  - { src: /images/benetton/f4dfd541fb3d4f28b9b0613a.png, alt: "", ratio: "4/5", span: 12 }
+  - { src: /images/benetton/7c4742881f044591aeaf2bd7.jpg, alt: "Shooting photo", ratio: "3/2", span: 6 }
+  - { src: /images/benetton/15237b1312b94cf69343618f.jpg, alt: "Shooting photo", ratio: "13/10", span: 6 }
+  - { src: /images/benetton/803960f573b748c2b86ecdc6.jpg, alt: "Logo", ratio: "1/1", span: 8 }
+  - { src: /images/benetton/05fbc00d00d0477087ff7a62.png, alt: "Moodboard", ratio: "1/2", span: 4 }
+  - { src: /images/benetton/82d58965d1e54de8b74ac563.png, alt: "Bannière", ratio: "20/7", span: 12 }
+  - { src: /images/benetton/f4dfd541fb3d4f28b9b0613a.png, alt: "Bannière", ratio: "23/10", span: 12 }
 ---
