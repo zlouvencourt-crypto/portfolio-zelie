@@ -4,7 +4,7 @@ slug: denise
 category: pro
 order: 1
 year: "2024 - 2025"
-client: WEXX OI, Noon? Le Honey Club
+client: WEXX OI, Noon, Le Honey Club
 tagline: Stratégie digitale & storytelling — une influenceuse réunionnaise fictive, chaque mois une destination.
 cover: /images/denise/2285161eedd247ca82509b1a.png
 tags: [Stratégie digitale, Social Media, Storytelling, Meta Ads]
