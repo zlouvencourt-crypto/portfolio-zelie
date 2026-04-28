@@ -6,7 +6,7 @@ order: 10
 year: 2026
 client: Chevillard
 tagline: Direction artistique et coordination événementielle des 80 ans de l'enseigne.
-cover: /images/chevillard-80-ans/cover.jpg
+cover: /images/chevillard-80-ans/ambiance.jpg
 tags: [Événementiel, Direction artistique, Coordination]
 role: Direction artistique et coordination événementielle
 featured: false
@@ -34,5 +34,9 @@ contraintes: Cohérence avec l'identité visuelle de Chevillard. Coordination mu
 
 direction: Univers élégant, original et créatif. Mise en valeur des lunettes Chevillard à travers un défilé réalisé par des designers, articulé autour de plusieurs thèmes variés, abstraits et artistiques. Les lunettes sont présentées comme de véritables accessoires de style et d'expression.
 
-gallery: []
+gallery:
+  - { src: /images/chevillard-80-ans/affiche-1.png, alt: "Affiche soirée Chevillard", ratio: "4/5", span: 6 }
+  - { src: /images/chevillard-80-ans/affiche-2.png, alt: "Affiche soirée Chevillard", ratio: "4/5", span: 6 }
+  - { src: /images/chevillard-80-ans/ambiance.jpg, alt: "Ambiance de la soirée", ratio: "16/9", span: 8 }
+  - { src: /images/chevillard-80-ans/design.png, alt: "Visuel design", ratio: "1/1", span: 4 }
 ---
