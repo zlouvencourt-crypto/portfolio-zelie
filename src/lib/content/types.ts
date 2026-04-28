@@ -6,7 +6,8 @@ export const galleryItemSchema = z.object({
 	ratio: z.string().optional(), // "4/5", "16/9", etc.
 	span: z.number().int().min(1).max(12).optional(),
 	video: z.boolean().optional(),
-	poster: z.string().optional()
+	poster: z.string().optional(),
+	section: z.string().optional()
 });
 
 export const projectMetaSchema = z.object({

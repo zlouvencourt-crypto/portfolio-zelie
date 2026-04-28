@@ -24,35 +24,63 @@
 		};
 		return map[safe];
 	};
+
+	type Group = { label: string | null; items: GalleryItem[] };
+
+	const groups = $derived<Group[]>(() => {
+		const list: Group[] = [];
+		let current: Group | null = null;
+		for (const item of items) {
+			const label = item.section ?? null;
+			if (!current || current.label !== label) {
+				current = { label, items: [] };
+				list.push(current);
+			}
+			current.items.push(item);
+		}
+		return list;
+	});
 </script>
 
 {#if items.length}
 	<section class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
 		<div class="container-page section">
 			<p class="eyebrow text-[color:var(--color-wine)]">Galerie</p>
-			<div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
-				{#each items as item, i (i)}
-					<div class={`col-span-1 ${spanClass(item.span)}`}>
-						{#if item.video}
-							<div class="overflow-hidden" style:aspect-ratio={item.ratio ?? '16/9'}>
-								<video
-									src={item.src}
-									poster={item.poster}
-									muted
-									loop
-									playsinline
-									autoplay
-									class="h-full w-full object-cover"
-								></video>
-							</div>
-						{:else}
-							<ImageReveal
-								src={item.src}
-								alt={item.alt || ''}
-								ratio={item.ratio ?? '4/5'}
-								parallax={2}
-							/>
+
+			<div class="mt-10 space-y-20">
+				{#each groups() as group, gi (gi)}
+					<div>
+						{#if group.label}
+							<h3 class="mb-8 font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-[color:var(--color-ink)]">
+								{group.label}
+							</h3>
 						{/if}
+						<div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+							{#each group.items as item, i (i)}
+								<div class={`col-span-1 ${spanClass(item.span)}`}>
+									{#if item.video}
+										<div class="overflow-hidden" style:aspect-ratio={item.ratio ?? '16/9'}>
+											<video
+												src={item.src}
+												poster={item.poster}
+												muted
+												loop
+												playsinline
+												autoplay
+												class="h-full w-full object-cover"
+											></video>
+										</div>
+									{:else}
+										<ImageReveal
+											src={item.src}
+											alt={item.alt || ''}
+											ratio={item.ratio ?? '4/5'}
+											parallax={2}
+										/>
+									{/if}
+								</div>
+							{/each}
+						</div>
 					</div>
 				{/each}
 			</div>
