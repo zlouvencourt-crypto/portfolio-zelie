@@ -35,10 +35,10 @@ contraintes: Cohérence avec l'identité visuelle d'Air Austral. Ton à la fois 
 direction: Esthétique propre, professionnelle et optimiste. Couleurs naturelles évoquant le développement durable, mise en page aérée, typographies claires. Mix entre données chiffrées et iconographie symbolique.
 
 gallery:
-  - { src: /images/air-austral/443ab62f22834de89bf4f1a4.jpg, alt: "", ratio: "3/4", span: 5 }
-  - { src: /images/air-austral/5fc15161047642318da93b7d.png, alt: "", ratio: "4/5", span: 7 }
-  - { src: /images/air-austral/6f15bab9321544c1a2d0978c.png, alt: "", ratio: "16/10", span: 12 }
-  - { src: /images/air-austral/8620ac75a4a44782967eb973.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/air-austral/a938fb00beb940c3b2629dd7.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/air-austral/f6dfb7cef0ff4353bc13d480.png, alt: "", ratio: "16/9", span: 12 }
+  - { src: /images/air-austral/8620ac75a4a44782967eb973.png, alt: "", ratio: "2/3", span: 4 }
+  - { src: /images/air-austral/a938fb00beb940c3b2629dd7.png, alt: "", ratio: "2/3", span: 4 }
+  - { src: /images/air-austral/5fc15161047642318da93b7d.png, alt: "", ratio: "5/8", span: 4 }
+  - { src: /images/air-austral/6f15bab9321544c1a2d0978c.png, alt: "", ratio: "7/10", span: 6 }
+  - { src: /images/air-austral/f6dfb7cef0ff4353bc13d480.png, alt: "", ratio: "4/5", span: 6 }
+  - { src: /images/air-austral/443ab62f22834de89bf4f1a4.jpg, alt: "", ratio: "1/1", span: 12 }
 ---
