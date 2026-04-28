@@ -19,7 +19,7 @@
 	</div>
 
 	<div class="container-page relative flex min-h-[100svh] flex-col justify-end pb-16 pt-40">
-		<div class="max-w-[16ch]">
+		<div class="max-w-[24ch]">
 			<p class="eyebrow text-[color:var(--color-rose-soft)]">
 				{meta.category === 'scolaire' ? 'Projet scolaire' : 'Projet professionnel'}
 				{#if meta.year}
@@ -31,7 +31,7 @@
 				text={meta.title}
 				mode="chars"
 				trigger="mount"
-				class="mt-6 font-display text-[clamp(3.5rem,12vw,11rem)]"
+				class="mt-6 font-display text-[clamp(2.25rem,7vw,6rem)]"
 				stagger={0.025}
 				duration={1.3}
 			/>
