@@ -35,7 +35,7 @@ contraintes: Temporelles, institutionnelles, juridiques, stratégiques.
 
 gallery:
   - { src: /images/carte-blanche/4137fce6cead410ca45a600c.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/carte-blanche/46dc23894da54c60990e2e11.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/carte-blanche/e30eeb41c026480eb6f11416.jpeg, alt: "", ratio: "16/10", span: 12 }
-  - { src: /images/carte-blanche/e53679ef71414df282271187.jpg, alt: "", ratio: "4/5", span: 12 }
+  - { src: /images/carte-blanche/46dc23894da54c60990e2e11.png, alt: "", ratio: "3/4", span: 6 }
+  - { src: /images/carte-blanche/e30eeb41c026480eb6f11416.jpeg, alt: "", ratio: "16/9", span: 12 }
+  - { src: /images/carte-blanche/e53679ef71414df282271187.jpg, alt: "", ratio: "16/9", span: 12 }
 ---
