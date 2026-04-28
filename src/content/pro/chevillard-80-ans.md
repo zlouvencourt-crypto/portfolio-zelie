@@ -6,7 +6,7 @@ order: 10
 year: 2026
 client: Chevillard
 tagline: Direction artistique et coordination événementielle des 80 ans de l'enseigne.
-cover: /images/chevillard-80-ans/ambiance.jpg
+cover: /images/chevillard-80-ans/affiche-1.png
 tags: [Événementiel, Direction artistique, Coordination]
 role: Direction artistique et coordination événementielle
 featured: false
