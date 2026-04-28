@@ -20,7 +20,7 @@
 		/>
 
 		<div
-			class="pointer-events-none absolute inset-0 flex flex-col justify-end gap-3 bg-black/0 p-6 opacity-0 transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:bg-black/55 group-hover:opacity-100"
+			class="pointer-events-none absolute inset-0 flex flex-col justify-end gap-3 p-6 opacity-0 transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:bg-[color:var(--color-rose)]/65 group-hover:opacity-100 group-hover:backdrop-blur-md"
 		>
 			{#if entry.meta.client}
 				<p class="font-sans text-xs font-light uppercase tracking-[0.18em] text-white/80">
