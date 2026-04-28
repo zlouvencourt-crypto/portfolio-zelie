@@ -35,6 +35,7 @@ contraintes: Temporelles, budgétaires, techniques, juridiques, stratégiques.
 
 gallery:
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/affiche-principale.png, alt: "Affiche principale Electropicales 2026", ratio: "4/5", span: 4 }
+  - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/affiche-rap.png, alt: "Affiche rap Electropicales 2026", ratio: "4/5", span: 4 }
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/jolagreen23.png, alt: "Jolagreen23", ratio: "4/5", span: 4 }
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/gradur.png, alt: "Gradur", ratio: "4/5", span: 4 }
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/kalash-criminel.png, alt: "Kalash Criminel", ratio: "4/5", span: 4 }
