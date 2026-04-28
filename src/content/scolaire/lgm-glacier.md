@@ -28,6 +28,7 @@ livrables:
   - Brand Book complet — logo, typographies, palette chromatique, ton et univers visuel
   - Charte graphique pour l'ensemble des supports
   - Maquettes de visuels et déclinaisons
+  - Maquette d'application LGM
 
 contraintes: Préserver l'héritage de la marque LGM. Cohérence sur tous les supports. Adaptation digitale et physique. Toucher une cible jeune sans s'aliéner les clients fidèles.
 
