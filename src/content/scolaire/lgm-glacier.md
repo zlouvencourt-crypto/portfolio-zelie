@@ -3,7 +3,7 @@ title: LGM Glacier
 slug: lgm-glacier
 category: scolaire
 order: 4
-year: 2024
+year: 2025
 client: LGM — Glacier de La Réunion
 tagline: Brand Book — moderniser une marque emblématique pour une cible plus jeune.
 cover: /images/lgm-glacier/01c204d979c54279832f1f8e.png
@@ -23,6 +23,15 @@ cibles:
   principale: Jeunes adultes entre 16 et 30 ans, connectés et sensibles aux tendances.
   coeur: Familles et clients fidèles souhaitant praticité et offres attractives.
   secondaire: Étudiants et jeunes actifs recherchant une expérience gourmande moderne et accessible.
+
+livrables:
+  - Brand Book complet — logo, typographies, palette chromatique, ton et univers visuel
+  - Charte graphique pour l'ensemble des supports
+  - Maquettes de visuels et déclinaisons
+
+contraintes: Préserver l'héritage de la marque LGM. Cohérence sur tous les supports. Adaptation digitale et physique. Toucher une cible jeune sans s'aliéner les clients fidèles.
+
+direction: Esthétique fraîche, contemporaine et gourmande. Couleurs vives évoquant la glace et les fruits, typographies modernes et accessibles, mélange entre tradition réunionnaise et codes contemporains.
 
 gallery:
   - { src: /images/lgm-glacier/105756ad9991470b8b57e007.png, alt: "", ratio: "16/10", span: 12 }
