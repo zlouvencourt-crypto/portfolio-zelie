@@ -30,7 +30,7 @@ cibles:
   secondaire: Wedding planners et familles des futurs mariés.
 
 gallery:
+  - { src: /images/vergelegen/dfbf043349a7465488db8007.png, alt: "Flyer verso", ratio: "7/10", span: 4 }
   - { src: /images/vergelegen/237855f2166d42f8ad943d6d.png, alt: "Page de magazine", ratio: "2/3", span: 4 }
   - { src: /images/vergelegen/61db3af99303469fada26c4b.png, alt: "Flyer recto", ratio: "7/10", span: 4 }
-  - { src: /images/vergelegen/dfbf043349a7465488db8007.png, alt: "Flyer verso", ratio: "7/10", span: 4 }
 ---
