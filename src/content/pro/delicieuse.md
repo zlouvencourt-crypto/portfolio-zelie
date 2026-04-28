@@ -2,7 +2,7 @@
 title: La Délicieuse
 slug: delicieuse
 category: pro
-order: 5
+order: 9
 year: 2024
 client: La Délicieuse — Saint-Denis
 tagline: Soirées mensuelles à thème — l'Extravagance.
