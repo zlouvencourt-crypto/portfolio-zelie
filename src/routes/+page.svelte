@@ -35,7 +35,7 @@
 					trigger="mount"
 					stagger={0.022}
 					duration={1.4}
-					class="font-display text-[clamp(4rem,14vw,14rem)] leading-[0.9] text-white"
+					class="font-display text-[clamp(2rem,5vw,4.5rem)] font-light tracking-tight leading-[1.05] text-white"
 				/>
 				<div class="mt-10 flex flex-wrap items-end justify-between gap-10">
 					<SplitText
