@@ -12,9 +12,10 @@
 			src={meta.cover}
 			alt=""
 			aria-hidden="true"
-			class="h-full w-full object-cover opacity-60"
+			class="h-full w-full object-cover opacity-45"
 		/>
-		<div class="absolute inset-0 bg-gradient-to-b from-[color:var(--color-ink)]/40 via-transparent to-[color:var(--color-ink)]"></div>
+		<div class="absolute inset-0 bg-black/35"></div>
+		<div class="absolute inset-0 bg-gradient-to-b from-[color:var(--color-ink)]/50 via-[color:var(--color-ink)]/20 to-[color:var(--color-ink)]"></div>
 	</div>
 
 	<div class="container-page relative flex min-h-[100svh] flex-col justify-end pb-16 pt-40">
