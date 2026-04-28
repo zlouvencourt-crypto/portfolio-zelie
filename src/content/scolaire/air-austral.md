@@ -24,6 +24,16 @@ cibles:
   coeur: Partenaires internes et futurs collaborateurs — via Instagram.
   secondaire: Managers et équipes opérationnelles.
 
+livrables:
+  - Newsletter interne RSE
+  - Affiche déclinée en post Instagram
+  - Charte graphique cohérente avec l'identité Air Austral
+  - Visuels d'illustration
+
+contraintes: Cohérence avec l'identité visuelle d'Air Austral. Ton à la fois informatif et engageant. Adaptation print et digital. Crédibilité et authenticité du discours RSE.
+
+direction: Esthétique propre, professionnelle et optimiste. Couleurs naturelles évoquant le développement durable, mise en page aérée, typographies claires. Mix entre données chiffrées et iconographie symbolique.
+
 gallery:
   - { src: /images/air-austral/443ab62f22834de89bf4f1a4.jpg, alt: "", ratio: "3/4", span: 5 }
   - { src: /images/air-austral/5fc15161047642318da93b7d.png, alt: "", ratio: "4/5", span: 7 }
