@@ -40,5 +40,4 @@ gallery:
   - { src: /images/air-austral/5fc15161047642318da93b7d.png, alt: "", ratio: "5/8", span: 4 }
   - { src: /images/air-austral/6f15bab9321544c1a2d0978c.png, alt: "", ratio: "7/10", span: 6 }
   - { src: /images/air-austral/f6dfb7cef0ff4353bc13d480.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/air-austral/443ab62f22834de89bf4f1a4.jpg, alt: "", ratio: "1/1", span: 12 }
 ---
