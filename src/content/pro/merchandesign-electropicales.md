@@ -6,7 +6,7 @@ order: 3
 year: 2025
 client: Electropicales Festival
 tagline: Merchandising écoresponsable — broderie, minimalisme, seconde main.
-cover: /images/merchandesign-electropicales/01246caac8a2468db6e97875.jpg
+cover: /images/merchandesign-electropicales/24c476c619d140a3b0af9e49.png
 tags: [Merchandising, Direction artistique, Écoresponsabilité]
 role: Responsable merchandising
 featured: true
