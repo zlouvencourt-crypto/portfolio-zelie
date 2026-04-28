@@ -48,5 +48,4 @@ gallery:
   - { section: "Visuels réseaux sociaux et affiches", src: /images/delicieuse/db07db520869426a8078f0da.png, alt: "", ratio: "9/16", span: 4 }
   - { section: "Visuels réseaux sociaux et affiches", src: /images/delicieuse/e192126d91c2474787fbc844.png, alt: "", ratio: "9/16", span: 4 }
   - { section: "Visuels réseaux sociaux et affiches", src: /images/delicieuse/585a05fa566e42fc8971b468.png, alt: "", ratio: "9/16", span: 4 }
-  - { section: "Photos des soirées", src: /images/delicieuse/775f5c8339c549a9847e8dcd.png, alt: "", ratio: "16/11", span: 8 }
 ---
