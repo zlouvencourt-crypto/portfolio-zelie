@@ -5,7 +5,7 @@
 	const entries = listProjects('scolaire');
 </script>
 
-<article class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
+<article class="bg-white text-[color:var(--color-ink)]">
 	<section class="container-page pt-40 pb-16">
 		<figure class="mb-10 max-w-[42ch]">
 			<blockquote class="font-display-italic text-base leading-relaxed text-[color:var(--color-ink)]/80">
