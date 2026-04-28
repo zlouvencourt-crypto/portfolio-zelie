@@ -6,7 +6,8 @@
 	let projectsOpen = $state(false);
 
 	const isHome = $derived(page.url.pathname === '/');
-	const lightOnDark = $derived(isHome);
+	const isProjectDetail = $derived(/^\/(pro|scolaire)\/.+/.test(page.url.pathname));
+	const lightOnDark = $derived(isHome || isProjectDetail);
 
 	const closeMenu = () => {
 		open = false;
