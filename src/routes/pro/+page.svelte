@@ -6,7 +6,7 @@
 </script>
 
 <article class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
-	<section class="container-page pt-40 pb-16">
+	<section class="container-page pt-28 pb-16">
 		<h1 class="mb-10 font-display text-[clamp(2rem,4vw,3.5rem)] font-light tracking-tight leading-none text-[color:var(--color-ink)]">
 			WEXX OI
 		</h1>
