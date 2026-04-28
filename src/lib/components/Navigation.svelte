@@ -36,11 +36,10 @@
 	<div
 		class="container-page flex items-center justify-between gap-6 py-5 transition-colors duration-500"
 	>
-		<MagneticLink href="/" strength={0.2} ariaLabel="Accueil Zélie Louvencourt" class="group inline-flex items-center gap-2">
+		<MagneticLink href="/" strength={0.2} ariaLabel="Accueil" class="group inline-flex items-center gap-2">
 			<span
 				class="font-display text-[1.5rem] leading-none tracking-tight transition-colors"
-				>Z<span class="font-display-italic">élie</span>
-				<span class="font-display opacity-70">Louvencourt</span></span
+				>Accueil</span
 			>
 		</MagneticLink>
 
