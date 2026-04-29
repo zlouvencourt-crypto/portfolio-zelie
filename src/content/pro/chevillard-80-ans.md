@@ -35,8 +35,9 @@ contraintes: Cohérence avec l'identité visuelle de Chevillard. Coordination mu
 direction: Univers élégant, original et créatif. Mise en valeur des lunettes Chevillard à travers un défilé réalisé par des designers, articulé autour de plusieurs thèmes variés, abstraits et artistiques. Les lunettes sont présentées comme de véritables accessoires de style et d'expression.
 
 gallery:
-  - { src: /images/chevillard-80-ans/affiche-1.png, alt: "Affiche soirée Chevillard", ratio: "4/5", span: 6 }
-  - { src: /images/chevillard-80-ans/affiche-2.png, alt: "Affiche soirée Chevillard", ratio: "4/5", span: 6 }
+  - { src: /images/chevillard-80-ans/defile.mp4, alt: "Vidéo du défilé", ratio: "9/16", span: 4, video: true, poster: /images/chevillard-80-ans/affiche-1.png }
+  - { src: /images/chevillard-80-ans/affiche-1.png, alt: "Affiche soirée Chevillard", ratio: "4/5", span: 4 }
+  - { src: /images/chevillard-80-ans/affiche-2.png, alt: "Affiche soirée Chevillard", ratio: "4/5", span: 4 }
   - { src: /images/chevillard-80-ans/ambiance.jpg, alt: "Ambiance de la soirée", ratio: "16/9", span: 8 }
   - { src: /images/chevillard-80-ans/design.png, alt: "Visuel design", ratio: "1/1", span: 4 }
 ---
