@@ -40,11 +40,11 @@ contraintes: Temporelles, budgétaires, techniques, juridiques, environnementale
 direction: Identité électro engagée — minimalisme, broderie, pièces de seconde main.
 
 gallery:
-  - { src: /images/merchandesign-electropicales/video/merch-1080p.mp4, alt: "Teaser merchandising", ratio: "16/9", span: 12, video: true, poster: /images/merchandesign-electropicales/01246caac8a2468db6e97875.jpg }
-  - { src: /images/merchandesign-electropicales/24c476c619d140a3b0af9e49.png, alt: "", ratio: "3/4", span: 6 }
-  - { src: /images/merchandesign-electropicales/5739e43465604f2b89a419c2.png, alt: "", ratio: "3/4", span: 6 }
-  - { src: /images/merchandesign-electropicales/6edcef80f5f24481be9162ac.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/merchandesign-electropicales/95a96ab3bb434d49b8152645.png, alt: "", ratio: "4/5", span: 6 }
-  - { src: /images/merchandesign-electropicales/d069cb90d89a4e0e8eb13340.png, alt: "", ratio: "16/10", span: 12 }
+  - { src: /images/merchandesign-electropicales/video/merch-1080p.mp4, alt: "Vidéo teaser merchandising", ratio: "9/16", span: 6, video: true, poster: /images/merchandesign-electropicales/01246caac8a2468db6e97875.jpg }
   - { src: /images/merchandesign-electropicales/video/merch-vertical.mp4, alt: "Vidéo verticale merchandising", ratio: "9/16", span: 6, video: true }
+  - { src: /images/merchandesign-electropicales/6edcef80f5f24481be9162ac.png, alt: "Shooting", ratio: "4/5", span: 4 }
+  - { src: /images/merchandesign-electropicales/95a96ab3bb434d49b8152645.png, alt: "Shooting", ratio: "4/5", span: 4 }
+  - { src: /images/merchandesign-electropicales/d069cb90d89a4e0e8eb13340.png, alt: "Shooting", ratio: "4/5", span: 4 }
+  - { src: /images/merchandesign-electropicales/5739e43465604f2b89a419c2.png, alt: "Shooting", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/24c476c619d140a3b0af9e49.png, alt: "Bandeau", ratio: "12/5", span: 8 }
 ---
