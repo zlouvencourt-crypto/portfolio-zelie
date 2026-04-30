@@ -4,14 +4,14 @@ slug: merchandesign-electropicales
 category: pro
 order: 3
 year: 2025
-client: Electropicales Festival
+client: Association Festival Electropicales
 tagline: Merchandising écoresponsable — broderie, minimalisme, seconde main.
 cover: /images/merchandesign-electropicales/5739e43465604f2b89a419c2.png
 tags: [Merchandising, Direction artistique, Écoresponsabilité]
-role: Responsable merchandising
+role: Responsable merchandising — mission menée en solo
 featured: true
 
-contexte: Dans le cadre de mon alternance chez WEXX OI, agence de communication événementielle et culturelle à La Réunion, j'ai été responsable du développement du merchandising du festival ELECTROPICALES 2025 — festival majeur dédié aux musiques électroniques et actuelles.
+contexte: Dans le cadre de mon alternance chez WEXX OI, agence de communication événementielle et culturelle à La Réunion, j'ai été responsable du développement du merchandising du festival ELECTROPICALES 2025 — festival majeur dédié aux musiques électroniques et actuelles. Mission menée en autonomie complète, sans accompagnement, de la conception à la vente sur site — organisation des shootings avec prestataires, récupération de la marchandise, gestion du stock, recrutement des vendeuses et fixation des prix.
 brief: Comment concevoir une gamme de merchandising rentable, cohérente avec l'univers électro du festival, tout en intégrant une dimension écoresponsable forte ?
 
 objectifs:
@@ -25,10 +25,13 @@ cibles:
   secondaire: Partenaires, médias, touristes.
 
 livrables:
-  - Maquettes textiles
-  - Planche tendances
+  - Maquettes textiles et planche tendances
   - Tableau comparatif fournisseurs
-  - Stand merchandising
+  - Organisation des shootings avec prestataires
+  - Récupération de la marchandise et gestion du stock
+  - Recrutement des vendeuses
+  - Fixation des prix
+  - Stand merchandising sur site
   - Visuels réseaux sociaux
   - Bilan de performance
 
