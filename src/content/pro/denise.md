@@ -51,8 +51,15 @@ gallery:
   - { section: "Stories", src: /images/denise/2a9ebc811c4645469212e293.png, alt: "", ratio: "9/16", span: 3 }
   - { section: "Stories", src: /images/denise/2f66e2c525c34a07a04e7ebf.png, alt: "", ratio: "9/16", span: 3 }
   - { section: "Stories", src: /images/denise/71cbf398c7dc4ed481960524.png, alt: "", ratio: "9/16", span: 3 }
+  - { section: "Stories", src: /images/denise/91.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Stories", src: /images/denise/92.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Stories", src: /images/denise/93.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Stories", src: /images/denise/94.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Stories", src: /images/denise/95.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Stories", src: /images/denise/96.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Photos des soirées", src: /images/denise/chine.png, alt: "", ratio: "4/5", span: 6 }
   - { section: "Photos des soirées", src: /images/denise/8aa4a31c58e949f5adcbf5d3.jpg, alt: "", ratio: "4/5", span: 6 }
-  - { section: "Photos des soirées", src: /images/denise/e7175d8ab8534d9ba6aacaa3.jpg, alt: "", ratio: "4/5", span: 6 }
-  - { section: "Photos des soirées", src: /images/denise/258185f921bc49a5808be4e6.png, alt: "", ratio: "4/5", span: 6 }
-  - { section: "Photos des soirées", src: /images/denise/6830e07fce72468b8524c012.png, alt: "", ratio: "4/5", span: 6 }
+  - { section: "Photos des soirées", src: /images/denise/e7175d8ab8534d9ba6aacaa3.jpg, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Photos des soirées", src: /images/denise/258185f921bc49a5808be4e6.png, alt: "", ratio: "4/5", span: 4 }
+  - { section: "Photos des soirées", src: /images/denise/6830e07fce72468b8524c012.png, alt: "", ratio: "4/5", span: 4 }
 ---
