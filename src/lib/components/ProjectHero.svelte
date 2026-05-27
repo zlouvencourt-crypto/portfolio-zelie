@@ -1,90 +1,79 @@
 <script lang="ts">
 	import type { ProjectMeta } from '$lib/content/projects';
-	import SplitText from './SplitText.svelte';
 
 	type Props = { meta: ProjectMeta };
 	let { meta }: Props = $props();
+
+	const categoryLabel = $derived(meta.category === 'scolaire' ? 'Scolaire' : 'Professionnel');
 </script>
 
-<section class="project-hero relative w-full overflow-hidden bg-[color:var(--color-ink)] text-[color:var(--color-bg)]">
-	<div class="absolute inset-0">
-		{#if meta.coverVideo}
-			<video
-				src={meta.coverVideo}
-				poster={meta.cover}
-				autoplay
-				muted
-				loop
-				playsinline
-				aria-hidden="true"
-				class="h-full w-full object-cover opacity-55"
-			></video>
-		{:else}
-			<img
-				src={meta.cover}
-				alt=""
-				aria-hidden="true"
-				class="h-full w-full object-cover opacity-45"
-			/>
-		{/if}
-		<div class="absolute inset-0 bg-black/35"></div>
-		<div class="absolute inset-0 bg-gradient-to-b from-[color:var(--color-ink)]/50 via-[color:var(--color-ink)]/20 to-[color:var(--color-ink)]"></div>
+<section class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
+	<div class="container-page pt-36 pb-12">
+		<!-- FOLIO -->
+		<div class="flex flex-wrap items-baseline justify-between gap-4 border-b border-[color:var(--color-ink)]/25 pb-4">
+			<span class="eyebrow">— Le Portfolio</span>
+			<span class="font-display-italic text-sm tracking-wide text-[color:var(--color-ink)]/70">
+				{categoryLabel}{#if meta.year}, {meta.year}{/if}
+			</span>
+			<span class="eyebrow">N° {String(meta.order).padStart(2, '0')}</span>
+		</div>
+
+		<!-- HEADLINE -->
+		<div class="mx-auto mt-20 max-w-[26ch] text-center md:mt-28">
+			<p class="eyebrow text-[color:var(--color-wine)]">
+				{categoryLabel === 'Professionnel' ? 'Une mission' : 'Une étude'}
+			</p>
+
+			<h1 class="mt-8 font-display text-[clamp(3rem,8vw,8rem)] font-light leading-[0.95]">
+				{meta.title}
+			</h1>
+
+			{#if meta.tagline}
+				<p class="mx-auto mt-10 max-w-[36ch] font-display-italic text-[clamp(1.1rem,1.6vw,1.6rem)] leading-snug text-[color:var(--color-ink)]/75">
+					{meta.tagline}
+				</p>
+			{/if}
+		</div>
+
+		<!-- BYLINE -->
+		<div class="mx-auto mt-20 flex max-w-[60ch] flex-wrap items-center justify-center gap-x-12 gap-y-3 border-y border-[color:var(--color-ink)]/15 py-5">
+			<span class="eyebrow text-[color:var(--color-ink)]/70">par Zélie Louvencourt</span>
+			{#if meta.client}
+				<span class="eyebrow text-[color:var(--color-ink)]/70">Client · {meta.client}</span>
+			{/if}
+			{#if meta.role}
+				<span class="eyebrow text-[color:var(--color-ink)]/70">Rôle · {meta.role}</span>
+			{/if}
+		</div>
 	</div>
 
-	<div class="container-page relative flex min-h-[100svh] flex-col justify-end pb-16 pt-40">
-		<div class="max-w-[24ch]">
-			<p class="eyebrow text-[color:var(--color-rose-soft)]">
-				{meta.category === 'scolaire' ? 'Projet scolaire' : 'Projet professionnel'}
-				{#if meta.year}
-					<span class="mx-2">·</span>{meta.year}
-				{/if}
-			</p>
-			<SplitText
-				as="h1"
-				text={meta.title}
-				mode="chars"
-				trigger="mount"
-				class="mt-6 font-display text-[clamp(2.25rem,7vw,6rem)]"
-				stagger={0.025}
-				duration={1.3}
-			/>
-			{#if meta.tagline}
-				<SplitText
-					as="p"
-					text={meta.tagline}
-					mode="words"
-					trigger="mount"
-					delay={0.3}
-					class="mt-8 max-w-[50ch] font-display-italic text-[clamp(1.25rem,2vw,1.75rem)] leading-tight text-[color:var(--color-rose-soft)]"
+	<!-- COVER -->
+	<div class="container-page pb-24">
+		<div class="overflow-hidden">
+			{#if meta.coverVideo}
+				<video
+					src={meta.coverVideo}
+					poster={meta.cover}
+					autoplay
+					muted
+					loop
+					playsinline
+					aria-hidden="true"
+					class="block h-auto max-h-[80svh] w-full object-cover"
+				></video>
+			{:else}
+				<img
+					src={meta.cover}
+					alt={meta.title}
+					class="block h-auto max-h-[80svh] w-full object-cover"
 				/>
 			{/if}
 		</div>
 
-		<div class="mt-16 grid grid-cols-2 gap-8 border-t border-[color:var(--color-rose)]/30 pt-8 text-sm md:grid-cols-4">
-			{#if meta.client}
-				<div>
-					<p class="eyebrow text-[color:var(--color-rose)]">Client</p>
-					<p class="mt-2">{meta.client}</p>
-				</div>
-			{/if}
-			{#if meta.role}
-				<div>
-					<p class="eyebrow text-[color:var(--color-rose)]">Rôle</p>
-					<p class="mt-2">{meta.role}</p>
-				</div>
-			{/if}
-			{#if meta.tags?.length}
-				<div class="col-span-2">
-					<p class="eyebrow text-[color:var(--color-rose)]">Disciplines</p>
-					<ul class="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-						{#each meta.tags as tag (tag)}
-							<li class="after:ml-3 after:text-[color:var(--color-rose)] after:content-['·'] last:after:content-['']">
-								{tag}
-							</li>
-						{/each}
-					</ul>
-				</div>
-			{/if}
-		</div>
+		{#if meta.tagline}
+			<p class="mt-4 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
+				Fig. 01 — {meta.title}
+			</p>
+		{/if}
 	</div>
 </section>
