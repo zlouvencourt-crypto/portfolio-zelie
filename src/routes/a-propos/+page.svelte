@@ -17,34 +17,28 @@
 
 <article class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
 	<!-- HERO -->
-	<section class="container-page pt-40 pb-20">
-		<div class="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
-			<div class="md:col-span-7">
-				<p class="eyebrow text-[color:var(--color-wine)]">À propos</p>
-				<SplitText
-					as="h1"
-					text="Zélie Louvencourt"
-					mode="chars"
-					trigger="mount"
-					stagger={0.03}
-					class="mt-6 font-display text-[clamp(4rem,12vw,12rem)] leading-[0.9]"
-				/>
+	<section class="relative h-[100svh] w-full overflow-hidden bg-[color:var(--color-ink)] text-white">
+		<img
+			src="/images/a-propos/portrait.jpg"
+			alt="Portrait — Zélie Louvencourt"
+			class="absolute inset-0 h-full w-full object-cover opacity-55"
+		/>
+		<div class="absolute inset-0 bg-black/35"></div>
+		<div class="absolute inset-0 bg-gradient-to-b from-[color:var(--color-ink)]/40 via-transparent to-[color:var(--color-ink)]/70"></div>
+
+		<div class="container-page relative flex min-h-[100svh] flex-col justify-between pt-32 pb-20">
+			<p class="eyebrow text-white">À propos</p>
+
+			<div class="max-w-[20ch] md:max-w-[28ch]">
 				<SplitText
 					as="p"
-					text="22 ans · communication · direction artistique · La Réunion"
+					text="« La mode habille le regard, la communication donne du sens à ce qu'on voit. »"
 					mode="words"
 					trigger="mount"
-					delay={0.3}
-					class="mt-8 font-display-italic text-[clamp(1rem,1.4vw,1.5rem)] text-[color:var(--color-wine)]"
+					stagger={0.03}
+					class="font-display-italic text-[clamp(2rem,5vw,4.5rem)] leading-[1.1] text-white"
 				/>
-			</div>
-			<div class="md:col-span-5 md:col-start-8">
-				<ImageReveal
-					src="/images/commun/ac47435b9f7345c9ad9aef22.png"
-					alt="Portrait — Zélie Louvencourt"
-					ratio="4/5"
-					parallax={6}
-				/>
+				<p class="eyebrow mt-8 text-white/80">— Zélie Louvencourt</p>
 			</div>
 		</div>
 	</section>
