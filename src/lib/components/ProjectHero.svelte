@@ -19,17 +19,17 @@
 		</div>
 
 		<!-- HEADLINE -->
-		<div class="mx-auto mt-20 max-w-[26ch] text-center md:mt-28">
+		<div class="mt-20 flex flex-col items-center text-center md:mt-28">
 			<p class="eyebrow text-[color:var(--color-wine)]">
 				{categoryLabel === 'Professionnel' ? 'Une mission' : 'Une étude'}
 			</p>
 
-			<h1 class="mt-8 font-display text-[clamp(3rem,8vw,8rem)] font-light leading-[0.95]">
+			<h1 class="mx-auto mt-8 max-w-[18ch] font-display text-[clamp(3rem,8vw,8rem)] font-medium leading-[0.95]">
 				{meta.title}
 			</h1>
 
 			{#if meta.tagline}
-				<p class="mx-auto mt-10 max-w-[36ch] font-display-italic text-[clamp(1.1rem,1.6vw,1.6rem)] leading-snug text-[color:var(--color-ink)]/75">
+				<p class="mx-auto mt-10 max-w-[42ch] font-display-italic text-[clamp(1.1rem,1.6vw,1.6rem)] leading-snug text-[color:var(--color-ink)]/75">
 					{meta.tagline}
 				</p>
 			{/if}
