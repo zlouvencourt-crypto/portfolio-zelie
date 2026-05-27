@@ -28,13 +28,13 @@
 		</nav>
 
 		<!-- CENTER : logo -->
-		<div class="flex justify-center md:justify-start lg:justify-center">
+		<div class="flex justify-center">
 			<a
 				href="/"
-				class="font-display text-[1.5rem] font-light leading-none tracking-[0.04em] transition-colors"
+				class="font-display text-[clamp(1.4rem,2vw,1.75rem)] font-medium uppercase leading-none tracking-[0.32em] transition-colors"
 				style:color={lightOnDark ? '#ffffff' : 'var(--color-ink)'}
 			>
-				zélie
+				Zélie
 			</a>
 		</div>
 

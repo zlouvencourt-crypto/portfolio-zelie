@@ -1,17 +1,17 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Palette — inspirée Rhode : crème chaude, brun presque noir, blush poudré */
-	--color-bg: #f5efe7;
-	--color-cream: #faf5ed;
-	--color-ink: #1a1410;
-	--color-wine: #c89888;
-	--color-wine-soft: #d8a9a0;
-	--color-rose: #c89888;
-	--color-rose-soft: #ead8d0;
+	/* Palette — Vogue : blanc pur, noir profond, rouge éditorial */
+	--color-bg: #ffffff;
+	--color-cream: #fafafa;
+	--color-ink: #0a0a0a;
+	--color-wine: #c8102e;
+	--color-wine-soft: #d63a52;
+	--color-rose: #c8102e;
+	--color-rose-soft: #f5e1e4;
 
 	/* Typographies */
-	--font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+	--font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
 	--font-sans: 'Inter', system-ui, sans-serif;
 
 	/* Échelle fluide */
@@ -76,16 +76,18 @@
 
 	.font-display {
 		font-family: var(--font-display);
-		font-weight: 300;
-		letter-spacing: -0.015em;
-		line-height: 1;
+		font-weight: 400;
+		font-optical-sizing: auto;
+		letter-spacing: -0.012em;
+		line-height: 0.95;
 	}
 
 	.font-display-italic {
 		font-family: var(--font-display);
 		font-style: italic;
-		font-weight: 300;
-		letter-spacing: -0.005em;
+		font-weight: 400;
+		font-optical-sizing: auto;
+		letter-spacing: 0;
 	}
 
 	a {

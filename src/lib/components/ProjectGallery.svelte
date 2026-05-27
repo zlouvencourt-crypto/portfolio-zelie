@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { GalleryItem } from '$lib/content/types';
-	import ImageReveal from './ImageReveal.svelte';
 
 	type Props = { items: GalleryItem[] };
 	let { items }: Props = $props();
@@ -14,33 +13,11 @@
 	const closeLightbox = () => {
 		lightboxItem = null;
 	};
-
 	const onKey = (e: KeyboardEvent) => {
 		if (e.key === 'Escape' && lightboxItem) closeLightbox();
 	};
 
-	const spanClass = (span?: number): string => {
-		const n = span ?? 6;
-		const safe = Math.min(12, Math.max(1, n));
-		const map: Record<number, string> = {
-			12: 'md:col-span-12',
-			11: 'md:col-span-11',
-			10: 'md:col-span-10',
-			9: 'md:col-span-9',
-			8: 'md:col-span-8',
-			7: 'md:col-span-7',
-			6: 'md:col-span-6',
-			5: 'md:col-span-5',
-			4: 'md:col-span-4',
-			3: 'md:col-span-3',
-			2: 'md:col-span-2',
-			1: 'md:col-span-1'
-		};
-		return map[safe];
-	};
-
 	type Group = { label: string | null; items: GalleryItem[] };
-
 	const groups: Group[] = $derived.by(() => {
 		const list: Group[] = [];
 		let current: Group | null = null;
@@ -54,61 +31,75 @@
 		}
 		return list;
 	});
+
+	const widthClass = (item: GalleryItem): string => {
+		const ratio = item.ratio ?? '4/5';
+		// Heuristique : portrait étroit → narrower max-width
+		if (ratio === '9/16' || ratio === '1/2' || ratio === '7/12') return 'max-w-[420px]';
+		if (ratio === '2/3' || ratio === '5/7' || ratio === '7/10' || ratio === '5/8') return 'max-w-[560px]';
+		if (ratio === '3/4' || ratio === '4/5' || ratio === '7/8' || ratio === '11/12' || ratio === '12/13' || ratio === '9/10') return 'max-w-[680px]';
+		if (ratio === '1/1' || ratio === '16/15') return 'max-w-[720px]';
+		// Paysage
+		if (ratio === '4/3' || ratio === '5/3' || ratio === '6/5' || ratio === '13/10') return 'max-w-[900px]';
+		if (ratio === '16/9' || ratio === '16/10' || ratio === '3/2' || ratio === '7/5') return 'max-w-[1000px]';
+		// Bandeaux très larges
+		if (ratio === '12/5' || ratio === '20/7' || ratio === '23/10' || ratio === '50/9') return 'max-w-[1200px]';
+		return 'max-w-[720px]';
+	};
 </script>
 
 <svelte:window on:keydown={onKey} />
 
 {#if items.length}
-	<section class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
-		<div class="container-page section">
-			<p class="eyebrow text-[color:var(--color-wine)]">Galerie</p>
+	<section class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
+		<div class="container-page py-24">
+			<p class="eyebrow text-center text-[color:var(--color-wine)]">La galerie</p>
 
-			<div class="mt-10 space-y-20">
+			<div class="mt-20 space-y-28">
 				{#each groups as group, gi (gi)}
 					<div>
 						{#if group.label}
-							<h3 class="mb-8 font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-[color:var(--color-ink)]">
-								{group.label}
-							</h3>
+							<div class="mb-16 text-center">
+								<p class="eyebrow text-[color:var(--color-ink)]/55">— Chapitre {String(gi + 1).padStart(2, '0')} —</p>
+								<h3 class="mt-4 font-display-italic text-[clamp(1.75rem,3.5vw,3rem)] font-normal leading-tight text-[color:var(--color-ink)]">
+									{group.label}
+								</h3>
+							</div>
 						{/if}
-						<div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8">
+						<div class="space-y-20">
 							{#each group.items as item, i (i)}
-								<div class={`col-span-1 ${spanClass(item.span)}`}>
+								<figure class={`mx-auto ${widthClass(item)}`}>
 									{#if item.video}
-										<div class="overflow-hidden" style:aspect-ratio={item.ratio ?? '16/9'}>
-											<video
-												src={item.src}
-												poster={item.poster}
-												muted
-												loop
-												playsinline
-												autoplay
-												class="h-full w-full object-cover"
-											></video>
-										</div>
+										<video
+											src={item.src}
+											poster={item.poster}
+											muted
+											loop
+											playsinline
+											autoplay
+											class="block h-auto w-full"
+										></video>
 									{:else}
 										<button
 											type="button"
 											onclick={() => openLightbox(item)}
-											class="group block w-full cursor-zoom-in overflow-hidden p-0 text-left"
+											class="group block w-full cursor-zoom-in p-0"
 											aria-label="Agrandir l'image"
 										>
-											<div class="transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.02]">
-												<ImageReveal
-													src={item.src}
-													alt={item.alt || ''}
-													ratio={item.ratio ?? '4/5'}
-													parallax={2}
-												/>
-											</div>
+											<img
+												src={item.src}
+												alt={item.alt || ''}
+												class="block h-auto w-full transition-opacity duration-500 group-hover:opacity-85"
+												loading="lazy"
+											/>
 										</button>
 									{/if}
 									{#if item.caption}
-										<p class="mt-3 font-sans text-sm font-light text-[color:var(--color-ink)]/70">
+										<figcaption class="mt-4 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
 											{item.caption}
-										</p>
+										</figcaption>
 									{/if}
-								</div>
+								</figure>
 							{/each}
 						</div>
 					</div>
