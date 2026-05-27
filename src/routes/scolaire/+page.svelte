@@ -36,11 +36,11 @@
 					href={`/${entry.meta.category}/${entry.meta.slug}`}
 					class="group flex flex-col"
 				>
-					<div class="flex aspect-[4/5] items-center justify-center overflow-hidden bg-[color:var(--color-cream)]">
+					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 						<img
 							src={entry.meta.cover}
 							alt={entry.meta.title}
-							class="h-full w-full object-contain transition-opacity duration-500 group-hover:opacity-85"
+							class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85"
 							loading="lazy"
 						/>
 					</div>

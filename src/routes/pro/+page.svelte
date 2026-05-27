@@ -39,8 +39,8 @@
 					href={`/${entry.meta.category}/${entry.meta.slug}`}
 					class="group flex flex-col"
 				>
-					<!-- Image (no crop) -->
-					<div class="flex aspect-[4/5] items-center justify-center overflow-hidden bg-[color:var(--color-cream)]">
+					<!-- Image (cadre uniforme 4/5, recadrage centré) -->
+					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 						{#if entry.meta.coverVideo}
 							<video
 								src={entry.meta.coverVideo}
@@ -49,13 +49,13 @@
 								muted
 								loop
 								playsinline
-								class="h-full w-full object-contain transition-opacity duration-500 group-hover:opacity-85"
+								class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85"
 							></video>
 						{:else}
 							<img
 								src={entry.meta.cover}
 								alt={entry.meta.title}
-								class="h-full w-full object-contain transition-opacity duration-500 group-hover:opacity-85"
+								class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85"
 								loading="lazy"
 							/>
 						{/if}
