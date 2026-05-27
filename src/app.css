@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Palette — sun-kissed, plage et mode épurée */
-	--color-bg: #f4ebde;
-	--color-cream: #faf3e6;
-	--color-ink: #2a1a12;
-	--color-wine: #b8634a;
-	--color-wine-soft: #c87a5e;
-	--color-rose: #b8634a;
-	--color-rose-soft: #e2b594;
+	/* Palette — inspirée Rhode : crème chaude, brun presque noir, blush poudré */
+	--color-bg: #f5efe7;
+	--color-cream: #faf5ed;
+	--color-ink: #1a1410;
+	--color-wine: #c89888;
+	--color-wine-soft: #d8a9a0;
+	--color-rose: #c89888;
+	--color-rose-soft: #ead8d0;
 
 	/* Typographies */
 	--font-display: 'Fraunces', 'Times New Roman', serif;
