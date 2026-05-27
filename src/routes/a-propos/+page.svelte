@@ -39,6 +39,15 @@
 					class="font-display-italic text-[clamp(2rem,5vw,4.5rem)] leading-[1.1] text-white"
 				/>
 				<p class="eyebrow mt-8 text-white/80">— Zélie Louvencourt</p>
+				<MagneticLink
+					href="/scolaire"
+					strength={0.25}
+					class="eyebrow mt-10 inline-flex items-center gap-3 rounded-full border border-white px-6 py-3 text-white transition-colors hover:bg-white hover:text-[color:var(--color-ink)]"
+					cursorLabel="voir"
+				>
+					<span>Mes projets</span>
+					<span aria-hidden="true">→</span>
+				</MagneticLink>
 			</div>
 		</div>
 	</section>
