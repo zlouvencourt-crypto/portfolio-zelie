@@ -28,118 +28,144 @@
 </script>
 
 <div class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
-	<div class="container-page pb-32">
-		<!-- BRIEF (chapeau d'article) -->
-		{#if meta.brief}
-			<section class="border-y border-[color:var(--color-ink)]/15 py-16">
-				<p class="eyebrow text-center text-[color:var(--color-wine)]">Le brief</p>
-				<p class="mx-auto mt-10 max-w-[40ch] text-center font-display-italic text-[clamp(1.5rem,3vw,2.5rem)] font-light leading-[1.25] text-[color:var(--color-ink)]">
-					« {meta.brief} »
+	<!-- CHAPEAU — Article opening -->
+	{#if meta.contexte}
+		<section class="container-page pt-24 pb-12">
+			<div class="mx-auto max-w-[68ch]">
+				<p class="eyebrow text-center text-[color:var(--color-wine)]">— Chapeau —</p>
+				<p class="article-opening mt-10 text-lg leading-[1.7] text-[color:var(--color-ink)]/85 md:text-xl md:leading-[1.65]">
+					{meta.contexte}
 				</p>
-			</section>
-		{/if}
+			</div>
+		</section>
+	{/if}
 
-		<!-- CONTEXTE (article body with drop cap) -->
-		{#if meta.contexte}
-			<section class="py-20">
-				<div class="mx-auto max-w-[60ch]">
-					<p class="brief-paragraph text-lg leading-[1.7] text-[color:var(--color-ink)]/85">
-						{meta.contexte}
-					</p>
+	<!-- PULL QUOTE — Brief -->
+	{#if meta.brief}
+		<section class="border-y border-[color:var(--color-ink)]/15 py-24">
+			<div class="container-page text-center">
+				<span class="font-display text-[clamp(5rem,10vw,9rem)] leading-[0.7] text-[color:var(--color-wine)]/45" aria-hidden="true">"</span>
+				<p class="mx-auto -mt-12 max-w-[28ch] font-display-italic text-[clamp(2rem,4.5vw,4rem)] font-medium leading-[1.1] text-[color:var(--color-ink)]">
+					{meta.brief}
+				</p>
+				<p class="eyebrow mt-10 text-[color:var(--color-ink)]/55">— Le brief —</p>
+			</div>
+		</section>
+	{/if}
+
+	<!-- OBJECTIFS -->
+	{#if hasObjectifs}
+		<section class="container-page py-24">
+			<div class="text-center">
+				<p class="eyebrow text-[color:var(--color-wine)]">— Objectifs —</p>
+				<h2 class="mx-auto mt-6 max-w-[24ch] font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-medium leading-[1.05]">
+					Trois <span class="font-display-italic">ambitions</span>
+				</h2>
+			</div>
+			<div class="mt-16 grid grid-cols-1 gap-x-12 gap-y-16 border-y border-[color:var(--color-ink)]/15 py-16 md:grid-cols-3">
+				{#each objectifsEntries as [k, v], i (k)}
+					<article class="text-center">
+						<p class="font-display text-[clamp(5rem,8vw,7rem)] font-medium leading-[0.85] text-[color:var(--color-wine)]/35">
+							{pad(i)}
+						</p>
+						<h3 class="mt-2 font-display-italic text-[clamp(1.5rem,2.2vw,2rem)] font-medium">
+							{objectifLabel(k)}
+						</h3>
+						<p class="mx-auto mt-5 max-w-[28ch] text-base leading-[1.6] text-[color:var(--color-ink)]/80">{v}</p>
+					</article>
+				{/each}
+			</div>
+		</section>
+	{/if}
+
+	<!-- CIBLES -->
+	{#if hasCibles}
+		<section class="bg-[color:var(--color-cream)] py-24">
+			<div class="container-page">
+				<div class="text-center">
+					<p class="eyebrow text-[color:var(--color-wine)]">— Cibles —</p>
+					<h2 class="mx-auto mt-6 max-w-[24ch] font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-medium leading-[1.05]">
+						À qui <span class="font-display-italic">parle-t-on</span> ?
+					</h2>
 				</div>
-			</section>
-		{/if}
-
-		<!-- OBJECTIFS -->
-		{#if hasObjectifs}
-			<section class="border-t border-[color:var(--color-ink)]/15 py-20">
-				<p class="eyebrow text-center text-[color:var(--color-wine)]">Objectifs</p>
-				<div class="mt-12 grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-3 md:divide-x md:divide-[color:var(--color-ink)]/15">
-					{#each objectifsEntries as [k, v], i (k)}
-						<article class="md:px-8">
-							<p class="font-display text-[3.5rem] font-light leading-none text-[color:var(--color-wine)]/40">
-								{pad(i)}
-							</p>
-							<h3 class="mt-4 font-display-italic text-[clamp(1.5rem,2.2vw,2rem)] font-light">
-								{objectifLabel(k)}
-							</h3>
-							<p class="mt-5 text-base leading-relaxed text-[color:var(--color-ink)]/80">{v}</p>
-						</article>
-					{/each}
-				</div>
-			</section>
-		{/if}
-
-		<!-- CIBLES -->
-		{#if hasCibles}
-			<section class="border-t border-[color:var(--color-ink)]/15 py-20">
-				<p class="eyebrow text-center text-[color:var(--color-wine)]">Cibles</p>
-				<div class="mx-auto mt-12 grid max-w-[80ch] grid-cols-1 gap-10 md:grid-cols-3">
+				<div class="mx-auto mt-16 grid max-w-[100ch] grid-cols-1 gap-12 md:grid-cols-3">
 					{#each ciblesEntries as [k, v] (k)}
-						<article>
+						<article class="border-t-2 border-[color:var(--color-wine)] pt-6">
 							<p class="font-display-italic text-base text-[color:var(--color-wine)]">
 								{cibleLabel(k)}
 							</p>
-							<p class="mt-4 text-base leading-relaxed text-[color:var(--color-ink)]/80">{v}</p>
+							<p class="mt-4 text-base leading-[1.6] text-[color:var(--color-ink)]/85">{v}</p>
 						</article>
 					{/each}
 				</div>
-			</section>
-		{/if}
+			</div>
+		</section>
+	{/if}
 
-		<!-- PRODUCTION -->
-		{#if meta.livrables?.length || meta.contraintes || meta.direction}
-			<section class="border-t border-[color:var(--color-ink)]/15 py-20">
-				<p class="eyebrow text-center text-[color:var(--color-wine)]">Production</p>
-				<div class="mx-auto mt-12 grid max-w-[90ch] grid-cols-1 gap-12 md:grid-cols-3">
-					{#if meta.livrables?.length}
-						<div>
-							<p class="font-display-italic text-base text-[color:var(--color-wine)]">Livrables</p>
-							<ul class="mt-4 space-y-2 text-base leading-relaxed text-[color:var(--color-ink)]/85">
-								{#each meta.livrables as l (l)}
-									<li class="border-b border-[color:var(--color-ink)]/10 pb-2">{l}</li>
+	<!-- PRODUCTION -->
+	{#if meta.livrables?.length || meta.contraintes || meta.direction}
+		<section class="container-page py-24">
+			<div class="text-center">
+				<p class="eyebrow text-[color:var(--color-wine)]">— Production —</p>
+				<h2 class="mx-auto mt-6 max-w-[24ch] font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-medium leading-[1.05]">
+					Les <span class="font-display-italic">coulisses</span>
+				</h2>
+			</div>
+
+			<div class="mx-auto mt-16 grid max-w-[110ch] grid-cols-1 gap-12 md:grid-cols-2">
+				{#if meta.livrables?.length}
+					<div class="border-t border-[color:var(--color-ink)]/25 pt-8">
+						<p class="font-display-italic text-lg text-[color:var(--color-wine)]">— Livrables</p>
+						<ul class="mt-6 space-y-3">
+							{#each meta.livrables as l, i (l)}
+								<li class="flex gap-4 text-base leading-[1.6] text-[color:var(--color-ink)]/85">
+									<span class="font-display-italic text-[color:var(--color-wine)]">{String(i + 1).padStart(2, '0')}</span>
+									<span>{l}</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+				{#if meta.contraintes}
+					<div class="border-t border-[color:var(--color-ink)]/25 pt-8">
+						<p class="font-display-italic text-lg text-[color:var(--color-wine)]">— Contraintes</p>
+						{#if Array.isArray(meta.contraintes)}
+							<ul class="mt-6 space-y-3">
+								{#each meta.contraintes as c, i (c)}
+									<li class="flex gap-4 text-base leading-[1.6] text-[color:var(--color-ink)]/85">
+										<span class="font-display-italic text-[color:var(--color-wine)]">{String(i + 1).padStart(2, '0')}</span>
+										<span>{c}</span>
+									</li>
 								{/each}
 							</ul>
-						</div>
-					{/if}
-					{#if meta.contraintes}
-						<div>
-							<p class="font-display-italic text-base text-[color:var(--color-wine)]">Contraintes</p>
-							{#if Array.isArray(meta.contraintes)}
-								<ul class="mt-4 space-y-2 text-base leading-relaxed text-[color:var(--color-ink)]/85">
-									{#each meta.contraintes as c (c)}
-										<li class="border-b border-[color:var(--color-ink)]/10 pb-2">{c}</li>
-									{/each}
-								</ul>
-							{:else}
-								<p class="mt-4 text-base leading-relaxed text-[color:var(--color-ink)]/85">{meta.contraintes}</p>
-							{/if}
-						</div>
-					{/if}
-					{#if meta.direction}
-						<div>
-							<p class="font-display-italic text-base text-[color:var(--color-wine)]">Direction artistique</p>
-							<p class="mt-4 text-base leading-relaxed text-[color:var(--color-ink)]/85">{meta.direction}</p>
-						</div>
-					{/if}
-				</div>
-			</section>
-		{/if}
+						{:else}
+							<p class="mt-6 text-base leading-[1.6] text-[color:var(--color-ink)]/85">{meta.contraintes}</p>
+						{/if}
+					</div>
+				{/if}
+				{#if meta.direction}
+					<div class="border-t border-[color:var(--color-ink)]/25 pt-8 md:col-span-2">
+						<p class="font-display-italic text-lg text-[color:var(--color-wine)]">— Direction artistique</p>
+						<p class="mx-auto mt-6 max-w-[80ch] text-base leading-[1.7] text-[color:var(--color-ink)]/85">{meta.direction}</p>
+					</div>
+				{/if}
+			</div>
+		</section>
+	{/if}
 
-		<!-- End marker -->
-		<p class="mt-12 text-center font-display text-2xl text-[color:var(--color-wine)]/60" aria-hidden="true">§</p>
-	</div>
+	<!-- End marker -->
+	<p class="container-page pb-12 text-center font-display-italic text-3xl text-[color:var(--color-wine)]/55" aria-hidden="true">§</p>
 </div>
 
 <style>
-	.brief-paragraph::first-letter {
+	.article-opening::first-letter {
 		font-family: var(--font-display);
 		font-style: italic;
-		font-weight: 300;
-		font-size: 5rem;
+		font-weight: 500;
+		font-size: 7rem;
 		float: left;
-		line-height: 0.85;
-		margin: 0.35rem 0.7rem 0 0;
+		line-height: 0.75;
+		margin: 0.5rem 0.8rem -0.2rem 0;
 		color: var(--color-wine);
 	}
 </style>
