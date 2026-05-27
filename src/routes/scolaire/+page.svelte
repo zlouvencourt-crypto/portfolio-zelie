@@ -5,73 +5,69 @@
 </script>
 
 <article class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
-	<!-- HEADER MAGAZINE -->
-	<section class="container-page pt-36 pb-12">
-		<div class="flex flex-wrap items-baseline justify-between gap-4 border-b border-[color:var(--color-ink)]/25 pb-4">
-			<span class="eyebrow">— Le Portfolio</span>
-			<span class="font-display-italic text-sm text-[color:var(--color-ink)]/70">
-				Volume II · BTS Communication
-			</span>
-			<span class="eyebrow">Scolaire</span>
-		</div>
+	<!-- HEADER -->
+	<section class="container-page pt-44 pb-12 text-center">
+		<p class="eyebrow text-[color:var(--color-wine)]">— Volume II —</p>
+		<h1 class="mt-8 font-display text-[clamp(3rem,8vw,7rem)] font-medium leading-[0.95]">
+			<span class="font-display-italic">Scolaire</span>
+		</h1>
+		<p class="mx-auto mt-10 max-w-[42ch] font-display-italic text-[clamp(1.05rem,1.5vw,1.4rem)] leading-snug text-[color:var(--color-ink)]/75">
+			« On ne peut pas ne pas communiquer. »
+		</p>
+		<p class="eyebrow mt-4 text-[color:var(--color-ink)]/55">— Paul Watzlawick</p>
 
-		<div class="mx-auto mt-20 max-w-[40ch] text-center md:mt-28">
-			<p class="eyebrow text-[color:var(--color-wine)]">Sommaire</p>
-			<h1 class="mt-8 font-display text-[clamp(3rem,7vw,7rem)] font-light leading-[0.95]">
-				<span class="font-display-italic">Scolaire</span>
-			</h1>
-			<p class="mx-auto mt-10 max-w-[42ch] font-display-italic text-[clamp(1.1rem,1.5vw,1.4rem)] leading-snug text-[color:var(--color-ink)]/75">
-				« On ne peut pas ne pas communiquer. »
-			</p>
-			<p class="eyebrow mt-4 text-[color:var(--color-ink)]/55">— Paul Watzlawick</p>
-		</div>
-
-		<p class="mx-auto mt-20 max-w-[60ch] text-center text-base leading-[1.7] text-[color:var(--color-ink)]/80">
+		<p class="mx-auto mt-12 max-w-[60ch] text-base leading-[1.7] text-[color:var(--color-ink)]/80">
 			Études de cas menées pendant le BTS Communication — du print éditorial à la stratégie de marque, en passant par les campagnes sociales et la direction artistique.
 		</p>
 	</section>
 
-	<!-- INDEX / LISTE PROJETS -->
-	<section class="container-page pb-32">
-		<div class="border-y border-[color:var(--color-ink)]/25 py-3">
-			<div class="grid grid-cols-12 items-baseline gap-4">
-				<span class="eyebrow col-span-1 text-[color:var(--color-ink)]/55">N°</span>
-				<span class="eyebrow col-span-6 text-[color:var(--color-ink)]/55">Projet</span>
-				<span class="eyebrow col-span-3 hidden text-[color:var(--color-ink)]/55 md:block">Client</span>
-				<span class="eyebrow col-span-2 text-right text-[color:var(--color-ink)]/55">Année</span>
-			</div>
-		</div>
+	<div class="container-page">
+		<div class="border-t border-[color:var(--color-ink)]/15"></div>
+	</div>
 
-		<ul>
+	<section class="container-page pt-12">
+		<p class="eyebrow text-[color:var(--color-ink)]/55">— Les projets —</p>
+	</section>
+
+	<section class="container-page pt-8 pb-32">
+		<div class="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
 			{#each entries as entry, i (entry.meta.slug)}
-				<li class="group border-b border-[color:var(--color-ink)]/15">
-					<a href={`/${entry.meta.category}/${entry.meta.slug}`} class="grid grid-cols-12 items-center gap-4 py-8 transition-colors hover:bg-[color:var(--color-cream)]">
-						<span class="eyebrow col-span-1 text-[color:var(--color-wine)]">
-							{String(i + 1).padStart(2, '0')}
-						</span>
-						<div class="col-span-11 grid grid-cols-11 items-center gap-4">
-							<div class="col-span-11 md:col-span-6">
-								<h2 class="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-light leading-tight">
-									{entry.meta.title}
-								</h2>
-								{#if entry.meta.tagline}
-									<p class="mt-2 font-display-italic text-sm text-[color:var(--color-ink)]/65">
-										{entry.meta.tagline}
-									</p>
-								{/if}
-							</div>
-							<span class="hidden font-sans text-sm font-light text-[color:var(--color-ink)]/65 md:col-span-3 md:block">
-								{entry.meta.client ?? '—'}
-							</span>
-							<span class="hidden font-display-italic text-base text-[color:var(--color-ink)]/65 md:col-span-2 md:block md:text-right">
-								{entry.meta.year ?? ''}
-							</span>
-						</div>
-					</a>
-				</li>
-			{/each}
-		</ul>
+				<a
+					href={`/${entry.meta.category}/${entry.meta.slug}`}
+					class="group block"
+				>
+					<div class="flex aspect-[4/5] items-center justify-center overflow-hidden bg-[color:var(--color-cream)]">
+						<img
+							src={entry.meta.cover}
+							alt={entry.meta.title}
+							class="h-full w-full object-contain transition-opacity duration-500 group-hover:opacity-85"
+							loading="lazy"
+						/>
+					</div>
 
-		<p class="mt-16 text-center font-display text-2xl text-[color:var(--color-wine)]/60" aria-hidden="true">§</p>
+					<p class="eyebrow mt-5 text-[color:var(--color-wine)]">
+						N° {String(i + 1).padStart(2, '0')} {entry.meta.client ? `· ${entry.meta.client.split(',')[0]}` : ''}
+					</p>
+
+					<h2 class="mt-3 font-display text-[clamp(1.4rem,1.8vw,1.75rem)] font-medium leading-[1.1]">
+						{entry.meta.title}
+					</h2>
+
+					{#if entry.meta.tagline}
+						<p class="mt-2 line-clamp-2 font-display-italic text-sm leading-snug text-[color:var(--color-ink)]/65">
+							{entry.meta.tagline}
+						</p>
+					{/if}
+
+					<div class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">
+						<span>par Zélie Louvencourt</span>
+						{#if entry.meta.year}
+							<span>·</span>
+							<span>{entry.meta.year}</span>
+						{/if}
+					</div>
+				</a>
+			{/each}
+		</div>
 	</section>
 </article>
