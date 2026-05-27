@@ -34,7 +34,7 @@
 			{#each entries as entry, i (entry.meta.slug)}
 				<a
 					href={`/${entry.meta.category}/${entry.meta.slug}`}
-					class="group block"
+					class="group flex flex-col"
 				>
 					<div class="flex aspect-[4/5] items-center justify-center overflow-hidden bg-[color:var(--color-cream)]">
 						<img
@@ -53,13 +53,11 @@
 						{entry.meta.title}
 					</h2>
 
-					{#if entry.meta.tagline}
-						<p class="mt-2 line-clamp-2 font-display-italic text-sm leading-snug text-[color:var(--color-ink)]/65">
-							{entry.meta.tagline}
-						</p>
-					{/if}
+					<p class="mt-2 line-clamp-2 min-h-[3em] font-display-italic text-sm leading-snug text-[color:var(--color-ink)]/65">
+						{entry.meta.tagline ?? ''}
+					</p>
 
-					<div class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">
+					<div class="mt-auto flex items-center gap-3 pt-4 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">
 						<span>par Zélie Louvencourt</span>
 						{#if entry.meta.year}
 							<span>·</span>

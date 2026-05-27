@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { listProjects } from '$lib/content/projects';
 
-	const featured = listProjects('pro').filter((p) => p.meta.featured).slice(0, 4);
+	const featured = [
+		...listProjects('pro').filter((p) => p.meta.featured),
+		...listProjects('scolaire').filter((p) => p.meta.featured)
+	].slice(0, 8);
 </script>
 
 <article>
@@ -48,7 +51,7 @@
 			{#if featured.length}
 				<div class="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
 					{#each featured as entry, i (entry.meta.slug)}
-						<a href={`/${entry.meta.category}/${entry.meta.slug}`} class="group block">
+						<a href={`/${entry.meta.category}/${entry.meta.slug}`} class="group flex flex-col">
 							<div class="flex aspect-[4/5] items-center justify-center overflow-hidden bg-[color:var(--color-cream)]">
 								{#if entry.meta.coverVideo}
 									<video
@@ -75,12 +78,10 @@
 							<h2 class="mt-3 font-display text-[clamp(1.4rem,1.8vw,1.75rem)] font-medium leading-[1.1]">
 								{entry.meta.title}
 							</h2>
-							{#if entry.meta.tagline}
-								<p class="mt-2 line-clamp-2 font-display-italic text-sm leading-snug text-[color:var(--color-ink)]/65">
-									{entry.meta.tagline}
-								</p>
-							{/if}
-							<div class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">
+							<p class="mt-2 line-clamp-2 min-h-[3em] font-display-italic text-sm leading-snug text-[color:var(--color-ink)]/65">
+								{entry.meta.tagline ?? ''}
+							</p>
+							<div class="mt-auto flex items-center gap-3 pt-4 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">
 								<span>par Zélie Louvencourt</span>
 								{#if entry.meta.year}
 									<span>·</span><span>{entry.meta.year}</span>

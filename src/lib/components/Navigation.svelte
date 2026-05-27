@@ -41,8 +41,9 @@
 
 <header
 	class="fixed inset-x-0 top-0 z-50 transition-colors duration-500"
-	class:bg-white={scrolled && !isHome}
-	class:bg-transparent={!scrolled || isHome}
+	class:bg-[color:var(--color-bg)]={scrolled}
+	class:shadow-[0_1px_0_rgba(10,10,10,0.05)]={scrolled}
+	class:bg-transparent={!scrolled}
 >
 	<!-- TOP ROW -->
 	<div class="container-page grid grid-cols-3 items-center py-5">
