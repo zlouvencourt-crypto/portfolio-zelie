@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Palette — minimaliste corporate */
-	--color-bg: #faf6f0;
-	--color-cream: #faf6f0;
-	--color-ink: #461412;
-	--color-wine: #ed809d;
-	--color-wine-soft: #ed809d;
-	--color-rose: #ed809d;
-	--color-rose-soft: #ed809d;
+	/* Palette — sun-kissed, plage et mode épurée */
+	--color-bg: #f4ebde;
+	--color-cream: #faf3e6;
+	--color-ink: #2a1a12;
+	--color-wine: #b8634a;
+	--color-wine-soft: #c87a5e;
+	--color-rose: #b8634a;
+	--color-rose-soft: #e2b594;
 
 	/* Typographies */
 	--font-display: 'Fraunces', 'Times New Roman', serif;
