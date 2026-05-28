@@ -9,7 +9,7 @@
 	const keywords = ['Stratégie', 'Image', 'Mode', 'Branding', 'Social Media', 'Événementiel', 'Émotion'];
 
 	const proCover = listProjects('pro')[0]?.meta.cover;
-	const scoCover = listProjects('scolaire')[0]?.meta.cover;
+	const scoCover = '/images/coco-crush/0285d2a1e9ac47779327613e.png';
 </script>
 
 <article>
@@ -108,9 +108,9 @@
 			<div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
 				<!-- Volume I -->
 				<a href="/pro" class="group block">
-					<div class="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[color:var(--color-bg)]">
+					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-bg)]">
 						{#if proCover}
-							<img src={proCover} alt="Wexx OI" class="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
+							<img src={proCover} alt="Wexx OI" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
 					<p class="eyebrow mt-6 text-[color:var(--color-wine)]">Volume I</p>
@@ -125,9 +125,9 @@
 
 				<!-- Volume II -->
 				<a href="/scolaire" class="group block">
-					<div class="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[color:var(--color-bg)]">
+					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-bg)]">
 						{#if scoCover}
-							<img src={scoCover} alt="Scolaire" class="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
+							<img src={scoCover} alt="Scolaire" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
 					<p class="eyebrow mt-6 text-[color:var(--color-wine)]">Volume II</p>
