@@ -25,11 +25,11 @@
 			<p class="eyebrow text-white">— Volume 2024 — 2026 —</p>
 
 			<h1 class="mt-8 font-display text-[clamp(3.5rem,11vw,11rem)] font-medium leading-[0.92] text-white">
-				Le <span class="font-display-italic">Portfolio</span>
+				<span class="font-display-italic">Portfolio</span>
 			</h1>
 
 			<p class="mt-10 max-w-[40ch] font-display-italic text-[clamp(1.1rem,1.6vw,1.6rem)] leading-snug text-white/90">
-				Communication, direction artistique &amp; événementiel — par Zélie Louvencourt, La Réunion.
+				Communication, direction artistique &amp; événementiel — par Zélie Louvencourt.
 			</p>
 
 			<a
