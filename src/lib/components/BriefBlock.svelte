@@ -40,15 +40,15 @@
 		</section>
 	{/if}
 
-	<!-- PULL QUOTE — Brief -->
+	<!-- PULL QUOTE — Brief (rupture noire) -->
 	{#if meta.brief}
-		<section class="border-y border-[color:var(--color-ink)]/15 py-24">
+		<section class="bg-[color:var(--color-ink)] py-32 text-white">
 			<div class="container-page text-center">
-				<span class="font-display text-[clamp(5rem,10vw,9rem)] leading-[0.7] text-[color:var(--color-wine)]/45" aria-hidden="true">"</span>
-				<p class="mx-auto -mt-12 max-w-[28ch] font-display-italic text-[clamp(2rem,4.5vw,4rem)] font-medium leading-[1.1] text-[color:var(--color-ink)]">
+				<span class="font-display text-[clamp(5rem,10vw,9rem)] leading-[0.7] text-[color:var(--color-wine)]" aria-hidden="true">"</span>
+				<p class="mx-auto -mt-12 max-w-[28ch] font-display-italic text-[clamp(2rem,4.5vw,4rem)] font-medium leading-[1.1] text-white">
 					{meta.brief}
 				</p>
-				<p class="eyebrow mt-10 text-[color:var(--color-ink)]/55">— Le brief —</p>
+				<p class="eyebrow mt-12 text-white/60">— Le brief —</p>
 			</div>
 		</section>
 	{/if}

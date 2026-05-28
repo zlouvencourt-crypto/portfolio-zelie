@@ -27,22 +27,22 @@
 	<ProjectGallery items={data.meta.gallery ?? []} />
 
 	<!-- Prev / Next -->
-	<section class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
-		<div class="container-page border-y border-[color:var(--color-ink)]/15 py-16">
-			<p class="eyebrow text-center text-[color:var(--color-wine)]">— Continuer la lecture —</p>
+	<section class="bg-[color:var(--color-ink)] text-white">
+		<div class="container-page py-24">
+			<p class="eyebrow text-center text-white/60">— Continuer la lecture —</p>
 			<div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
 				{#if data.prev}
 					<a href={`/${data.prev.category}/${data.prev.slug}`} class="group block">
-						<p class="eyebrow text-[color:var(--color-ink)]/55">← Article précédent</p>
-						<h3 class="mt-4 font-display text-[clamp(2rem,3.5vw,3rem)] font-light leading-tight transition-opacity group-hover:opacity-60">
+						<p class="eyebrow text-[color:var(--color-wine)]">← Article précédent</p>
+						<h3 class="mt-4 font-display text-[clamp(2rem,3.5vw,3rem)] font-medium leading-tight text-white transition-opacity group-hover:opacity-60">
 							{data.prev.title}
 						</h3>
 					</a>
 				{/if}
 				{#if data.next}
 					<a href={`/${data.next.category}/${data.next.slug}`} class="group block md:text-right">
-						<p class="eyebrow text-[color:var(--color-ink)]/55">Article suivant →</p>
-						<h3 class="mt-4 font-display text-[clamp(2rem,3.5vw,3rem)] font-light leading-tight transition-opacity group-hover:opacity-60">
+						<p class="eyebrow text-[color:var(--color-wine)]">Article suivant →</p>
+						<h3 class="mt-4 font-display text-[clamp(2rem,3.5vw,3rem)] font-medium leading-tight text-white transition-opacity group-hover:opacity-60">
 							{data.next.title}
 						</h3>
 					</a>
