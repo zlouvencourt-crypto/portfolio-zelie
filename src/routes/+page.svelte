@@ -29,7 +29,7 @@
 			</h1>
 
 			<p class="mt-10 max-w-[40ch] font-display-italic text-[clamp(1.1rem,1.6vw,1.6rem)] leading-snug text-white/90">
-				Communication, direction artistique &amp; événementiel — par Zélie Louvencourt.
+				Communication, direction artistique &amp; événementiel — par Lize Louvencourt.
 			</p>
 
 			<a
@@ -82,7 +82,7 @@
 								{entry.meta.tagline ?? ''}
 							</p>
 							<div class="mt-auto flex items-center gap-3 pt-4 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">
-								<span>par Zélie Louvencourt</span>
+								<span>par Lize Louvencourt</span>
 								{#if entry.meta.year}
 									<span>·</span><span>{entry.meta.year}</span>
 								{/if}

@@ -82,7 +82,7 @@
 				class="font-display text-[clamp(1.6rem,2.4vw,2.25rem)] font-medium uppercase leading-none tracking-[0.18em] transition-colors"
 				style:color={lightOnDark ? '#ffffff' : 'var(--color-ink)'}
 			>
-				Zélie
+				Lize
 			</a>
 		</div>
 
@@ -169,7 +169,7 @@
 			</nav>
 
 			<p class="absolute bottom-12 left-1/2 -translate-x-1/2 font-sans text-[10px] font-light uppercase tracking-[0.32em] text-[color:var(--color-ink)]/50">
-				Zélie Louvencourt · Portfolio · 2024 — 2026
+				Lize Louvencourt · Portfolio · 2024 — 2026
 			</p>
 		</div>
 	{/if}

@@ -56,7 +56,7 @@
 
 		<!-- BYLINE -->
 		<div class="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-2 border-t border-white/30 pt-6 text-white/85">
-			<span class="font-sans text-[10px] font-medium uppercase tracking-[0.28em]">par Zélie Louvencourt</span>
+			<span class="font-sans text-[10px] font-medium uppercase tracking-[0.28em]">par Lize Louvencourt</span>
 			{#if meta.client}
 				<span class="font-sans text-[10px] font-medium uppercase tracking-[0.28em]">Client · {meta.client.split(',')[0]}</span>
 			{/if}

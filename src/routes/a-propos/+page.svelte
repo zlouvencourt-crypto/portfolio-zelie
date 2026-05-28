@@ -36,7 +36,7 @@
 	<section class="relative h-[100svh] w-full overflow-hidden bg-[color:var(--color-ink)] text-white">
 		<img
 			src="/images/a-propos/portrait.jpg"
-			alt="Portrait — Zélie Louvencourt"
+			alt="Portrait — Lize Louvencourt"
 			class="absolute inset-0 h-full w-full object-cover opacity-55"
 		/>
 		<div class="absolute inset-0 bg-[color:var(--color-ink)]/55"></div>
@@ -102,7 +102,7 @@
 			<div class="md:col-span-5">
 				<ImageReveal
 					src="/images/a-propos/portrait.jpg"
-					alt="Portrait lifestyle Zélie Louvencourt"
+					alt="Portrait lifestyle Lize Louvencourt"
 					ratio="4/5"
 					parallax={5}
 				/>
@@ -110,7 +110,7 @@
 			<div class="md:col-span-6 md:col-start-7 md:pt-12">
 				<p class="eyebrow text-[color:var(--color-wine)]">Présentation</p>
 				<h2 class="mt-6 font-display text-[clamp(3rem,7vw,6rem)] leading-[0.95]">
-					Moi, <span class="font-display-italic">c'est Zélie.</span>
+					Moi, <span class="font-display-italic">c'est Lize.</span>
 				</h2>
 				<p class="mt-10 max-w-[55ch] text-lg leading-relaxed text-[color:var(--color-ink)]/80">
 					Je suis passionnée par la communication, l'image et la manière dont une marque peut exister dans l'esprit des gens. Pour moi, communiquer, ce n'est pas seulement transmettre une information : c'est créer une perception, une émotion, une identité.

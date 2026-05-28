@@ -22,7 +22,7 @@
 			</div>
 			<div class="md:col-span-9 space-y-4 max-w-[65ch] text-lg leading-relaxed text-[color:var(--color-ink)]/80">
 				<p>
-					Le présent site est édité à titre personnel par Zélie Louvencourt, résidant à Saint-Denis, La Réunion.
+					Le présent site est édité à titre personnel par Lize Louvencourt, résidant à Saint-Denis, La Réunion.
 				</p>
 				<p>
 					Contact : <a href="mailto:zelie@louvencourt.com" class="underline decoration-[color:var(--color-wine)] underline-offset-4">zelie@louvencourt.com</a>.

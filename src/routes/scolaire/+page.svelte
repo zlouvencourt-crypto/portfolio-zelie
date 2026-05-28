@@ -58,7 +58,7 @@
 					</p>
 
 					<div class="mt-auto flex items-center gap-3 pt-4 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">
-						<span>par Zélie Louvencourt</span>
+						<span>par Lize Louvencourt</span>
 						{#if entry.meta.year}
 							<span>·</span>
 							<span>{entry.meta.year}</span>

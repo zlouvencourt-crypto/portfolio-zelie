@@ -8,13 +8,13 @@
 
 	let { children } = $props();
 
-	const baseTitle = 'Zélie Louvencourt — Portfolio';
+	const baseTitle = 'Lize Louvencourt — Portfolio';
 	const description =
-		"Zélie Louvencourt, créatrice de 22 ans spécialisée en communication et direction artistique à La Réunion. Projets scolaires et professionnels chez WEXX OI.";
+		"Lize Louvencourt, créatrice de 22 ans spécialisée en communication et direction artistique à La Réunion. Projets scolaires et professionnels chez WEXX OI.";
 </script>
 
 <svelte:head>
-	<title>{page.data.title ? `${page.data.title} — Zélie Louvencourt` : baseTitle}</title>
+	<title>{page.data.title ? `${page.data.title} — Lize Louvencourt` : baseTitle}</title>
 	<meta name="description" content={page.data.description ?? description} />
 	<meta property="og:title" content={page.data.title ?? baseTitle} />
 	<meta property="og:description" content={page.data.description ?? description} />

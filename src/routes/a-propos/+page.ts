@@ -2,5 +2,5 @@ export const prerender = true;
 
 export const load = () => ({
 	title: 'À propos',
-	description: "Zélie Louvencourt — parcours, vision, mission."
+	description: "Lize Louvencourt — parcours, vision, mission."
 });

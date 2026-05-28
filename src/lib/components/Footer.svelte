@@ -67,7 +67,7 @@
 		</div>
 
 		<div class="mt-24 flex flex-wrap items-end justify-between gap-6 border-t border-[color:var(--color-rose)]/30 pt-8">
-			<p class="eyebrow text-[color:var(--color-rose)]">© {year} Zélie Louvencourt — La Réunion</p>
+			<p class="eyebrow text-[color:var(--color-rose)]">© {year} Lize Louvencourt — La Réunion</p>
 			<ul class="flex flex-wrap gap-6 eyebrow text-[color:var(--color-rose)]">
 				<li><a href="/mentions-legales" class="hover:text-[color:var(--color-bg)]">Mentions légales</a></li>
 				<li><a href="/confidentialite" class="hover:text-[color:var(--color-bg)]">Confidentialité</a></li>
@@ -80,7 +80,7 @@
 		aria-hidden="true"
 	>
 		<p class="font-display text-[clamp(6rem,22vw,22rem)] leading-[0.85] -mb-[0.18em]">
-			Zélie <span class="font-display-italic">Louvencourt</span>
+			Lize <span class="font-display-italic">Louvencourt</span>
 		</p>
 	</div>
 </footer>
