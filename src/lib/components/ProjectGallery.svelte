@@ -32,45 +32,6 @@
 		return list;
 	});
 
-	const widthClass = (item: GalleryItem): string => {
-		const ratio = item.ratio ?? '4/5';
-		// Heuristique : portrait étroit → narrower max-width
-		if (ratio === '9/16' || ratio === '1/2' || ratio === '7/12') return 'max-w-[420px]';
-		if (ratio === '2/3' || ratio === '5/7' || ratio === '7/10' || ratio === '5/8') return 'max-w-[560px]';
-		if (ratio === '3/4' || ratio === '4/5' || ratio === '7/8' || ratio === '11/12' || ratio === '12/13' || ratio === '9/10') return 'max-w-[680px]';
-		if (ratio === '1/1' || ratio === '16/15') return 'max-w-[720px]';
-		// Paysage
-		if (ratio === '4/3' || ratio === '5/3' || ratio === '6/5' || ratio === '13/10') return 'max-w-[900px]';
-		if (ratio === '16/9' || ratio === '16/10' || ratio === '3/2' || ratio === '7/5') return 'max-w-[1000px]';
-		// Bandeaux très larges
-		if (ratio === '12/5' || ratio === '20/7' || ratio === '23/10' || ratio === '50/9') return 'max-w-[1200px]';
-		return 'max-w-[720px]';
-	};
-
-	type Row =
-		| { kind: 'videos'; items: GalleryItem[] }
-		| { kind: 'single'; item: GalleryItem };
-
-	const buildRows = (items: GalleryItem[]): Row[] => {
-		const rows: Row[] = [];
-		let videoRun: GalleryItem[] = [];
-		const flush = () => {
-			if (videoRun.length) {
-				rows.push({ kind: 'videos', items: videoRun });
-				videoRun = [];
-			}
-		};
-		for (const item of items) {
-			if (item.video) {
-				videoRun.push(item);
-			} else {
-				flush();
-				rows.push({ kind: 'single', item });
-			}
-		}
-		flush();
-		return rows;
-	};
 </script>
 
 <svelte:window on:keydown={onKey} />
@@ -84,58 +45,48 @@
 				{#each groups as group, gi (gi)}
 					<div>
 						{#if group.label}
-							<div class="mb-16 text-center">
+							<div class="mb-12 text-center">
 								<p class="eyebrow text-[color:var(--color-ink)]/55">— Chapitre {String(gi + 1).padStart(2, '0')} —</p>
 								<h3 class="mt-4 font-display-italic text-[clamp(1.75rem,3.5vw,3rem)] font-normal leading-tight text-[color:var(--color-ink)]">
 									{group.label}
 								</h3>
 							</div>
 						{/if}
-						<div class="space-y-20">
-							{#each buildRows(group.items) as row, ri (ri)}
-								{#if row.kind === 'videos'}
-									<div class="flex flex-wrap items-start justify-center gap-4 md:gap-6">
-										{#each row.items as item, vi (vi)}
-											<figure class="w-[260px] sm:w-[300px]">
-												<video
-													src={item.src}
-													poster={item.poster}
-													muted
-													loop
-													playsinline
-													autoplay
-													class="block h-auto w-full"
-												></video>
-												{#if item.caption}
-													<figcaption class="mt-3 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
-														{item.caption}
-													</figcaption>
-												{/if}
-											</figure>
-										{/each}
-									</div>
-								{:else}
-									<figure class={`mx-auto ${widthClass(row.item)}`}>
+						<!-- COLLAGE MASONRY -->
+						<div class="columns-1 gap-4 sm:columns-2 md:gap-6 lg:columns-3">
+							{#each group.items as item, i (i)}
+								<figure class="mb-4 break-inside-avoid md:mb-6">
+									{#if item.video}
+										<video
+											src={item.src}
+											poster={item.poster}
+											muted
+											loop
+											playsinline
+											autoplay
+											class="block h-auto w-full"
+										></video>
+									{:else}
 										<button
 											type="button"
-											onclick={() => openLightbox(row.item)}
+											onclick={() => openLightbox(item)}
 											class="group block w-full cursor-zoom-in p-0"
 											aria-label="Agrandir l'image"
 										>
 											<img
-												src={row.item.src}
-												alt={row.item.alt || ''}
+												src={item.src}
+												alt={item.alt || ''}
 												class="block h-auto w-full transition-opacity duration-500 group-hover:opacity-85"
 												loading="lazy"
 											/>
 										</button>
-										{#if row.item.caption}
-											<figcaption class="mt-4 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
-												{row.item.caption}
-											</figcaption>
-										{/if}
-									</figure>
-								{/if}
+									{/if}
+									{#if item.caption}
+										<figcaption class="mt-2 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
+											{item.caption}
+										</figcaption>
+									{/if}
+								</figure>
 							{/each}
 						</div>
 					</div>
