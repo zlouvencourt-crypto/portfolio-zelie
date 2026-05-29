@@ -6,7 +6,8 @@ order: 3
 year: 2025
 client: Association Festival Electropicales
 tagline: Merchandising écoresponsable — broderie, minimalisme, seconde main.
-cover: /images/merchandesign-electropicales/5739e43465604f2b89a419c2.png
+cover: /images/merchandesign-electropicales/shooting-1.png
+coverVideo: /images/merchandesign-electropicales/video/couverture.mp4
 tags: [Merchandising, Direction artistique, Écoresponsabilité]
 role: Responsable merchandising — mission menée en solo
 featured: true
@@ -40,11 +41,13 @@ contraintes: Temporelles, budgétaires, techniques, juridiques, environnementale
 direction: Identité électro engagée — minimalisme, broderie, pièces de seconde main.
 
 gallery:
-  - { src: /images/merchandesign-electropicales/video/merch-1080p.mp4, alt: "Vidéo teaser merchandising", ratio: "9/16", span: 6, video: true, poster: /images/merchandesign-electropicales/01246caac8a2468db6e97875.jpg }
-  - { src: /images/merchandesign-electropicales/video/merch-vertical.mp4, alt: "Vidéo verticale merchandising", ratio: "9/16", span: 6, video: true }
-  - { src: /images/merchandesign-electropicales/6edcef80f5f24481be9162ac.png, alt: "Shooting", ratio: "4/5", span: 4 }
-  - { src: /images/merchandesign-electropicales/95a96ab3bb434d49b8152645.png, alt: "Shooting", ratio: "4/5", span: 4 }
-  - { src: /images/merchandesign-electropicales/d069cb90d89a4e0e8eb13340.png, alt: "Shooting", ratio: "4/5", span: 4 }
-  - { src: /images/merchandesign-electropicales/5739e43465604f2b89a419c2.png, alt: "Shooting", ratio: "2/3", span: 4 }
-  - { src: /images/merchandesign-electropicales/24c476c619d140a3b0af9e49.png, alt: "Bandeau", ratio: "12/5", span: 8 }
+  - { src: /images/merchandesign-electropicales/shooting-1.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/shooting-2.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/shooting-paysage-1.png, alt: "Shooting merchandising", ratio: "3/2", span: 8 }
+  - { src: /images/merchandesign-electropicales/shooting-3.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/shooting-4.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/shooting-paysage-2.png, alt: "Shooting merchandising", ratio: "3/2", span: 8 }
+  - { src: /images/merchandesign-electropicales/shooting-5.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/shooting-6.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/shooting-7.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
 ---
