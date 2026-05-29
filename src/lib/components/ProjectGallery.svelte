@@ -33,13 +33,17 @@
 		return list;
 	});
 
-	// Masonry sans trous : chaque item occupe un nombre de lignes proportionnel à sa hauteur réelle.
+	// Masonry sans trous : hauteur calculée à partir du format connu (déterministe, indépendant du chargement).
+	const GAP = 12;
 	const layoutItem = (fig: HTMLElement) => {
-		const grid = fig.parentElement;
-		if (!grid) return;
-		const gap = parseFloat(getComputedStyle(grid).rowGap) || 12;
-		const h = fig.getBoundingClientRect().height;
-		if (h > 0) fig.style.gridRowEnd = `span ${Math.ceil((h + gap) / gap)}`;
+		const ratio = fig.dataset.ratio || '4/5';
+		const [rw, rh] = ratio.split('/').map(Number);
+		const width = fig.offsetWidth;
+		if (!width || !rw || !rh) return;
+		let contentHeight = width * (rh / rw);
+		const cap = fig.querySelector('figcaption');
+		if (cap) contentHeight += (cap as HTMLElement).offsetHeight + 8;
+		fig.style.gridRowEnd = `span ${Math.ceil(contentHeight / GAP) + 1}`;
 	};
 
 	const layoutAll = () => {
@@ -51,12 +55,6 @@
 	onMount(() => {
 		layoutAll();
 		window.addEventListener('resize', layoutAll);
-		document.querySelectorAll<HTMLImageElement>('.masonry-item img').forEach((img) => {
-			if (!img.complete) img.addEventListener('load', layoutAll, { once: true });
-		});
-		document.querySelectorAll<HTMLVideoElement>('.masonry-item video').forEach((v) => {
-			v.addEventListener('loadedmetadata', layoutAll, { once: true });
-		});
 		return () => window.removeEventListener('resize', layoutAll);
 	});
 </script>
@@ -82,7 +80,7 @@
 						<!-- COLLAGE MASONRY (sans trous) -->
 						<div class="masonry-grid grid grid-cols-2 gap-3 lg:grid-cols-3">
 							{#each group.items as item, i (i)}
-								<figure class="masonry-item">
+								<figure class="masonry-item" data-ratio={item.ratio ?? '4/5'}>
 									{#if item.video}
 										<video
 											src={item.src}
