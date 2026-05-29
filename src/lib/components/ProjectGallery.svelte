@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { GalleryItem } from '$lib/content/types';
 
 	type Props = { items: GalleryItem[] };
 	let { items }: Props = $props();
 
 	let lightboxItem = $state<GalleryItem | null>(null);
+	let innerWidth = $state(1200);
 
 	const openLightbox = (item: GalleryItem) => {
 		if (item.video) return;
@@ -17,6 +17,8 @@
 	const onKey = (e: KeyboardEvent) => {
 		if (e.key === 'Escape' && lightboxItem) closeLightbox();
 	};
+
+	const numCols = $derived(innerWidth >= 1024 ? 3 : innerWidth >= 640 ? 2 : 1);
 
 	type Group = { label: string | null; items: GalleryItem[] };
 	const groups: Group[] = $derived.by(() => {
@@ -33,33 +35,29 @@
 		return list;
 	});
 
-	// Masonry sans trous : hauteur calculée à partir du format connu (déterministe, indépendant du chargement).
-	const GAP = 12;
-	const layoutItem = (fig: HTMLElement) => {
-		const ratio = fig.dataset.ratio || '4/5';
-		const [rw, rh] = ratio.split('/').map(Number);
-		const width = fig.offsetWidth;
-		if (!width || !rw || !rh) return;
-		let contentHeight = width * (rh / rw);
-		const cap = fig.querySelector('figcaption');
-		if (cap) contentHeight += (cap as HTMLElement).offsetHeight + 8;
-		fig.style.gridRowEnd = `span ${Math.ceil(contentHeight / GAP) + 1}`;
+	// Vraie répartition masonry : chaque image va dans la colonne la plus courte.
+	const itemHeight = (item: GalleryItem): number => {
+		const [w, h] = (item.ratio ?? '4/5').split('/').map(Number);
+		if (!w || !h) return 1.25;
+		return h / w;
 	};
 
-	const layoutAll = () => {
-		requestAnimationFrame(() => {
-			document.querySelectorAll<HTMLElement>('.masonry-item').forEach(layoutItem);
-		});
+	const distribute = (list: GalleryItem[], cols: number): GalleryItem[][] => {
+		const columns: GalleryItem[][] = Array.from({ length: cols }, () => []);
+		const heights = new Array(cols).fill(0);
+		for (const item of list) {
+			let shortest = 0;
+			for (let c = 1; c < cols; c++) {
+				if (heights[c] < heights[shortest]) shortest = c;
+			}
+			columns[shortest].push(item);
+			heights[shortest] += itemHeight(item);
+		}
+		return columns;
 	};
-
-	onMount(() => {
-		layoutAll();
-		window.addEventListener('resize', layoutAll);
-		return () => window.removeEventListener('resize', layoutAll);
-	});
 </script>
 
-<svelte:window on:keydown={onKey} />
+<svelte:window on:keydown={onKey} bind:innerWidth />
 
 {#if items.length}
 	<section class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
@@ -77,41 +75,46 @@
 								</h3>
 							</div>
 						{/if}
-						<!-- COLLAGE MASONRY (sans trous) -->
-						<div class="masonry-grid grid grid-cols-2 gap-3 lg:grid-cols-3">
-							{#each group.items as item, i (i)}
-								<figure class="masonry-item" data-ratio={item.ratio ?? '4/5'}>
-									{#if item.video}
-										<video
-											src={item.src}
-											poster={item.poster}
-											muted
-											loop
-											playsinline
-											autoplay
-											class="block h-auto w-full align-top"
-										></video>
-									{:else}
-										<button
-											type="button"
-											onclick={() => openLightbox(item)}
-											class="group block w-full cursor-zoom-in p-0 leading-[0]"
-											aria-label="Agrandir l'image"
-										>
-											<img
-												src={item.src}
-												alt={item.alt || ''}
-												class="block h-auto w-full align-top transition-opacity duration-500 group-hover:opacity-85"
-												loading="lazy"
-											/>
-										</button>
-									{/if}
-									{#if item.caption}
-										<figcaption class="mt-2 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
-											{item.caption}
-										</figcaption>
-									{/if}
-								</figure>
+
+						<!-- MASONRY : colonnes équilibrées -->
+						<div class="flex items-start gap-3">
+							{#each distribute(group.items, numCols) as column (column)}
+								<div class="flex flex-1 flex-col gap-3">
+									{#each column as item, i (i)}
+										<figure>
+											{#if item.video}
+												<video
+													src={item.src}
+													poster={item.poster}
+													muted
+													loop
+													playsinline
+													autoplay
+													class="block h-auto w-full align-top"
+												></video>
+											{:else}
+												<button
+													type="button"
+													onclick={() => openLightbox(item)}
+													class="group block w-full cursor-zoom-in p-0 leading-[0]"
+													aria-label="Agrandir l'image"
+												>
+													<img
+														src={item.src}
+														alt={item.alt || ''}
+														class="block h-auto w-full align-top transition-opacity duration-500 group-hover:opacity-85"
+														loading="lazy"
+													/>
+												</button>
+											{/if}
+											{#if item.caption}
+												<figcaption class="mt-2 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
+													{item.caption}
+												</figcaption>
+											{/if}
+										</figure>
+									{/each}
+								</div>
 							{/each}
 						</div>
 					</div>
@@ -151,10 +154,3 @@
 		/>
 	</div>
 {/if}
-
-<style>
-	.masonry-grid {
-		grid-auto-rows: 0;
-		align-items: start;
-	}
-</style>
