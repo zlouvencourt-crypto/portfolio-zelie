@@ -6,7 +6,8 @@ order: 7
 year: 2026
 client: Association Festival Electropicales 2026
 tagline: Communication digitale — Instagram, Facebook, TikTok, en amont et en live.
-cover: /images/electropicales-2026/7d0f44345f374479a72f7808.png
+cover: /images/electropicales-2026/affiche-principale.png
+coverVideo: /images/electropicales-2026/video/merci.mp4
 tags: [Social Media, TikTok, Reels, Événementiel]
 role: Cheffe de projet de la communication
 featured: false
@@ -40,4 +41,8 @@ gallery:
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/gradur.png, alt: "Gradur", ratio: "4/5", span: 4 }
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/kalash-criminel.png, alt: "Kalash Criminel", ratio: "4/5", span: 4 }
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2026/limousine.png, alt: "Limousine", ratio: "4/5", span: 4 }
+  - { section: "Vidéos", src: /images/electropicales-2026/video/mowgli.mp4, alt: "Mowgli — focus", ratio: "9/16", video: true }
+  - { section: "Vidéos", src: /images/electropicales-2026/video/selera.mp4, alt: "Selera — focus", ratio: "9/16", video: true }
+  - { section: "Vidéos", src: /images/electropicales-2026/video/smith.mp4, alt: "Smith — focus", ratio: "9/16", video: true }
+  - { section: "Vidéos", src: /images/electropicales-2026/video/bushi.mp4, alt: "Bushi — focus", ratio: "9/16", video: true }
 ---
