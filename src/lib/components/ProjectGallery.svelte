@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { GalleryItem } from '$lib/content/types';
 
 	type Props = { items: GalleryItem[] };
@@ -32,6 +33,32 @@
 		return list;
 	});
 
+	// Masonry sans trous : chaque item occupe un nombre de lignes proportionnel à sa hauteur réelle.
+	const layoutItem = (fig: HTMLElement) => {
+		const grid = fig.parentElement;
+		if (!grid) return;
+		const gap = parseFloat(getComputedStyle(grid).rowGap) || 12;
+		const h = fig.getBoundingClientRect().height;
+		if (h > 0) fig.style.gridRowEnd = `span ${Math.ceil((h + gap) / gap)}`;
+	};
+
+	const layoutAll = () => {
+		requestAnimationFrame(() => {
+			document.querySelectorAll<HTMLElement>('.masonry-item').forEach(layoutItem);
+		});
+	};
+
+	onMount(() => {
+		layoutAll();
+		window.addEventListener('resize', layoutAll);
+		document.querySelectorAll<HTMLImageElement>('.masonry-item img').forEach((img) => {
+			if (!img.complete) img.addEventListener('load', layoutAll, { once: true });
+		});
+		document.querySelectorAll<HTMLVideoElement>('.masonry-item video').forEach((v) => {
+			v.addEventListener('loadedmetadata', layoutAll, { once: true });
+		});
+		return () => window.removeEventListener('resize', layoutAll);
+	});
 </script>
 
 <svelte:window on:keydown={onKey} />
@@ -52,10 +79,10 @@
 								</h3>
 							</div>
 						{/if}
-						<!-- COLLAGE MASONRY -->
-						<div class="columns-2 gap-3 lg:columns-3">
+						<!-- COLLAGE MASONRY (sans trous) -->
+						<div class="masonry-grid grid grid-cols-2 gap-3 lg:grid-cols-3">
 							{#each group.items as item, i (i)}
-								<figure class="mb-3 break-inside-avoid">
+								<figure class="masonry-item">
 									{#if item.video}
 										<video
 											src={item.src}
@@ -126,3 +153,10 @@
 		/>
 	</div>
 {/if}
+
+<style>
+	.masonry-grid {
+		grid-auto-rows: 0;
+		align-items: start;
+	}
+</style>
