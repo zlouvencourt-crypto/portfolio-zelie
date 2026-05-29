@@ -6,7 +6,8 @@ order: 4
 year: 2025
 client: Association Festival Electropicales 2025
 tagline: Communication digitale — Instagram, Facebook, TikTok, en amont et en live.
-cover: /images/electropicales-2025/66413459d19041df9156c2e7.jpg
+cover: /images/electropicales-2025/864ff3a4a8154a5881dc043f.png
+coverVideo: /images/electropicales-2025/video/aftermovie.mp4
 tags: [Social Media, TikTok, Reels, Événementiel]
 role: Gestion communication digitale
 featured: true
@@ -40,7 +41,9 @@ gallery:
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2025/864ff3a4a8154a5881dc043f.png, alt: "", ratio: "4/5", span: 4 }
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2025/59a747e87bfe4b4a85698beb.png, alt: "", ratio: "7/10", span: 4 }
   - { section: "Visuels réseaux sociaux", src: /images/electropicales-2025/7e3e0ca88bbd4e6ba0d3eda7.png, alt: "", ratio: "7/10", span: 4 }
-  - { section: "Audio digitale", src: /images/electropicales-2025/video/electro2025-1080p.mp4, alt: "Teaser Electropicales 2025", ratio: "9/16", span: 6, video: true, poster: /images/electropicales-2025/66413459d19041df9156c2e7.jpg }
-  - { section: "Photos du festival", src: /images/electropicales-2025/66413459d19041df9156c2e7.jpg, alt: "", ratio: "16/15", span: 6 }
-  - { section: "Photos du festival", src: /images/electropicales-2025/66c45997c6df47999e7912dd.jpg, alt: "", ratio: "16/15", span: 6 }
+  - { section: "Vidéos", src: /images/electropicales-2025/video/aftermovie.mp4, alt: "After movie 2025", ratio: "16/9", video: true, poster: /images/electropicales-2025/864ff3a4a8154a5881dc043f.png }
+  - { section: "Vidéos", src: /images/electropicales-2025/video/electro2025-1080p.mp4, alt: "Teaser Electropicales 2025", ratio: "9/16", video: true }
+  - { section: "Vidéos", src: /images/electropicales-2025/video/freestyle.mp4, alt: "Freestyle", ratio: "9/16", video: true }
+  - { section: "Vidéos", src: /images/electropicales-2025/video/reel-tiktok.mp4, alt: "Reel TikTok", ratio: "9/16", video: true }
+  - { section: "Vidéos", src: /images/electropicales-2025/video/musique-thematique.mp4, alt: "Vidéo musique thématique", ratio: "9/16", video: true }
 ---
