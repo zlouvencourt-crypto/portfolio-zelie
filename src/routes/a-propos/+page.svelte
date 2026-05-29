@@ -153,6 +153,29 @@
 		</div>
 	</section>
 
+	<!-- 4bis. MANNEQUINAT -->
+	<section class="section bg-[color:var(--color-cream)]">
+		<div class="container-page grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-12">
+			<div class="md:col-span-5">
+				<p class="eyebrow text-[color:var(--color-wine)]">Devant l'objectif</p>
+				<h2 class="mt-6 font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05]">
+					Aussi <span class="font-display-italic">mannequin</span>.
+				</h2>
+				<p class="mt-8 max-w-[42ch] text-lg leading-relaxed text-[color:var(--color-ink)]/80">
+					J'aime aussi me retrouver devant l'objectif. À travers la photographie, j'explore différents univers artistiques, des esthétiques et des ambiances variées — une autre façon de raconter une image et de nourrir mon regard de directrice artistique.
+				</p>
+			</div>
+			<div class="grid grid-cols-2 gap-4 md:col-span-6 md:col-start-7">
+				<div class="aspect-[2/3] overflow-hidden bg-[color:var(--color-bg)]">
+					<img src="/images/a-propos/mannequin-1.jpg" alt="Mannequinat — Lize Louvencourt" class="h-full w-full object-cover object-center" loading="lazy" />
+				</div>
+				<div class="aspect-[2/3] overflow-hidden bg-[color:var(--color-bg)]">
+					<img src="/images/a-propos/mannequin-2.jpg" alt="Mannequinat — Lize Louvencourt" class="h-full w-full object-cover object-center" loading="lazy" />
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- 5. COMPÉTENCES -->
 	<section class="section">
 		<div class="container-page">
@@ -179,29 +202,6 @@
 						</p>
 					</article>
 				{/each}
-			</div>
-		</div>
-	</section>
-
-	<!-- 5bis. MANNEQUINAT -->
-	<section class="section bg-[color:var(--color-cream)]">
-		<div class="container-page grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-12">
-			<div class="md:col-span-5">
-				<p class="eyebrow text-[color:var(--color-wine)]">Devant l'objectif</p>
-				<h2 class="mt-6 font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05]">
-					Aussi <span class="font-display-italic">mannequin</span>.
-				</h2>
-				<p class="mt-8 max-w-[42ch] text-lg leading-relaxed text-[color:var(--color-ink)]/80">
-					En parallèle de la communication, je pratique le mannequinat en freelance : je pose pour des photographes afin d'enrichir leurs books et explorer l'image autrement — cette fois devant l'objectif.
-				</p>
-			</div>
-			<div class="grid grid-cols-2 gap-4 md:col-span-6 md:col-start-7">
-				<div class="aspect-[2/3] overflow-hidden bg-[color:var(--color-bg)]">
-					<img src="/images/a-propos/mannequin-1.jpg" alt="Mannequinat — Lize Louvencourt" class="h-full w-full object-cover object-center" loading="lazy" />
-				</div>
-				<div class="aspect-[2/3] overflow-hidden bg-[color:var(--color-bg)]">
-					<img src="/images/a-propos/mannequin-2.jpg" alt="Mannequinat — Lize Louvencourt" class="h-full w-full object-cover object-center" loading="lazy" />
-				</div>
 			</div>
 		</div>
 	</section>
