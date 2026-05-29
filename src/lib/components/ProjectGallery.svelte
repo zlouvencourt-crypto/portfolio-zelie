@@ -53,9 +53,9 @@
 							</div>
 						{/if}
 						<!-- COLLAGE MASONRY -->
-						<div class="columns-1 gap-4 sm:columns-2 md:gap-6 lg:columns-3">
+						<div class="columns-2 gap-3 lg:columns-3">
 							{#each group.items as item, i (i)}
-								<figure class="mb-4 break-inside-avoid md:mb-6">
+								<figure class="mb-3 break-inside-avoid">
 									{#if item.video}
 										<video
 											src={item.src}
@@ -64,19 +64,19 @@
 											loop
 											playsinline
 											autoplay
-											class="block h-auto w-full"
+											class="block h-auto w-full align-top"
 										></video>
 									{:else}
 										<button
 											type="button"
 											onclick={() => openLightbox(item)}
-											class="group block w-full cursor-zoom-in p-0"
+											class="group block w-full cursor-zoom-in p-0 leading-[0]"
 											aria-label="Agrandir l'image"
 										>
 											<img
 												src={item.src}
 												alt={item.alt || ''}
-												class="block h-auto w-full transition-opacity duration-500 group-hover:opacity-85"
+												class="block h-auto w-full align-top transition-opacity duration-500 group-hover:opacity-85"
 												loading="lazy"
 											/>
 										</button>
