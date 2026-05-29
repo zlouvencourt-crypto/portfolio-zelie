@@ -50,4 +50,6 @@ gallery:
   - { src: /images/merchandesign-electropicales/shooting-5.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
   - { src: /images/merchandesign-electropicales/shooting-6.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
   - { src: /images/merchandesign-electropicales/shooting-7.png, alt: "Shooting merchandising", ratio: "2/3", span: 4 }
+  - { src: /images/merchandesign-electropicales/video/merch-1080p.mp4, alt: "Vidéo teaser merchandising", ratio: "9/16", span: 6, video: true, poster: /images/merchandesign-electropicales/shooting-1.png }
+  - { src: /images/merchandesign-electropicales/video/merch-vertical.mp4, alt: "Vidéo verticale merchandising", ratio: "9/16", span: 6, video: true }
 ---
