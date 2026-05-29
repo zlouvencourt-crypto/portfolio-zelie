@@ -14,8 +14,10 @@ featured: true
 visualOnly: true
 
 gallery:
+  - { src: /images/dancewell/video/presentation.mp4, alt: "Vidéo de présentation Dancewell", ratio: "9/16", video: true, poster: /images/dancewell/post.png }
   - { src: /images/dancewell/moodboard.png, alt: "Moodboard Dancewell", ratio: "4/5" }
   - { src: /images/dancewell/logo.png, alt: "Logo Dancewell", ratio: "4/3" }
   - { src: /images/dancewell/flyer.png, alt: "Flyer Dancewell", ratio: "4/3" }
   - { src: /images/dancewell/post.png, alt: "Post Dancewell", ratio: "4/5" }
+  - { src: /images/dancewell/newsletter.png, alt: "Newsletter Dancewell", ratio: "21/50" }
 ---
