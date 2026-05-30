@@ -6,7 +6,7 @@ order: 1
 year: 2024
 client: Domaine Vergelegen
 tagline: Campagne print — valoriser un lieu d'exception pour l'organisation de mariages.
-cover: /images/vergelegen/1a45d4102fa84f51a7b73abf.png
+cover: /images/vergelegen/dfbf043349a7465488db8007.png
 coverPortrait: /images/vergelegen/237855f2166d42f8ad943d6d.png
 tags: [Print, Édition, Identité]
 role: Direction artistique et rédaction
