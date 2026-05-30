@@ -11,6 +11,10 @@ tags: [TikTok, Live, Événementiel sportif]
 role: Communication TikTok et live
 featured: false
 
+theme:
+  accent: "#f4861f"
+  accentSoft: "#facd9a"
+
 contexte: Alternance chez WEXX OI, agence spécialisée en communication événementielle et direction artistique à La Réunion. Le RUNBALL FESTIVAL est un événement sportif et festif qui promeut la pratique du basket auprès du grand public tout en créant un rassemblement dynamique et fédérateur autour des valeurs du sport — performance, cohésion, engagement.
 brief: Comment dynamiser la visibilité d'un festival sportif local auprès d'un public jeune et connecté, en utilisant TikTok comme levier principal d'engagement ?
 

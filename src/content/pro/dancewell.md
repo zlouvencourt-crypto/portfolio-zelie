@@ -13,6 +13,10 @@ role: Direction artistique et communication
 featured: true
 visualOnly: true
 
+theme:
+  accent: "#7a8c7a"
+  accentSoft: "#c3d0c3"
+
 gallery:
   - { src: /images/dancewell/video/presentation.mp4, alt: "Vidéo de présentation Dancewell", ratio: "9/16", video: true, poster: /images/dancewell/post.png }
   - { src: /images/dancewell/moodboard.png, alt: "Moodboard Dancewell", ratio: "4/5" }

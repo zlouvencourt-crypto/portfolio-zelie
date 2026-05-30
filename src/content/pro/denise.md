@@ -12,6 +12,10 @@ tags: [Stratégie digitale, Social Media, Storytelling, Meta Ads]
 role: Stratégie digitale et production
 featured: true
 
+theme:
+  accent: "#d63384"
+  accentSoft: "#f5b3d3"
+
 contexte: Dans le cadre de mon alternance chez WEXX OI, agence réunionnaise spécialisée en communication, DENISE est un concept immersif mettant en scène une influenceuse réunionnaise fictive qui voyage chaque mois vers de nouvelles destinations, avec des soirées à thème.
 brief: Comment développer et générer des ventes tout en concevant et pilotant une stratégie digitale complète alignée avec le storytelling.
 

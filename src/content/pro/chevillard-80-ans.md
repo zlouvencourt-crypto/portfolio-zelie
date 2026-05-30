@@ -11,6 +11,10 @@ tags: [Événementiel, Direction artistique, Coordination]
 role: Direction artistique et coordination événementielle
 featured: false
 
+theme:
+  accent: "#b8924b"
+  accentSoft: "#dec59a"
+
 contexte: Projet réalisé dans le cadre de mon alternance en BTS Communication au sein de l'agence événementielle WEXX OI. L'agence a organisé la soirée des 80 ans de Chevillard, enseigne spécialisée dans les lunettes. J'ai participé à la conception de l'univers visuel et à l'organisation opérationnelle.
 brief: Concevoir et coordonner une soirée d'anniversaire élégante, originale et cohérente avec l'image de Chevillard, valorisant les lunettes comme accessoires de style et d'expression.
 

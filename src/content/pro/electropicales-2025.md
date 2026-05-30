@@ -12,6 +12,10 @@ tags: [Social Media, TikTok, Reels, Événementiel]
 role: Gestion communication digitale
 featured: true
 
+theme:
+  accent: "#e63946"
+  accentSoft: "#f5a4a9"
+
 contexte: Alternance chez WEXX OI, agence de communication événementielle et culturelle à La Réunion. ELECTROPICALES est un festival majeur dédié aux musiques électroniques et actuelles qui rassemble chaque année un public large et varié. Rôle — gestion de la communication digitale du festival sur Instagram, Facebook et TikTok.
 brief: Assurer la visibilité du festival, développer l'engagement de la communauté et contribuer à la performance des ventes de billets, dans un environnement concurrentiel marqué par une offre événementielle forte sur l'île.
 

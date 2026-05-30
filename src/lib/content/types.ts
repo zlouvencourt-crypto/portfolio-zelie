@@ -54,7 +54,14 @@ export const projectMetaSchema = z.object({
 
 	visualOnly: z.boolean().default(false),
 	hidden: z.boolean().default(false),
-	featured: z.boolean().default(false)
+	featured: z.boolean().default(false),
+
+	theme: z
+		.object({
+			accent: z.string().optional(),
+			accentSoft: z.string().optional()
+		})
+		.optional()
 });
 
 export type GalleryItem = z.infer<typeof galleryItemSchema>;

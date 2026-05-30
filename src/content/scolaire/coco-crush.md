@@ -12,6 +12,10 @@ role: Direction artistique
 featured: true
 visualOnly: true
 
+theme:
+  accent: "#b8924b"
+  accentSoft: "#dec59a"
+
 gallery:
   - { src: /images/coco-crush/0285d2a1e9ac47779327613e.png, alt: "", ratio: "5/7" }
   - { src: /images/coco-crush/5084a842ac544cc6b4c4c548.png, alt: "", ratio: "5/7" }

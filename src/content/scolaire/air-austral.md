@@ -11,6 +11,10 @@ tags: [RSE, Newsletter, Social Media]
 role: Conception et direction artistique
 featured: false
 
+theme:
+  accent: "#2563a0"
+  accentSoft: "#a3c1de"
+
 contexte: Face aux enjeux environnementaux et sociétaux, la RSE est devenue un pilier stratégique pour les entreprises du secteur aérien. Air Austral souhaite renforcer l'adhésion interne autour de ses engagements responsables et rendre plus visibles les initiatives déjà déployées.
 brief: Concevoir une newsletter interne ainsi qu'une affiche déclinée en post Instagram afin de valoriser les engagements RSE d'Air Austral et sensibiliser les collaborateurs aux actions mises en place.
 

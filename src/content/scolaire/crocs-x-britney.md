@@ -11,6 +11,10 @@ tags: [Collaboration, Pop culture, Y2K, Branding]
 role: Direction artistique et stratégie de communication
 featured: true
 
+theme:
+  accent: "#ff1493"
+  accentSoft: "#ffb3d8"
+
 contexte: Projet réalisé dans le cadre de mon BTS Communication à l'École du Numérique — une situation professionnelle simulée, conçue pour me mettre en condition réelle de travail sur une durée d'un mois. L'objectif était d'imaginer une collaboration fictive entre un artiste musical et une marque, en construisant une stratégie de communication complète avec des supports adaptés à une cible précise.
 brief: Concevoir une collaboration originale et impactante entre Britney Spears, icône pop des années 2000, et Crocs, marque connue pour son style audacieux et coloré — deux univers complémentaires qui s'inscrivent dans une tendance Y2K actuelle.
 

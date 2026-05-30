@@ -11,6 +11,10 @@ tags: [Identité, Brand Book, Direction artistique]
 role: Direction de marque et design éditorial
 featured: true
 
+theme:
+  accent: "#4a8a5a"
+  accentSoft: "#b3d1bc"
+
 contexte: LGM, glacier emblématique de La Réunion, souhaite moderniser son image et se repositionner sur un marché devenu ultra-concurrentiel.
 brief: Concevoir le nouveau Brand Book de LGM, véritable référence pour toute sa communication future et qui permettra à la marque de pouvoir se distinguer et prendre des parts du marché des glaciers à La Réunion.
 

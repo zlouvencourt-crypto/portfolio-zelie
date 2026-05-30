@@ -11,6 +11,10 @@ tags: [Social Media, Direction artistique, Événementiel]
 role: Direction artistique et social media
 featured: false
 
+theme:
+  accent: "#e91e63"
+  accentSoft: "#f9b6c8"
+
 contexte: Alternance chez WEXX OI, agence spécialisée en communication événementielle et digitale à La Réunion. « La Délicieuse » est une soirée mensuelle à thème à Saint-Denis, avec des concepts immersifs à thèmes rotatifs. L'édition étudiée s'est concentrée sur « l'Extravagance » avec des visuels audacieux et colorés et des dress codes créatifs.
 brief: Comment promouvoir efficacement une soirée mensuelle à thème dans un environnement concurrentiel, tout en valorisant une identité extravagante forte et immersive ?
 

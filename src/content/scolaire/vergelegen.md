@@ -12,6 +12,10 @@ tags: [Print, Édition, Identité]
 role: Direction artistique et rédaction
 featured: true
 
+theme:
+  accent: "#6b1a24"
+  accentSoft: "#c08d92"
+
 brief: Valoriser le domaine VERGELEGEN comme lieu d'exception pour l'organisation de mariages, à travers la création d'un article rédactionnel et d'une couverture de flyer.
 contexte: Projet réalisé dans le cadre de mon BTS Communication à l'École du Numérique. Le domaine VERGELEGEN souhaite renforcer son attractivité et affirmer son positionnement premium de prestation de mariage.
 

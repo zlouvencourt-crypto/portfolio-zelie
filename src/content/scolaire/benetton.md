@@ -11,6 +11,10 @@ tags: [Rebranding, Streetwear, Direction artistique]
 role: Rebranding et direction artistique
 featured: true
 
+theme:
+  accent: "#e85d04"
+  accentSoft: "#f5b58e"
+
 contexte: Projet réalisé dans le cadre de mon BTS Communication à l'École du Numérique. La marque Benetton a pour objectif de réinventer son identité visuelle et de l'adapter aux tendances actuelles. Elle souhaite repositionner sa marque dans l'univers du streetwear, en modernisant son image tout en préservant ses valeurs.
 brief: Repositionner Benetton comme une marque streetwear moderne tout en conservant son ADN.
 

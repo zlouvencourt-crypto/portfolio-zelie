@@ -11,6 +11,10 @@ tags: [Direction artistique, Vidéo, Social Media, Culture]
 role: Communication digitale et direction artistique
 featured: false
 
+theme:
+  accent: "#6b1a24"
+  accentSoft: "#c08d92"
+
 contexte: Alternance au sein de WEXX OI, mandatée par l'association ELECTROPICALES pour assurer la communication et la direction artistique de « Carte Blanche », initiative culturelle visant à mettre en lumière les artistes réunionnais locaux à travers des performances musicales filmées dans des lieux historiques emblématiques de La Réunion.
 brief: Comment concevoir une communication digitale capable de valoriser simultanément le patrimoine historique réunionnais et la création musicale locale ?
 

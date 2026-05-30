@@ -6,9 +6,24 @@
 	import MagneticLink from '$components/MagneticLink.svelte';
 
 	let { data } = $props();
+
+	const themeStyle = $derived.by(() => {
+		const t = data.meta.theme;
+		if (!t) return '';
+		const out: string[] = [];
+		if (t.accent) {
+			out.push(`--color-wine: ${t.accent}`);
+			out.push(`--color-rose: ${t.accent}`);
+		}
+		if (t.accentSoft) {
+			out.push(`--color-wine-soft: ${t.accentSoft}`);
+			out.push(`--color-rose-soft: ${t.accentSoft}`);
+		}
+		return out.join('; ');
+	});
 </script>
 
-<article>
+<article style={themeStyle}>
 	<ProjectHero meta={data.meta} />
 
 	{#if !data.meta.visualOnly}

@@ -11,6 +11,10 @@ tags: [Affiche, Édition, Culture]
 role: Direction artistique et production
 featured: false
 
+theme:
+  accent: "#8b3a1f"
+  accentSoft: "#cb9a82"
+
 contexte: Le Musée Léon Dierx, situé à Saint-Denis de La Réunion, lance l'exposition temporaire « Couleurs Australes — Regards Croisés Réunion-Maurice » du 12 juin au 13 septembre 2024.
 brief: Concevoir deux supports de communication cohérents et prêts pour impression — une affiche 4×3 et un flyer A5 recto/verso.
 

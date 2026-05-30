@@ -11,6 +11,10 @@ tags: [Affichage, Campagne, Lifestyle]
 role: Direction artistique et conception-rédaction
 featured: true
 
+theme:
+  accent: "#b8634a"
+  accentSoft: "#e2b594"
+
 contexte: La Fiat 500 est une voiture iconique, immédiatement reconnaissable par son design rétro et compact. Dans un marché automobile saturé de messages rationnels — performance, technologie, consommation — la marque cherche à réaffirmer son ADN émotionnel et lifestyle. La campagne « Auto-Portrait » sort du discours technique pour une communication plus incarnée et plus humaine.
 brief: Imaginer et concevoir une campagne d'affichage intitulée « Auto-Portrait » pour la Fiat 500. L'objectif est de créer trois affiches distinctes mettant en scène le véhicule.
 

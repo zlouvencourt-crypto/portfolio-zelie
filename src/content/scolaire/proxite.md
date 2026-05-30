@@ -11,6 +11,10 @@ tags: [Campagne, Prévention, Social Media]
 role: Direction artistique et conception-rédaction
 featured: false
 
+theme:
+  accent: "#d62828"
+  accentSoft: "#f0a4a4"
+
 brief: Créer une campagne de sensibilisation des jeunes aux addictions, sur les quatre thématiques suivantes — cigarette, alcool, drogues et conduite dangereuse sur la route.
 
 objectifs:
