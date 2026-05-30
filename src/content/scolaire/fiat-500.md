@@ -6,7 +6,7 @@ order: 7
 year: 2025
 client: Fiat
 tagline: Auto-Portrait — campagne d'affichage lifestyle pour une icône intemporelle.
-cover: /images/fiat-500/54609e13122545178ed03546.png
+cover: /images/fiat-500/lize.png
 tags: [Affichage, Campagne, Lifestyle]
 role: Direction artistique et conception-rédaction
 featured: true
