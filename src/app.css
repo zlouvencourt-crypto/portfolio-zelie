@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Palette — Vogue : blanc pur, noir profond, rouge éditorial */
+	/* Palette — élégance neutre : blanc, beige doux, noir profond */
 	--color-bg: #ffffff;
-	--color-cream: #fafafa;
-	--color-ink: #0a0a0a;
-	--color-wine: #c8102e;
-	--color-wine-soft: #d63a52;
-	--color-rose: #c8102e;
-	--color-rose-soft: #f5e1e4;
+	--color-cream: #f4ede5;
+	--color-ink: #1a1a1a;
+	--color-wine: #1a1a1a;
+	--color-wine-soft: #d9d2c8;
+	--color-rose: #1a1a1a;
+	--color-rose-soft: #f4ede5;
 
 	/* Typographies */
 	--font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
