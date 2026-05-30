@@ -154,14 +154,14 @@
 	</section>
 
 	<!-- 4bis. MANNEQUINAT -->
-	<section class="section bg-[color:var(--color-cream)]">
+	<section class="section bg-[color:var(--color-cream)] text-white">
 		<div class="container-page grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-12">
 			<div class="md:col-span-5">
-				<p class="eyebrow text-[color:var(--color-wine)]">Devant l'objectif</p>
+				<p class="eyebrow text-white/60">Devant l'objectif</p>
 				<h2 class="mt-6 font-display text-[clamp(2.5rem,5vw,4rem)] leading-[1.05]">
 					Aussi <span class="font-display-italic">mannequin</span>.
 				</h2>
-				<p class="mt-8 max-w-[42ch] text-lg leading-relaxed text-[color:var(--color-ink)]/80">
+				<p class="mt-8 max-w-[42ch] text-lg leading-relaxed text-white/85">
 					J'aime aussi me retrouver devant l'objectif. À travers la photographie, j'explore différents univers artistiques, des esthétiques et des ambiances variées — une autre façon de raconter une image et de nourrir mon regard de directrice artistique.
 				</p>
 			</div>
@@ -190,14 +190,14 @@
 
 			<div class="mt-16 grid grid-cols-1 gap-px bg-[color:var(--color-ink)]/15 md:grid-cols-2">
 				{#each competences as item, i (item.title)}
-					<article class="group bg-[color:var(--color-bg)] p-10 transition-colors duration-500 hover:bg-[color:var(--color-cream)] md:p-14">
-						<p class="eyebrow text-[color:var(--color-rose)]">
+					<article class="group bg-[color:var(--color-bg)] p-10 transition-colors duration-500 hover:bg-[color:var(--color-cream)] hover:text-white md:p-14">
+						<p class="eyebrow text-[color:var(--color-rose)] transition-colors group-hover:text-white/60">
 							{String(i + 1).padStart(2, '0')}
 						</p>
 						<h3 class="mt-6 font-display text-[clamp(1.75rem,2.8vw,2.5rem)] leading-tight">
 							{item.title}
 						</h3>
-						<p class="mt-6 max-w-[45ch] leading-relaxed text-[color:var(--color-ink)]/75">
+						<p class="mt-6 max-w-[45ch] leading-relaxed text-[color:var(--color-ink)]/75 transition-colors group-hover:text-white/85">
 							{item.text}
 						</p>
 					</article>

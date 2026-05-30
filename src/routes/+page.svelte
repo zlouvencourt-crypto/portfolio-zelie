@@ -99,10 +99,10 @@
 	</section>
 
 	<!-- LES DEUX VOLUMES -->
-	<section class="bg-[color:var(--color-cream)] text-[color:var(--color-ink)]">
+	<section class="bg-[color:var(--color-cream)] text-white">
 		<div class="container-page py-24">
-			<div class="border-b border-[color:var(--color-ink)]/15 pb-4 text-center">
-				<p class="eyebrow text-[color:var(--color-wine)]">— Dans ce numéro —</p>
+			<div class="border-b border-white/20 pb-4 text-center">
+				<p class="eyebrow text-white/60">— Dans ce numéro —</p>
 			</div>
 
 			<div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
@@ -113,14 +113,14 @@
 							<img src={proCover} alt="Wexx OI" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
-					<p class="eyebrow mt-6 text-[color:var(--color-wine)]">Volume I</p>
+					<p class="eyebrow mt-6 text-white/60">Volume I</p>
 					<h3 class="mt-3 font-display text-[clamp(2rem,3.5vw,3.25rem)] font-medium leading-tight">
 						Wexx <span class="font-display-italic">OI</span>
 					</h3>
-					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-[color:var(--color-ink)]/70">
+					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-white/75">
 						Deux années d'alternance en agence événementielle — stratégie digitale, direction artistique et festivals.
 					</p>
-					<span class="mt-5 inline-block border-b border-[color:var(--color-ink)] pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
+					<span class="mt-5 inline-block border-b border-white pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
 				</a>
 
 				<!-- Volume II -->
@@ -130,14 +130,14 @@
 							<img src={scoCover} alt="Scolaire" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
-					<p class="eyebrow mt-6 text-[color:var(--color-wine)]">Volume II</p>
+					<p class="eyebrow mt-6 text-white/60">Volume II</p>
 					<h3 class="mt-3 font-display text-[clamp(2rem,3.5vw,3.25rem)] font-medium leading-tight">
 						<span class="font-display-italic">Scolaire</span>
 					</h3>
-					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-[color:var(--color-ink)]/70">
+					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-white/75">
 						Les études de cas du BTS Communication — print éditorial, stratégie de marque et campagnes sociales.
 					</p>
-					<span class="mt-5 inline-block border-b border-[color:var(--color-ink)] pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
+					<span class="mt-5 inline-block border-b border-white pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
 				</a>
 			</div>
 		</div>

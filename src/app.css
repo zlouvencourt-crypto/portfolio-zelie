@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Palette — élégance neutre : blanc, beige doux, noir profond */
+	/* Palette — blanc, bordeaux foncé, noir profond */
 	--color-bg: #ffffff;
-	--color-cream: #f4ede5;
+	--color-cream: #4a1419;
 	--color-ink: #1a1a1a;
 	--color-wine: #1a1a1a;
-	--color-wine-soft: #d9d2c8;
+	--color-wine-soft: #4a1419;
 	--color-rose: #1a1a1a;
-	--color-rose-soft: #f4ede5;
+	--color-rose-soft: #4a1419;
 
 	/* Typographies */
 	--font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
@@ -111,8 +111,8 @@
 	}
 
 	::selection {
-		background: var(--color-wine);
-		color: var(--color-cream);
+		background: var(--color-ink);
+		color: var(--color-bg);
 	}
 
 	::-webkit-scrollbar {

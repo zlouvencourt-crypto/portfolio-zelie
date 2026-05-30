@@ -50,12 +50,12 @@
 
 	<!-- BRIEF -->
 	{#if meta.brief}
-		<section class="bg-[color:var(--color-cream)] py-24 md:py-32">
+		<section class="bg-[color:var(--color-cream)] py-24 text-white md:py-32">
 			<div class="container-page text-center">
-				<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
+				<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-white/60">
 					— Le brief
 				</p>
-				<p class="mx-auto mt-10 max-w-[36ch] font-display text-[clamp(1.75rem,3.5vw,3rem)] font-medium leading-[1.15] text-[color:var(--color-ink)]">
+				<p class="mx-auto mt-10 max-w-[36ch] font-display text-[clamp(1.75rem,3.5vw,3rem)] font-medium leading-[1.15] text-white">
 					<span class="font-display-italic">« </span>{meta.brief}<span class="font-display-italic"> »</span>
 				</p>
 			</div>
@@ -95,11 +95,11 @@
 
 	<!-- CIBLES -->
 	{#if hasCibles}
-		<section class="bg-[color:var(--color-cream)] py-20 md:py-28">
+		<section class="bg-[color:var(--color-cream)] py-20 text-white md:py-28">
 			<div class="container-page">
 				<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-x-16">
 					<div class="col-span-12 md:col-span-4">
-						<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
+						<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-white/60">
 							— Les cibles
 						</p>
 						<h2 class="mt-6 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium uppercase leading-[0.95]">
@@ -109,10 +109,10 @@
 					<div class="col-span-12 grid grid-cols-1 gap-10 md:col-span-8 md:grid-cols-3">
 						{#each ciblesEntries as [k, v] (k)}
 							<article>
-								<p class="border-t border-[color:var(--color-ink)] pt-4 font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-[color:var(--color-ink)]/70">
+								<p class="border-t border-white/40 pt-4 font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-white/75">
 									{cibleLabel(k)}
 								</p>
-								<p class="mt-4 text-[0.95rem] leading-[1.7] text-[color:var(--color-ink)]/85">{v}</p>
+								<p class="mt-4 text-[0.95rem] leading-[1.7] text-white/85">{v}</p>
 							</article>
 						{/each}
 					</div>
@@ -142,11 +142,11 @@
 
 	<!-- LIVRABLES & CONTRAINTES -->
 	{#if meta.livrables?.length || meta.contraintes}
-		<section class="bg-[color:var(--color-cream)] py-20 md:py-28">
+		<section class="bg-[color:var(--color-cream)] py-20 text-white md:py-28">
 			<div class="container-page">
 				<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-x-16">
 					<div class="col-span-12 md:col-span-4">
-						<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
+						<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-white/60">
 							— La production
 						</p>
 						<h2 class="mt-6 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium uppercase leading-[0.95]">
@@ -156,29 +156,29 @@
 					<div class="col-span-12 grid grid-cols-1 gap-10 md:col-span-8 {meta.contraintes ? 'md:grid-cols-2' : 'md:grid-cols-1'}">
 						{#if meta.livrables?.length}
 							<div>
-								<p class="font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-[color:var(--color-ink)]/55">
+								<p class="font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-white/60">
 									Livrés
 								</p>
-								<ul class="mt-5 divide-y divide-[color:var(--color-ink)]/20 border-y border-[color:var(--color-ink)]/20">
+								<ul class="mt-5 divide-y divide-white/20 border-y border-white/20">
 									{#each meta.livrables as l (l)}
-										<li class="py-4 text-[0.95rem] leading-[1.5] text-[color:var(--color-ink)]/90">{l}</li>
+										<li class="py-4 text-[0.95rem] leading-[1.5] text-white/90">{l}</li>
 									{/each}
 								</ul>
 							</div>
 						{/if}
 						{#if meta.contraintes}
 							<div>
-								<p class="font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-[color:var(--color-ink)]/55">
+								<p class="font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-white/60">
 									Contraintes
 								</p>
 								{#if Array.isArray(meta.contraintes)}
-									<ul class="mt-5 divide-y divide-[color:var(--color-ink)]/20 border-y border-[color:var(--color-ink)]/20">
+									<ul class="mt-5 divide-y divide-white/20 border-y border-white/20">
 										{#each meta.contraintes as c (c)}
-											<li class="py-4 text-[0.95rem] leading-[1.5] text-[color:var(--color-ink)]/90">{c}</li>
+											<li class="py-4 text-[0.95rem] leading-[1.5] text-white/90">{c}</li>
 										{/each}
 									</ul>
 								{:else}
-									<p class="mt-5 text-[0.95rem] leading-[1.7] text-[color:var(--color-ink)]/85">{meta.contraintes}</p>
+									<p class="mt-5 text-[0.95rem] leading-[1.7] text-white/85">{meta.contraintes}</p>
 								{/if}
 							</div>
 						{/if}

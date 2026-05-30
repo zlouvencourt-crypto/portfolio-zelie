@@ -59,18 +59,18 @@
 
 			<div class="md:col-span-7">
 				{#if form?.success}
-					<div class="rounded-lg border border-[color:var(--color-wine)] bg-[color:var(--color-cream)] p-10">
-						<p class="eyebrow text-[color:var(--color-wine)]">Message envoyé</p>
+					<div class="rounded-lg border border-[color:var(--color-cream)] bg-[color:var(--color-cream)] p-10 text-white">
+						<p class="eyebrow text-white/60">Message envoyé</p>
 						<h2 class="mt-4 font-display text-[clamp(2rem,4vw,3.5rem)] leading-none">
 							Merci <span class="font-display-italic">beaucoup</span>.
 						</h2>
-						<p class="mt-6 max-w-[40ch] text-[color:var(--color-ink)]/70">
+						<p class="mt-6 max-w-[40ch] text-white/80">
 							Je reviens vers vous sous 48h. En attendant, n'hésitez pas à parcourir mes projets.
 						</p>
 						<MagneticLink
 							href="/pro"
 							strength={0.2}
-							class="eyebrow mt-10 inline-flex items-center gap-3 underline decoration-[color:var(--color-wine)] decoration-[1px] underline-offset-8"
+							class="eyebrow mt-10 inline-flex items-center gap-3 underline decoration-white decoration-[1px] underline-offset-8"
 						>
 							<span>Voir les projets pro</span>
 							<span aria-hidden="true">→</span>
