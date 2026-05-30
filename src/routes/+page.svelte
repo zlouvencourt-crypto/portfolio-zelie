@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { listProjects } from '$lib/content/projects';
 
-	const featured = [
-		...listProjects('pro').filter((p) => p.meta.featured),
-		...listProjects('scolaire').filter((p) => p.meta.featured)
-	].slice(0, 8);
+	const featuredSlugs = ['crocs-x-britney', 'merchandesign-electropicales', 'denise'];
+	const allProjects = [...listProjects('pro'), ...listProjects('scolaire')];
+	const featured = featuredSlugs
+		.map((slug) => allProjects.find((p) => p.meta.slug === slug))
+		.filter((p): p is NonNullable<typeof p> => !!p);
 
 	const keywords = ['Stratégie', 'Image', 'Mode', 'Branding', 'Social Media', 'Événementiel', 'Émotion'];
 
@@ -43,17 +44,15 @@
 		</div>
 	</section>
 
-	<!-- BANDEAU MOTS-CLÉS -->
-	<section class="border-b border-[color:var(--color-ink)]/12 bg-[color:var(--color-bg)] py-7">
-		<div class="container-page">
-			<ul class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-center">
-				{#each keywords as word, i (word)}
-					<li class="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-[color:var(--color-ink)]/70">
-						{word}
+	<!-- BANDEAU MOTS-CLÉS (défile en boucle) -->
+	<section class="overflow-hidden border-y border-[color:var(--color-ink)]/12 bg-[color:var(--color-bg)] py-7">
+		<div class="marquee">
+			<ul class="marquee-track" aria-label="Mes terrains d'expression">
+				{#each [...keywords, ...keywords] as word, i (i)}
+					<li class="flex shrink-0 items-center gap-8">
+						<span class="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-[color:var(--color-ink)]/75">{word}</span>
+						<span class="font-display-italic text-base text-[color:var(--color-ink)]/30" aria-hidden="true">·</span>
 					</li>
-					{#if i < keywords.length - 1}
-						<li class="text-[color:var(--color-wine)]" aria-hidden="true">·</li>
-					{/if}
 				{/each}
 			</ul>
 		</div>
@@ -68,7 +67,7 @@
 			</div>
 
 			{#if featured.length}
-				<div class="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+				<div class="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
 					{#each featured as entry, i (entry.meta.slug)}
 						<a href={`/${entry.meta.category}/${entry.meta.slug}`} class="group flex flex-col">
 							<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
@@ -99,45 +98,45 @@
 	</section>
 
 	<!-- LES DEUX VOLUMES -->
-	<section class="bg-[color:var(--color-cream)] text-white">
+	<section class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
 		<div class="container-page py-24">
-			<div class="border-b border-white/20 pb-4 text-center">
-				<p class="eyebrow text-white/60">— Dans ce numéro —</p>
+			<div class="border-b border-[color:var(--color-ink)]/15 pb-4 text-center">
+				<p class="eyebrow text-[color:var(--color-ink)]/60">— Dans ce numéro —</p>
 			</div>
 
 			<div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
 				<!-- Volume I -->
 				<a href="/pro" class="group block">
-					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-bg)]">
+					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 						{#if proCover}
 							<img src={proCover} alt="Wexx OI" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
-					<p class="eyebrow mt-6 text-white/60">Volume I</p>
+					<p class="eyebrow mt-6 text-[color:var(--color-ink)]/60">Volume I</p>
 					<h3 class="mt-3 font-display text-[clamp(2rem,3.5vw,3.25rem)] font-medium leading-tight">
 						Wexx <span class="font-display-italic">OI</span>
 					</h3>
-					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-white/75">
+					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-[color:var(--color-ink)]/75">
 						Deux années d'alternance en agence événementielle — stratégie digitale, direction artistique et festivals.
 					</p>
-					<span class="mt-5 inline-block border-b border-white pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
+					<span class="mt-5 inline-block border-b border-[color:var(--color-ink)] pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
 				</a>
 
 				<!-- Volume II -->
 				<a href="/scolaire" class="group block">
-					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-bg)]">
+					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 						{#if scoCover}
 							<img src={scoCover} alt="Scolaire" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
-					<p class="eyebrow mt-6 text-white/60">Volume II</p>
+					<p class="eyebrow mt-6 text-[color:var(--color-ink)]/60">Volume II</p>
 					<h3 class="mt-3 font-display text-[clamp(2rem,3.5vw,3.25rem)] font-medium leading-tight">
 						<span class="font-display-italic">Scolaire</span>
 					</h3>
-					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-white/75">
+					<p class="mt-3 max-w-[42ch] text-base leading-relaxed text-[color:var(--color-ink)]/75">
 						Les études de cas du BTS Communication — print éditorial, stratégie de marque et campagnes sociales.
 					</p>
-					<span class="mt-5 inline-block border-b border-white pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
+					<span class="mt-5 inline-block border-b border-[color:var(--color-ink)] pb-1 font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-opacity group-hover:opacity-60">Lire le volume →</span>
 				</a>
 			</div>
 		</div>
@@ -193,3 +192,27 @@
 		</div>
 	</section>
 </article>
+
+<style>
+	.marquee {
+		overflow: hidden;
+		width: 100%;
+	}
+	.marquee-track {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		width: max-content;
+		animation: marquee 38s linear infinite;
+	}
+	.marquee-track:hover {
+		animation-play-state: paused;
+	}
+	@keyframes marquee {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.marquee-track { animation: none; }
+	}
+</style>

@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Palette — blanc, bordeaux foncé, noir profond */
+	/* Palette — blanc et noir, ultra moderne */
 	--color-bg: #ffffff;
-	--color-cream: #4a1419;
-	--color-ink: #1a1a1a;
-	--color-wine: #1a1a1a;
-	--color-wine-soft: #4a1419;
-	--color-rose: #1a1a1a;
-	--color-rose-soft: #4a1419;
+	--color-cream: #fafafa;
+	--color-ink: #0a0a0a;
+	--color-wine: #0a0a0a;
+	--color-wine-soft: #f2f2f2;
+	--color-rose: #0a0a0a;
+	--color-rose-soft: #f2f2f2;
 
 	/* Typographies */
 	--font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
