@@ -44,4 +44,5 @@ gallery:
   - { src: /images/crocs-x-britney/moodboard.png, alt: "Moodboard Y2K", ratio: "9/16" }
   - { src: /images/crocs-x-britney/mockup.png, alt: "Mockup Crocs", ratio: "1/1" }
   - { src: /images/crocs-x-britney/produit-derive.png, alt: "Produit dérivé Crocs", ratio: "1/1" }
+  - { src: /images/crocs-x-britney/landing-page.jpg, alt: "Landing page de la collaboration", ratio: "793/1983" }
 ---
