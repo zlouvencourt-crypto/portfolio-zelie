@@ -6,7 +6,7 @@ order: 4
 year: 2025
 client: LGM — Glacier de La Réunion
 tagline: Brand Book — moderniser une marque emblématique pour une cible plus jeune.
-cover: /images/lgm-glacier/01c204d979c54279832f1f8e.png
+cover: /images/lgm-glacier/ec45f3a9b1a84123aa6a6971.png
 tags: [Identité, Brand Book, Direction artistique]
 role: Direction de marque et design éditorial
 featured: true
