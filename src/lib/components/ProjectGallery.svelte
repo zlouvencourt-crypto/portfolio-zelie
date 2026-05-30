@@ -5,7 +5,8 @@
 	let { items }: Props = $props();
 
 	let lightboxItem = $state<GalleryItem | null>(null);
-	let innerWidth = $state(1200);
+	let trackEl = $state<HTMLDivElement | null>(null);
+	let currentIndex = $state(0);
 
 	const openLightbox = (item: GalleryItem) => {
 		if (item.video) return;
@@ -18,107 +19,119 @@
 		if (e.key === 'Escape' && lightboxItem) closeLightbox();
 	};
 
-	const numCols = $derived(innerWidth >= 1024 ? 3 : innerWidth >= 640 ? 2 : 1);
-
-	type Group = { label: string | null; items: GalleryItem[] };
-	const groups: Group[] = $derived.by(() => {
-		const list: Group[] = [];
-		let current: Group | null = null;
-		for (const item of items) {
-			const label = item.section ?? null;
-			if (!current || current.label !== label) {
-				current = { label, items: [] };
-				list.push(current);
-			}
-			current.items.push(item);
-		}
-		return list;
-	});
-
-	// Vraie répartition masonry : chaque image va dans la colonne la plus courte.
-	const itemHeight = (item: GalleryItem): number => {
-		const [w, h] = (item.ratio ?? '4/5').split('/').map(Number);
-		if (!w || !h) return 1.25;
-		return h / w;
+	const scrollByOne = (dir: 1 | -1) => {
+		if (!trackEl) return;
+		const step = trackEl.clientWidth * 0.65;
+		trackEl.scrollBy({ left: dir * step, behavior: 'smooth' });
 	};
 
-	const distribute = (list: GalleryItem[], cols: number): GalleryItem[][] => {
-		const columns: GalleryItem[][] = Array.from({ length: cols }, () => []);
-		const heights = new Array(cols).fill(0);
-		for (const item of list) {
-			let shortest = 0;
-			for (let c = 1; c < cols; c++) {
-				if (heights[c] < heights[shortest]) shortest = c;
+	const onScroll = () => {
+		if (!trackEl) return;
+		const children = Array.from(trackEl.children) as HTMLElement[];
+		const center = trackEl.scrollLeft + trackEl.clientWidth / 2;
+		let nearest = 0;
+		let minDist = Infinity;
+		for (let i = 0; i < children.length; i++) {
+			const c = children[i];
+			const cCenter = c.offsetLeft + c.offsetWidth / 2;
+			const d = Math.abs(cCenter - center);
+			if (d < minDist) {
+				minDist = d;
+				nearest = i;
 			}
-			columns[shortest].push(item);
-			heights[shortest] += itemHeight(item);
 		}
-		return columns;
+		currentIndex = nearest;
 	};
 </script>
 
-<svelte:window on:keydown={onKey} bind:innerWidth />
+<svelte:window on:keydown={onKey} />
 
 {#if items.length}
 	<section class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
-		<div class="container-page py-24">
-			<p class="eyebrow text-center text-[color:var(--color-wine)]">La galerie</p>
+		<div class="pt-20 pb-16 md:pt-28 md:pb-24">
+			<!-- HEADER -->
+			<div class="container-page flex flex-wrap items-end justify-between gap-6 pb-10">
+				<div>
+					<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
+						— La galerie
+					</p>
+					<h2 class="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium uppercase leading-[0.95]">
+						Les <span class="font-display-italic normal-case">visuels</span>
+					</h2>
+				</div>
+				<span class="font-display-italic text-base text-[color:var(--color-ink)]/65 tabular-nums">
+					{String(currentIndex + 1).padStart(2, '0')} <span class="text-[color:var(--color-ink)]/30">/</span> {String(items.length).padStart(2, '0')}
+				</span>
+			</div>
 
-			<div class="mt-20 space-y-28">
-				{#each groups as group, gi (gi)}
-					<div>
-						{#if group.label}
-							<div class="mb-12 text-center">
-								<p class="eyebrow text-[color:var(--color-ink)]/55">— Chapitre {String(gi + 1).padStart(2, '0')} —</p>
-								<h3 class="mt-4 font-display-italic text-[clamp(1.75rem,3.5vw,3rem)] font-normal leading-tight text-[color:var(--color-ink)]">
-									{group.label}
-								</h3>
-							</div>
-						{/if}
-
-						<!-- MASONRY : colonnes équilibrées -->
-						<div class="flex items-start gap-3">
-							{#each distribute(group.items, numCols) as column (column)}
-								<div class="flex flex-1 flex-col gap-3">
-									{#each column as item, i (i)}
-										<figure>
-											{#if item.video}
-												<video
-													src={item.src}
-													poster={item.poster}
-													muted
-													loop
-													playsinline
-													autoplay
-													class="block h-auto w-full align-top"
-												></video>
-											{:else}
-												<button
-													type="button"
-													onclick={() => openLightbox(item)}
-													class="group block w-full cursor-zoom-in p-0 leading-[0]"
-													aria-label="Agrandir l'image"
-												>
-													<img
-														src={item.src}
-														alt={item.alt || ''}
-														class="block h-auto w-full align-top transition-opacity duration-500 group-hover:opacity-85"
-														loading="lazy"
-													/>
-												</button>
-											{/if}
-											{#if item.caption}
-												<figcaption class="mt-2 text-center font-display-italic text-sm text-[color:var(--color-ink)]/55">
-													{item.caption}
-												</figcaption>
-											{/if}
-										</figure>
-									{/each}
-								</div>
-							{/each}
+			<!-- TRACK -->
+			<div
+				bind:this={trackEl}
+				onscroll={onScroll}
+				class="carousel-track flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-6 md:gap-6"
+				style="padding-left: var(--spacing-page); padding-right: var(--spacing-page);"
+			>
+				{#each items as item, i (i)}
+					<figure class="flex shrink-0 snap-center flex-col">
+						<div class="h-[55vh] md:h-[75vh]">
+							{#if item.video}
+								<video
+									src={item.src}
+									poster={item.poster}
+									muted
+									loop
+									playsinline
+									autoplay
+									class="block h-full w-auto"
+								></video>
+							{:else}
+								<button
+									type="button"
+									onclick={() => openLightbox(item)}
+									class="group block h-full cursor-zoom-in p-0 leading-[0]"
+									aria-label="Agrandir l'image"
+								>
+									<img
+										src={item.src}
+										alt={item.alt || ''}
+										class="block h-full w-auto transition-opacity duration-500 group-hover:opacity-85"
+										loading="lazy"
+									/>
+								</button>
+							{/if}
 						</div>
-					</div>
+						{#if item.caption}
+							<figcaption class="mt-4 max-w-[42ch] font-display-italic text-sm text-[color:var(--color-ink)]/55">
+								{item.caption}
+							</figcaption>
+						{/if}
+					</figure>
 				{/each}
+			</div>
+
+			<!-- CONTROLS -->
+			<div class="container-page mt-10 flex items-center justify-between gap-6">
+				<div class="flex items-center gap-3">
+					<button
+						type="button"
+						onclick={() => scrollByOne(-1)}
+						class="flex h-12 w-12 items-center justify-center border border-[color:var(--color-ink)] transition-colors hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-bg)]"
+						aria-label="Visuel précédent"
+					>
+						<span aria-hidden="true" class="text-xl leading-none">←</span>
+					</button>
+					<button
+						type="button"
+						onclick={() => scrollByOne(1)}
+						class="flex h-12 w-12 items-center justify-center border border-[color:var(--color-ink)] transition-colors hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-bg)]"
+						aria-label="Visuel suivant"
+					>
+						<span aria-hidden="true" class="text-xl leading-none">→</span>
+					</button>
+				</div>
+				<p class="hidden font-display-italic text-sm text-[color:var(--color-ink)]/55 sm:block">
+					Faites défiler pour explorer
+				</p>
 			</div>
 		</div>
 	</section>
@@ -154,3 +167,12 @@
 		/>
 	</div>
 {/if}
+
+<style>
+	.carousel-track {
+		scrollbar-width: none;
+	}
+	.carousel-track::-webkit-scrollbar {
+		display: none;
+	}
+</style>
