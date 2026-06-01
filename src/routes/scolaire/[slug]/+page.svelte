@@ -1,10 +1,6 @@
 <script lang="ts">
 	import ProjectHero from '$components/ProjectHero.svelte';
-	import BriefBlock from '$components/BriefBlock.svelte';
-	import ProjectGallery from '$components/ProjectGallery.svelte';
-	import ProjectVisuals from '$components/ProjectVisuals.svelte';
-	import ImageReveal from '$components/ImageReveal.svelte';
-	import MagneticLink from '$components/MagneticLink.svelte';
+	import ProjectStory from '$components/ProjectStory.svelte';
 
 	let { data } = $props();
 </script>
@@ -12,26 +8,9 @@
 <article>
 	<ProjectHero meta={data.meta} />
 
-	<!-- Cible du bouton « Découvrir » : toujours présente, même pour les projets visualOnly -->
+	<!-- Récit lookbook : texte et visuels entrelacés (chaque visuel une seule fois) -->
 	<div id="projet">
-		{#if !data.meta.visualOnly}
-			<BriefBlock meta={data.meta} />
-		{:else}
-			<section class="bg-[color:var(--color-bg)]">
-				<div class="container-page section">
-					<p class="eyebrow text-[color:var(--color-wine)]">Étude de cas</p>
-					<p class="mt-6 max-w-[50ch] font-display text-[clamp(1.5rem,2.5vw,2.5rem)] leading-tight text-[color:var(--color-ink)]/75">
-						Le brief détaillé sera publié prochainement. En attendant, place aux visuels.
-					</p>
-				</div>
-			</section>
-		{/if}
-
-		<!-- Galerie principale en mosaïque (regroupée par thème) -->
-		<ProjectVisuals items={data.meta.gallery ?? []} />
-
-		<!-- Galerie défilante horizontale conservée en bas de page -->
-		<ProjectGallery items={data.meta.gallery ?? []} />
+		<ProjectStory meta={data.meta} />
 	</div>
 
 	<!-- Prev / Next -->
