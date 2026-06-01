@@ -26,7 +26,7 @@
 	const objectifLabel = (key: string) => key[0].toUpperCase() + key.slice(1);
 </script>
 
-<div id="projet" class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
+<div class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
 	<!-- CONTEXTE -->
 	{#if meta.contexte}
 		<section class="container-page py-20 md:py-28">

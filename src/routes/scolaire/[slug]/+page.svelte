@@ -11,20 +11,23 @@
 <article>
 	<ProjectHero meta={data.meta} />
 
-	{#if !data.meta.visualOnly}
-		<BriefBlock meta={data.meta} />
-	{:else}
-		<section class="bg-[color:var(--color-bg)]">
-			<div class="container-page section">
-				<p class="eyebrow text-[color:var(--color-wine)]">Étude de cas</p>
-				<p class="mt-6 max-w-[50ch] font-display text-[clamp(1.5rem,2.5vw,2.5rem)] leading-tight text-[color:var(--color-ink)]/75">
-					Le brief détaillé sera publié prochainement. En attendant, place aux visuels.
-				</p>
-			</div>
-		</section>
-	{/if}
+	<!-- Cible du bouton « Découvrir » : toujours présente, même pour les projets visualOnly -->
+	<div id="projet">
+		{#if !data.meta.visualOnly}
+			<BriefBlock meta={data.meta} />
+		{:else}
+			<section class="bg-[color:var(--color-bg)]">
+				<div class="container-page section">
+					<p class="eyebrow text-[color:var(--color-wine)]">Étude de cas</p>
+					<p class="mt-6 max-w-[50ch] font-display text-[clamp(1.5rem,2.5vw,2.5rem)] leading-tight text-[color:var(--color-ink)]/75">
+						Le brief détaillé sera publié prochainement. En attendant, place aux visuels.
+					</p>
+				</div>
+			</section>
+		{/if}
 
-	<ProjectGallery items={data.meta.gallery ?? []} />
+		<ProjectGallery items={data.meta.gallery ?? []} />
+	</div>
 
 	<!-- Prev / Next -->
 	<section class="bg-[color:var(--color-ink)] text-white">
