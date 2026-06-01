@@ -1,13 +1,12 @@
 ---
-title: Merchandesign Electropicales
+title: Merchandising Electropicales
 slug: merchandesign-electropicales
 category: pro
 order: 3
 year: 2025
 client: Association Festival Electropicales
 tagline: Merchandising écoresponsable — broderie, minimalisme, seconde main.
-cover: /images/merchandesign-electropicales/shooting-1.png
-coverVideo: /images/merchandesign-electropicales/video/couverture.mp4
+cover: /images/merchandesign-electropicales/shooting-paysage-1.png
 tags: [Merchandising, Direction artistique, Écoresponsabilité]
 role: Responsable merchandising — mission menée en solo
 featured: true

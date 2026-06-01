@@ -82,9 +82,11 @@
 		{block.heading}
 	</h2>
 	{#if block.kind === 'para'}
-		<p class="mt-6 max-w-[46ch] font-sans text-[0.975rem] leading-[1.85] text-[color:var(--color-ink)]/60">
-			{block.text}
-		</p>
+		<div class="mt-6 max-w-[46ch] space-y-4">
+			{#each block.text.split(/\n\s*\n/).filter((p) => p.trim()) as para (para)}
+				<p class="font-sans text-[0.975rem] leading-[1.85] text-[color:var(--color-ink)]/60">{para.trim()}</p>
+			{/each}
+		</div>
 	{:else if block.kind === 'list'}
 		<div class="mt-7 space-y-5">
 			{#each block.entries as [k, v] (k)}
