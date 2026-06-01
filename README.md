@@ -40,3 +40,38 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Vérifier avant de déployer
+
+Avant chaque mise en ligne, lance :
+
+```sh
+npm run verify
+```
+
+Cette commande joue les tests automatiques **puis** le build de production —
+exactement les mêmes contrôles que le serveur de déploiement. Si elle réussit,
+le déploiement réussira aussi.
+
+- `npm run test` — lance uniquement les tests (rapide).
+- `npm run test:watch` — relance les tests à chaque modification.
+
+Les tests vérifient notamment :
+
+- que chaque page projet possède bien le repère `#projet` (cible du bouton « Découvrir ») ;
+- que toutes les images et vidéos citées dans les fiches projet existent vraiment ;
+- que chaque fiche projet est correctement remplie.
+
+## Optimisation des images et vidéos
+
+Tous les médias sont déclinés en formats modernes et légers (AVIF / WebP pour
+les images, WebM pour les vidéos) avec un format de secours universel
+(PNG / JPG, MP4). Pour (re)générer ces fichiers après avoir ajouté de nouveaux
+médias :
+
+```sh
+npm run optimize:media
+```
+
+Le script ne retraite que les nouveaux médias ou ceux qui ont changé.
+Il a besoin de [`ffmpeg`](https://ffmpeg.org/) installé sur la machine pour les vidéos.
