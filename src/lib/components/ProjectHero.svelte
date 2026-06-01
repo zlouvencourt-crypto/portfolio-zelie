@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { ProjectMeta } from '$lib/content/projects';
+	import Picture from '$components/Picture.svelte';
+	import Video from '$components/Video.svelte';
 
 	type Props = { meta: ProjectMeta };
 	let { meta }: Props = $props();
@@ -65,17 +67,15 @@
 			<!-- RIGHT — Visuel de couverture -->
 			<figure class="col-span-12 md:col-span-5 md:order-2">
 				{#if meta.coverVideo}
-					<video
-						src={meta.coverVideo}
-						poster={meta.cover}
-						autoplay
-						muted
-						loop
-						playsinline
-						class="block h-auto w-full"
-					></video>
+					<Video src={meta.coverVideo} poster={meta.cover} class="block h-auto w-full" />
 				{:else}
-					<img src={meta.cover} alt={meta.title} class="block h-auto w-full" />
+					<Picture
+						src={meta.cover}
+						alt={meta.title}
+						class="block h-auto w-full"
+						loading="eager"
+						fetchpriority="high"
+					/>
 				{/if}
 			</figure>
 		</div>

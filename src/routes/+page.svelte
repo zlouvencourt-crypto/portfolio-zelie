@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { listProjects } from '$lib/content/projects';
+	import Picture from '$components/Picture.svelte';
+	import Video from '$components/Video.svelte';
 
 	const featuredSlugs = ['crocs-x-britney', 'merchandesign-electropicales', 'denise'];
 	const allProjects = [...listProjects('pro'), ...listProjects('scolaire')];
@@ -16,15 +18,12 @@
 <article>
 	<!-- HERO COVER MAGAZINE -->
 	<section class="relative h-[100svh] w-full overflow-hidden bg-[color:var(--color-ink)] text-white">
-		<video
+		<Video
 			src="/images/accueil/video/accueil-1080p.mp4"
-			class="absolute inset-0 h-full w-full object-cover opacity-70"
-			autoplay
-			muted
-			loop
-			playsinline
 			poster="/images/accueil/00e578ba010c422290a36b73.jpg"
-		></video>
+			preload="auto"
+			class="absolute inset-0 h-full w-full object-cover opacity-70"
+		/>
 		<div class="absolute inset-0 bg-[color:var(--color-ink)]/30"></div>
 
 		<div class="container-page relative flex h-full flex-col items-center justify-end pb-24 text-center">
@@ -72,9 +71,9 @@
 						<a href={`/${entry.meta.category}/${entry.meta.slug}`} class="group flex flex-col">
 							<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 								{#if entry.meta.coverVideo}
-									<video src={entry.meta.coverVideo} poster={entry.meta.cover} autoplay muted loop playsinline class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85"></video>
+									<Video src={entry.meta.coverVideo} poster={entry.meta.cover} ariaLabel={entry.meta.title} class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85" />
 								{:else}
-									<img src={entry.meta.cover} alt={entry.meta.title} class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85" loading="lazy" />
+									<Picture src={entry.meta.cover} alt={entry.meta.title} class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85" loading="lazy" />
 								{/if}
 							</div>
 							<p class="eyebrow mt-5 text-[color:var(--color-wine)]">
@@ -109,7 +108,7 @@
 				<a href="/pro" class="group block">
 					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 						{#if proCover}
-							<img src={proCover} alt="Wexx OI" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
+							<Picture src={proCover} alt="Wexx OI" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
 					<p class="eyebrow mt-6 text-[color:var(--color-ink)]/60">Volume I</p>
@@ -126,7 +125,7 @@
 				<a href="/scolaire" class="group block">
 					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 						{#if scoCover}
-							<img src={scoCover} alt="Scolaire" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
+							<Picture src={scoCover} alt="Scolaire" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
 						{/if}
 					</div>
 					<p class="eyebrow mt-6 text-[color:var(--color-ink)]/60">Volume II</p>
@@ -158,7 +157,7 @@
 		<div class="container-page grid grid-cols-1 items-center gap-16 py-24 md:grid-cols-12">
 			<div class="md:col-span-5">
 				<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
-					<img src="/images/a-propos/portrait.jpg" alt="Portrait — Lize Louvencourt" class="h-full w-full object-cover object-center" loading="lazy" />
+					<Picture src="/images/a-propos/portrait.jpg" alt="Portrait — Lize Louvencourt" class="h-full w-full object-cover object-center" loading="lazy" />
 				</div>
 			</div>
 			<div class="md:col-span-6 md:col-start-7">

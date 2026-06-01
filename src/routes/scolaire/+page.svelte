@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { listProjects } from '$lib/content/projects';
+	import Picture from '$components/Picture.svelte';
 
 	const entries = listProjects('scolaire');
 </script>
@@ -37,7 +38,7 @@
 					class="group flex flex-col"
 				>
 					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
-						<img
+						<Picture
 							src={entry.meta.cover}
 							alt={entry.meta.title}
 							class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85"

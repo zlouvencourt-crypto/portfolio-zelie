@@ -2,6 +2,7 @@
 	import SplitText from '$components/SplitText.svelte';
 	import ImageReveal from '$components/ImageReveal.svelte';
 	import MagneticLink from '$components/MagneticLink.svelte';
+	import Picture from '$components/Picture.svelte';
 
 	const keywords = ['Stratégie', 'Image', 'Mode', 'Branding', 'Social Media', 'Émotion'];
 
@@ -34,9 +35,11 @@
 <article class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
 	<!-- 1. HERO -->
 	<section class="relative h-[100svh] w-full overflow-hidden bg-[color:var(--color-ink)] text-white">
-		<img
+		<Picture
 			src="/images/a-propos/portrait.jpg"
 			alt="Portrait — Lize Louvencourt"
+			loading="eager"
+			fetchpriority="high"
 			class="absolute inset-0 h-full w-full object-cover opacity-55"
 		/>
 		<div class="absolute inset-0 bg-[color:var(--color-ink)]/55"></div>

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { GalleryItem } from '$lib/content/types';
+	import Picture from '$components/Picture.svelte';
+	import Video from '$components/Video.svelte';
 
 	type Props = { items: GalleryItem[] };
 	let { items }: Props = $props();
@@ -75,15 +77,12 @@
 					<figure class="flex shrink-0 snap-center flex-col">
 						<div class="h-[55vh] md:h-[75vh]">
 							{#if item.video}
-								<video
+								<Video
 									src={item.src}
 									poster={item.poster}
-									muted
-									loop
-									playsinline
-									autoplay
+									ariaLabel={item.alt || ''}
 									class="block h-full w-auto"
-								></video>
+								/>
 							{:else}
 								<button
 									type="button"
@@ -91,7 +90,7 @@
 									class="group block h-full cursor-zoom-in p-0 leading-[0]"
 									aria-label="Agrandir l'image"
 								>
-									<img
+									<Picture
 										src={item.src}
 										alt={item.alt || ''}
 										class="block h-full w-auto transition-opacity duration-500 group-hover:opacity-85"
@@ -160,9 +159,10 @@
 			<span aria-hidden="true" class="text-lg leading-none">×</span>
 		</button>
 
-		<img
+		<Picture
 			src={lightboxItem.src}
 			alt={lightboxItem.alt || ''}
+			loading="eager"
 			class="relative z-[5] max-h-[90vh] max-w-[95vw] object-contain"
 		/>
 	</div>

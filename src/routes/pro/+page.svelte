@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { listProjects } from '$lib/content/projects';
+	import Picture from '$components/Picture.svelte';
+	import Video from '$components/Video.svelte';
 
 	const entries = listProjects('pro');
 </script>
@@ -42,17 +44,14 @@
 					<!-- Image (cadre uniforme 4/5, recadrage centré) -->
 					<div class="aspect-[4/5] overflow-hidden bg-[color:var(--color-cream)]">
 						{#if entry.meta.coverVideo}
-							<video
+							<Video
 								src={entry.meta.coverVideo}
 								poster={entry.meta.cover}
-								autoplay
-								muted
-								loop
-								playsinline
+								ariaLabel={entry.meta.title}
 								class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85"
-							></video>
+							/>
 						{:else}
-							<img
+							<Picture
 								src={entry.meta.cover}
 								alt={entry.meta.title}
 								class="h-full w-full object-cover object-center transition-opacity duration-500 group-hover:opacity-85"

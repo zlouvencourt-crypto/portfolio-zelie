@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { ProjectEntry } from '$lib/content/projects';
+	import Picture from '$components/Picture.svelte';
+	import Video from '$components/Video.svelte';
 
 	type Props = {
 		entry: ProjectEntry;
@@ -13,18 +15,14 @@
 <a {href} class="project-card-grid group relative block overflow-hidden rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.22)] transition-shadow duration-500 ease-[var(--ease-out-expo)] hover:shadow-[0_0_55px_rgba(0,0,0,0.35)]">
 	<div class="relative w-full">
 		{#if entry.meta.coverVideo}
-			<video
+			<Video
 				src={entry.meta.coverVideo}
 				poster={entry.meta.cover}
-				autoplay
-				muted
-				loop
-				playsinline
-				aria-label={entry.meta.title}
+				ariaLabel={entry.meta.title}
 				class="block h-auto w-full transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03]"
-			></video>
+			/>
 		{:else}
-			<img
+			<Picture
 				src={entry.meta.cover}
 				alt={entry.meta.title}
 				class="block h-auto w-full object-contain transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03]"
