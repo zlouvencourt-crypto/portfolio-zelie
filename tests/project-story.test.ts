@@ -77,12 +77,13 @@ describe('ProjectStory — récit lookbook', () => {
 		expect(body).toContain('type="video/webm"');
 	});
 
-	it('affiche le titre de section quand les visuels sont groupés', () => {
-		const gallery: GalleryItem[] = [
-			{ src: '/images/a.png', alt: '', ratio: '4/5', section: 'Affiches' },
-			{ src: '/images/b.png', alt: '', ratio: '4/5', section: 'Affiches' }
-		];
-		const body = r(base({ gallery }));
-		expect(body).toContain('Affiches');
+	it('affiche un mot géant en filigrane (à partir du premier tag) avec les visuels en trop', () => {
+		const gallery: GalleryItem[] = Array.from({ length: 6 }, (_, i) => ({
+			src: `/images/g${i}.png`,
+			alt: '',
+			ratio: '4/5'
+		}));
+		const body = r(base({ tags: ['Branding'], gallery }));
+		expect(body).toContain('Branding');
 	});
 });

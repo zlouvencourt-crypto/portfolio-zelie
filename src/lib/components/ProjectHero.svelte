@@ -5,79 +5,74 @@
 
 	type Props = { meta: ProjectMeta };
 	let { meta }: Props = $props();
-
-	const categoryLabel = $derived(meta.category === 'scolaire' ? 'Scolaire' : 'Wexx OI');
 </script>
 
 <section class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
-	<div class="container-page pt-32 pb-20 md:pt-40 md:pb-28">
-		<div class="grid grid-cols-12 items-center gap-x-8 gap-y-12 md:gap-x-16">
-			<!-- LEFT — Titre & intro -->
-			<div class="col-span-12 md:col-span-7 md:order-1">
-				<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
-					N° {String(meta.order).padStart(2, '0')}{#if meta.year} · {meta.year}{/if} — {categoryLabel}
+	<!-- COUVERTURE plein cadre + nom du projet en géant (façon « sage ») -->
+	<div class="relative h-[82svh] min-h-[480px] w-full overflow-hidden md:h-[92svh]">
+		{#if meta.coverVideo}
+			<Video src={meta.coverVideo} poster={meta.cover} class="absolute inset-0 h-full w-full object-cover" />
+		{:else}
+			<Picture
+				src={meta.cover}
+				alt={meta.title}
+				loading="eager"
+				fetchpriority="high"
+				class="absolute inset-0 h-full w-full object-cover"
+			/>
+		{/if}
+		<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/35"></div>
+
+		<h1
+			class="absolute inset-x-0 bottom-0 px-[var(--spacing-page)] pb-1 font-display lowercase leading-[0.82] text-white md:pb-3"
+			style="font-size: clamp(3rem, 13vw, 11rem);"
+		>
+			{meta.title}
+		</h1>
+	</div>
+
+	<!-- BANDE INFOS sous l'image -->
+	<div class="container-page flex flex-col gap-8 py-10 md:flex-row md:items-end md:justify-between md:gap-16 md:py-14">
+		<div class="max-w-[46ch]">
+			{#if meta.tagline}
+				<p class="font-sans text-[clamp(1.05rem,1.4vw,1.35rem)] leading-[1.6] text-[color:var(--color-ink)]/70">
+					{meta.tagline}
 				</p>
-
-				<h1 class="mt-8 font-display text-[clamp(2.75rem,7vw,6rem)] font-medium uppercase leading-[0.95]">
-					{meta.title}
-				</h1>
-
-				{#if meta.tagline}
-					<p class="mt-7 max-w-[52ch] font-sans text-[clamp(1.05rem,1.4vw,1.3rem)] leading-[1.6] text-[color:var(--color-ink)]/70">
-						{meta.tagline}
-					</p>
-				{/if}
-
-				<div class="mt-12 flex flex-wrap gap-x-10 gap-y-6">
-					{#if meta.client}
-						<div>
-							<p class="font-sans text-[9px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-ink)]/50">
-								Client
-							</p>
-							<p class="mt-2 text-[0.95rem] text-[color:var(--color-ink)]/90">{meta.client}</p>
-						</div>
-					{/if}
-					{#if meta.role}
-						<div>
-							<p class="font-sans text-[9px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-ink)]/50">
-								Rôle
-							</p>
-							<p class="mt-2 text-[0.95rem] text-[color:var(--color-ink)]/90">{meta.role}</p>
-						</div>
-					{/if}
-					{#if meta.year}
-						<div>
-							<p class="font-sans text-[9px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-ink)]/50">
-								Année
-							</p>
-							<p class="mt-2 text-[0.95rem] text-[color:var(--color-ink)]/90">{meta.year}</p>
-						</div>
-					{/if}
-				</div>
-
-				<a
-					href="#projet"
-					class="mt-12 inline-flex items-center gap-3 border border-[color:var(--color-ink)] px-7 py-3.5 font-sans text-[11px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-ink)] transition-colors hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-bg)]"
-				>
-					Découvrir
-					<span aria-hidden="true">↓</span>
-				</a>
-			</div>
-
-			<!-- RIGHT — Visuel de couverture -->
-			<figure class="col-span-12 md:col-span-5 md:order-2">
-				{#if meta.coverVideo}
-					<Video src={meta.coverVideo} poster={meta.cover} class="block h-auto w-full" />
-				{:else}
-					<Picture
-						src={meta.cover}
-						alt={meta.title}
-						class="block h-auto w-full"
-						loading="eager"
-						fetchpriority="high"
-					/>
-				{/if}
-			</figure>
+			{/if}
+			<a
+				href="#projet"
+				class="mt-7 inline-flex items-center gap-2.5 rounded-full bg-[color:var(--color-ink)] px-7 py-3 font-sans text-[11px] font-medium uppercase tracking-[0.25em] text-[color:var(--color-bg)] transition-opacity hover:opacity-80"
+			>
+				Découvrir
+				<span aria-hidden="true">↓</span>
+			</a>
 		</div>
+
+		<dl class="flex flex-wrap gap-x-10 gap-y-5">
+			{#if meta.client}
+				<div>
+					<dt class="font-sans text-[9px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-ink)]/45">
+						Client
+					</dt>
+					<dd class="mt-2 font-sans text-[0.95rem] text-[color:var(--color-ink)]/85">{meta.client}</dd>
+				</div>
+			{/if}
+			{#if meta.role}
+				<div>
+					<dt class="font-sans text-[9px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-ink)]/45">
+						Rôle
+					</dt>
+					<dd class="mt-2 font-sans text-[0.95rem] text-[color:var(--color-ink)]/85">{meta.role}</dd>
+				</div>
+			{/if}
+			{#if meta.year}
+				<div>
+					<dt class="font-sans text-[9px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-ink)]/45">
+						Année
+					</dt>
+					<dd class="mt-2 font-sans text-[0.95rem] text-[color:var(--color-ink)]/85">{meta.year}</dd>
+				</div>
+			{/if}
+		</dl>
 	</div>
 </section>
