@@ -10,8 +10,8 @@
 	--color-rose: #0a0a0a;
 	--color-rose-soft: #f2f2f2;
 
-	/* Typographies */
-	--font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+	/* Typographies — titres en serif élégant (Fraunces), textes en sans lisible (Inter) */
+	--font-display: 'Fraunces', 'Times New Roman', serif;
 	--font-sans: 'Inter', system-ui, sans-serif;
 
 	/* Échelle fluide */

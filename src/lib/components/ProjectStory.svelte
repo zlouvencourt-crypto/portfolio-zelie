@@ -150,7 +150,7 @@
 				<p class="mb-6 font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/45">
 					— L'histoire
 				</p>
-				<p class="max-w-[24ch] font-display text-[clamp(1.75rem,4vw,3.5rem)] font-medium leading-[1.1]">
+				<p class="max-w-[44ch] font-sans text-[clamp(1.15rem,1.9vw,1.6rem)] leading-[1.6] text-[color:var(--color-ink)]/80">
 					{block.text}
 				</p>
 			</section>
@@ -208,7 +208,7 @@
 					<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/45 md:col-span-4">
 						— La direction artistique
 					</p>
-					<p class="font-display text-[clamp(1.35rem,2.5vw,2rem)] font-medium leading-[1.3] text-[color:var(--color-ink)]/90 md:col-span-8">
+					<p class="font-sans text-[clamp(1.05rem,1.6vw,1.35rem)] leading-[1.65] text-[color:var(--color-ink)]/80 md:col-span-8">
 						{block.text}
 					</p>
 				</div>

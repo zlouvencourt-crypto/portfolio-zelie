@@ -70,7 +70,7 @@
 						{entry.meta.title}
 					</h2>
 
-					<p class="mt-2 line-clamp-2 min-h-[3em] font-display-italic text-sm leading-snug text-[color:var(--color-ink)]/65">
+					<p class="mt-2 line-clamp-2 min-h-[3em] font-sans text-sm leading-relaxed text-[color:var(--color-ink)]/60">
 						{entry.meta.tagline ?? ''}
 					</p>
 

@@ -31,7 +31,7 @@
 			<h1 class="mt-8 font-display text-[clamp(3.5rem,11vw,11rem)] font-medium leading-[0.92] text-white">
 				<span class="font-display-italic">Portfolio</span>
 			</h1>
-			<p class="mt-10 max-w-[40ch] font-display-italic text-[clamp(1.1rem,1.6vw,1.6rem)] leading-snug text-white/90">
+			<p class="mt-10 max-w-[44ch] font-sans text-[clamp(1.05rem,1.3vw,1.35rem)] leading-[1.6] text-white/85">
 				Communication, direction artistique &amp; événementiel — par Lize Louvencourt.
 			</p>
 			<a
@@ -82,7 +82,7 @@
 							<h2 class="mt-3 font-display text-[clamp(1.4rem,1.8vw,1.75rem)] font-medium leading-[1.1]">
 								{entry.meta.title}
 							</h2>
-							<p class="mt-2 line-clamp-2 min-h-[3em] font-display-italic text-sm leading-snug text-[color:var(--color-ink)]/65">
+							<p class="mt-2 line-clamp-2 min-h-[3em] font-sans text-sm leading-relaxed text-[color:var(--color-ink)]/60">
 								{entry.meta.tagline ?? ''}
 							</p>
 							<div class="mt-auto flex items-center gap-3 pt-4 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-ink)]/55">

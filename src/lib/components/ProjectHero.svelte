@@ -23,7 +23,7 @@
 				</h1>
 
 				{#if meta.tagline}
-					<p class="mt-8 max-w-[52ch] font-display-italic text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.45] text-[color:var(--color-ink)]/75">
+					<p class="mt-7 max-w-[52ch] font-sans text-[clamp(1.05rem,1.4vw,1.3rem)] leading-[1.6] text-[color:var(--color-ink)]/70">
 						{meta.tagline}
 					</p>
 				{/if}
