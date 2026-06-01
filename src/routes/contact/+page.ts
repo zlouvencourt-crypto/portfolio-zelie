@@ -1,4 +1,6 @@
+export const prerender = true;
+
 export const load = () => ({
 	title: 'Contact',
-	description: "Écrivez-moi pour parler de votre projet."
+	description: 'Contactez-moi par e-mail pour parler de votre projet.'
 });
