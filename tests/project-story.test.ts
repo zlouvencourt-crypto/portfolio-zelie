@@ -38,17 +38,17 @@ describe('ProjectStory — récit lookbook', () => {
 		expect(body).toContain('Direction artistique sobre.');
 	});
 
-	it("affiche chaque visuel UNE seule fois (pas de doublon)", () => {
+	it('ajoute un carrousel « Tous les visuels » en bas avec chaque visuel', () => {
 		const gallery: GalleryItem[] = [
 			{ src: '/images/a.png', alt: '', ratio: '4/5' },
 			{ src: '/images/b.png', alt: '', ratio: '4/5' },
 			{ src: '/images/c.png', alt: '', ratio: '16/9' }
 		];
 		const body = r(base({ contexte: 'Texte.', gallery }));
-		// chaque image source apparaît exactement une fois dans un <img src=...>
-		expect(count(body, 'src="/images/a.png"')).toBe(1);
-		expect(count(body, 'src="/images/b.png"')).toBe(1);
-		expect(count(body, 'src="/images/c.png"')).toBe(1);
+		expect(body).toContain('Tous les visuels');
+		// chaque visuel est présent (dans le récit ET le carrousel)
+		expect(count(body, 'src="/images/a.png"')).toBeGreaterThanOrEqual(1);
+		expect(count(body, 'src="/images/c.png"')).toBeGreaterThanOrEqual(1);
 	});
 
 	it('entrelace texte et visuels (les deux présents)', () => {

@@ -1,5 +1,13 @@
-import adapter from '@sveltejs/adapter-node';
+import adapterNode from '@sveltejs/adapter-node';
+import adapterStatic from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
+
+// ADAPTER=static → site 100% statique (déployable partout, ex. Netlify).
+// Par défaut → adapter-node (déploiement Docker / Coolify, inchangé).
+const useStatic = process.env.ADAPTER === 'static';
+const adapter = useStatic
+	? adapterStatic({ pages: 'dist', assets: 'dist', fallback: '200.html', precompress: false })
+	: adapterNode({ out: 'build' });
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,7 +21,7 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: adapter({ out: 'build' }),
+		adapter,
 		alias: {
 			$content: './src/content',
 			$components: './src/lib/components',

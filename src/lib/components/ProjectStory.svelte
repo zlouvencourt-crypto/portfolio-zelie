@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Picture from '$components/Picture.svelte';
 	import Video from '$components/Video.svelte';
+	import ProjectCarousel from '$components/ProjectCarousel.svelte';
 	import { reveal } from '$utils/reveal';
 	import type { ProjectMeta } from '$lib/content/projects';
 	import type { GalleryItem } from '$lib/content/types';
@@ -186,3 +187,6 @@
 		{/if}
 	{/each}
 </div>
+
+<!-- Carrousel défilant de TOUS les visuels, en bas de page (focus jury) -->
+<ProjectCarousel items={meta.gallery ?? []} />

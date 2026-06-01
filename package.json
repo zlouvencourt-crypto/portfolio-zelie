@@ -16,6 +16,7 @@
 		"optimize:media": "node scripts/optimize-media.mjs"
 	},
 	"devDependencies": {
+		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/vite": "^4.2.3",
