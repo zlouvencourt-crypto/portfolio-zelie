@@ -1,24 +1,8 @@
 <script lang="ts">
 	import type { ProjectMeta } from '$lib/content/projects';
-	import type { GalleryItem } from '$lib/content/types';
-	import InlineFigure from '$components/InlineFigure.svelte';
 
 	type Props = { meta: ProjectMeta };
 	let { meta }: Props = $props();
-
-	// Sélection de 1-2 visuels (portraits de préférence) pour habiller les
-	// colonnes de titre vides du brief. Comparaison numérique des ratios, car les
-	// valeurs sont variées (4/5, 7/10, 2/3, 9/16, 50/9…). Aucune mutation des données.
-	const ratioValue = (r?: string): number => {
-		const [a, b] = (r ?? '4/5').split('/').map(Number);
-		return a > 0 && b > 0 ? a / b : 0.8;
-	};
-	const isPortrait = (r?: string) => ratioValue(r) < 0.95;
-
-	const pool = $derived((meta.gallery ?? []).filter((g) => !g.video));
-	const portraits = $derived(pool.filter((p) => isPortrait(p.ratio)));
-	const figContexte = $derived<GalleryItem | null>(portraits[0] ?? pool[0] ?? null);
-	const figDirection = $derived<GalleryItem | null>(portraits[1] ?? pool[1] ?? null);
 
 	const objectifsEntries = $derived<[string, string][]>(
 		meta.objectifs
@@ -45,7 +29,7 @@
 <div class="bg-[color:var(--color-bg)] text-[color:var(--color-ink)]">
 	<!-- CONTEXTE -->
 	{#if meta.contexte}
-		<section class="container-page py-20 md:py-28">
+		<section class="container-page py-16 md:py-24">
 			<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-x-16">
 				<div class="col-span-12 md:col-span-4">
 					<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
@@ -54,12 +38,9 @@
 					<h2 class="mt-6 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium uppercase leading-[0.95]">
 						<span class="font-display-italic normal-case">L'</span>histoire
 					</h2>
-					{#if figContexte}
-						<InlineFigure item={figContexte} ratio="4/5" />
-					{/if}
 				</div>
 				<div class="col-span-12 md:col-span-8">
-					<p class="text-[1.0625rem] leading-[1.75] text-[color:var(--color-ink)]/85">
+					<p class="font-display text-[clamp(1.25rem,2vw,1.75rem)] font-medium leading-[1.4] text-[color:var(--color-ink)]/90">
 						{meta.contexte}
 					</p>
 				</div>
@@ -69,7 +50,7 @@
 
 	<!-- BRIEF — rupture noire -->
 	{#if meta.brief}
-		<section class="bg-[color:var(--color-ink)] py-24 text-white md:py-32">
+		<section class="bg-[color:var(--color-ink)] py-20 text-white md:py-28">
 			<div class="container-page text-center">
 				<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-white/60">
 					— Le brief
@@ -83,7 +64,7 @@
 
 	<!-- OBJECTIFS — blocs noirs façon Astrid -->
 	{#if hasObjectifs}
-		<section class="container-page py-20 md:py-28">
+		<section class="container-page py-16 md:py-24">
 			<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-x-16">
 				<div class="col-span-12 md:col-span-4">
 					<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
@@ -114,7 +95,7 @@
 
 	<!-- CIBLES -->
 	{#if hasCibles}
-		<section class="bg-[color:var(--color-bg)] py-20 md:py-28">
+		<section class="bg-[color:var(--color-bg)] py-16 md:py-24">
 			<div class="container-page">
 				<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-x-16">
 					<div class="col-span-12 md:col-span-4">
@@ -142,7 +123,7 @@
 
 	<!-- DIRECTION ARTISTIQUE -->
 	{#if meta.direction}
-		<section class="container-page py-20 md:py-28">
+		<section class="container-page py-16 md:py-24">
 			<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-x-16">
 				<div class="col-span-12 md:col-span-4">
 					<p class="font-sans text-[10px] font-medium uppercase tracking-[0.4em] text-[color:var(--color-ink)]/55">
@@ -151,9 +132,6 @@
 					<h2 class="mt-6 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium uppercase leading-[0.95]">
 						Direction <span class="font-display-italic normal-case">artistique</span>
 					</h2>
-					{#if figDirection && figDirection !== figContexte}
-						<InlineFigure item={figDirection} ratio="4/5" />
-					{/if}
 				</div>
 				<div class="col-span-12 md:col-span-8">
 					<p class="text-[1.0625rem] leading-[1.75] text-[color:var(--color-ink)]/85">{meta.direction}</p>
@@ -164,7 +142,7 @@
 
 	<!-- LIVRABLES & CONTRAINTES -->
 	{#if meta.livrables?.length || meta.contraintes}
-		<section class="bg-[color:var(--color-bg)] py-20 md:py-28">
+		<section class="bg-[color:var(--color-bg)] py-16 md:py-24">
 			<div class="container-page">
 				<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-x-16">
 					<div class="col-span-12 md:col-span-4">

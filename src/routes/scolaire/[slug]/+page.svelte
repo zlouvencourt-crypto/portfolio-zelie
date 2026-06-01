@@ -2,7 +2,7 @@
 	import ProjectHero from '$components/ProjectHero.svelte';
 	import BriefBlock from '$components/BriefBlock.svelte';
 	import ProjectGallery from '$components/ProjectGallery.svelte';
-	import SectionGrid from '$components/SectionGrid.svelte';
+	import ProjectVisuals from '$components/ProjectVisuals.svelte';
 	import ImageReveal from '$components/ImageReveal.svelte';
 	import MagneticLink from '$components/MagneticLink.svelte';
 
@@ -27,8 +27,8 @@
 			</section>
 		{/if}
 
-		<!-- Visuels dispersés au fil de la page (grille pilotée par les données) -->
-		<SectionGrid items={data.meta.gallery ?? []} />
+		<!-- Galerie principale en mosaïque (regroupée par thème) -->
+		<ProjectVisuals items={data.meta.gallery ?? []} />
 
 		<!-- Galerie défilante horizontale conservée en bas de page -->
 		<ProjectGallery items={data.meta.gallery ?? []} />
