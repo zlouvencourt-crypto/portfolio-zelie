@@ -38,7 +38,7 @@ livrables:
 
 contraintes:
   - Temporelles, budgétaires, techniques, juridiques, stratégiques
-  - Cycle mensuel avec retroplanning strict
+  - Cycle mensuel avec rétroplanning strict
 
 direction: Trois piliers — immersion, mystère, cohérence sonore et visuelle.
 

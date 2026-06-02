@@ -158,10 +158,10 @@
 
 		{:else if chapter.type === 'gallery'}
 			<section class="container-page py-8 md:py-12" use:reveal>
-				<div class="grid grid-cols-1 gap-4 {colsClass(chapter.images.length)} md:gap-6">
+				<div class="grid grid-cols-1 items-start gap-4 {colsClass(chapter.images.length)} md:gap-6">
 					{#each chapter.images as item (item.src)}
-						<figure class="relative overflow-hidden" style:aspect-ratio={chapter.images.length === 1 ? (item.ratio ?? '16/10') : '3/4'}>
-							{@render visual(item, 'absolute inset-0 h-full w-full object-cover')}
+						<figure>
+							{@render visual(item, 'block w-full')}
 						</figure>
 					{/each}
 				</div>
@@ -177,10 +177,10 @@
 					{chapter.word}
 				</p>
 				<div class="container-page relative">
-					<div class="mx-auto grid max-w-4xl grid-cols-1 gap-4 {colsClass(chapter.images.length)} md:gap-6">
+					<div class="mx-auto grid max-w-4xl grid-cols-1 items-start gap-4 {colsClass(chapter.images.length)} md:gap-6">
 						{#each chapter.images as item (item.src)}
-							<figure class="relative overflow-hidden" style:aspect-ratio="3/4">
-								{@render visual(item, 'absolute inset-0 h-full w-full object-cover')}
+							<figure>
+								{@render visual(item, 'block w-full')}
 							</figure>
 						{/each}
 					</div>
