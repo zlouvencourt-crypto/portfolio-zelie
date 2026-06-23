@@ -13,7 +13,13 @@ export type Project = {
 // L'ordre ici = l'ordre d'affichage sur la page Réalisations.
 // Les catégories (tag) sont des suggestions à corriger au besoin.
 export const projects: Project[] = [
-	{ slug: 'chevillard', title: 'Chevillard', tag: 'Marque', color: '#12D6C6' },
+	{
+		slug: 'chevillard',
+		title: 'Chevillard',
+		tag: 'Marque',
+		color: '#12D6C6',
+		cover: '/realisations/chevillard/cover'
+	},
 	{ slug: 'dancewell', title: 'Dancewell', tag: 'Événement', color: '#FF3D6E' },
 	{
 		slug: 'electropicales-2024',
@@ -41,7 +47,13 @@ export const projects: Project[] = [
 	{ slug: 'socopharm', title: 'Socopharm', tag: 'Corporate', color: '#FFD23F' },
 	{ slug: 'bebea', title: 'Bebea', tag: 'Marque', color: '#9B6CFF' },
 	{ slug: 'gayar-lartiste', title: 'Gayar l’Artiste', tag: 'Artiste', color: '#12D6C6' },
-	{ slug: 'denise', title: 'Denise', tag: 'Marque', color: '#FF3D6E' },
+	{
+		slug: 'denise',
+		title: 'Denise',
+		tag: 'Marque',
+		color: '#FF3D6E',
+		cover: '/realisations/denise/cover'
+	},
 	{
 		slug: 'la-delicieuse',
 		title: 'La Délicieuse',
