@@ -1,23 +1,44 @@
 @import 'tailwindcss';
 
-@theme {
-	/* Palette — noir & blanc strict */
-	--color-bg: #ffffff;
-	--color-ink: #0a0a0a;
+/* ===== Accent de marque animé (change de section en section) ===== */
+@property --accent {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #12d6c6;
+}
 
-	/* Typographies — base de départ (à affiner selon la DA du nouveau site) */
-	--font-display: 'Archivo', system-ui, sans-serif;
-	--font-sans: 'Archivo', system-ui, sans-serif;
-	--font-mono: 'Space Mono', ui-monospace, monospace;
+@theme {
+	/* Palette « océan Indien » */
+	--color-night: #0a1726; /* nuit océan — fond principal */
+	--color-lagon: #12d6c6; /* accent 1 — cyan */
+	--color-corail: #ff3d6e; /* accent 2 — magenta */
+	--color-solaire: #ffd23f; /* accent 3 — jaune */
+	--color-cream: #f5f2ec; /* blanc cassé — texte clair */
+	--color-black: #0a0a0a; /* noir profond */
+
+	/* Typographies */
+	--font-display: 'Anton', 'Archivo', system-ui, sans-serif; /* titres condensés imposants */
+	--font-sans: 'Inter', system-ui, sans-serif; /* texte courant */
+	--font-alt: 'Archivo', system-ui, sans-serif; /* titres secondaires */
+
+	/* Échelle fluide */
+	--text-hero: clamp(3.2rem, 12vw, 13rem);
+	--text-giant: clamp(2.6rem, 8vw, 8rem);
+	--text-big: clamp(2rem, 5vw, 4.5rem);
 
 	/* Espacements */
-	--spacing-page: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+	--spacing-page: clamp(1.25rem, 0.5rem + 3vw, 4rem);
 
-	/* Transitions */
-	--ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+	/* Easing */
+	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+	--ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 @layer base {
+	:root {
+		--accent: #12d6c6;
+	}
+
 	*,
 	*::before,
 	*::after {
@@ -31,29 +52,58 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
 		font-family: var(--font-sans);
-		color: var(--color-ink);
-		background: var(--color-bg);
+		color: var(--color-cream);
+		background: var(--color-night);
+		/* transition douce de l'accent quand il change de section */
+		transition: --accent 0.8s var(--ease-out-expo);
+		scroll-behavior: smooth;
 	}
 
 	body {
 		min-height: 100svh;
+		overflow-x: hidden;
+		font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+		line-height: 1.55;
+	}
+
+	/* Lenis : on neutralise le smooth natif quand Lenis est actif */
+	html.lenis,
+	html.lenis body {
+		height: auto;
+	}
+	.lenis.lenis-smooth {
+		scroll-behavior: auto !important;
+	}
+	.lenis.lenis-stopped {
+		overflow: clip;
 	}
 
 	.font-display {
 		font-family: var(--font-display);
-		font-weight: 800;
+		font-weight: 400;
 		text-transform: uppercase;
-		letter-spacing: -0.03em;
+		letter-spacing: -0.01em;
 		line-height: 0.9;
 	}
 
-	.font-mono {
-		font-family: var(--font-mono);
+	.font-alt {
+		font-family: var(--font-alt);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		line-height: 1;
 	}
 
 	a {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	button {
+		background: none;
+		border: 0;
+		font: inherit;
+		color: inherit;
+		cursor: pointer;
 	}
 
 	img,
@@ -64,14 +114,51 @@
 	}
 
 	::selection {
-		background: var(--color-ink);
-		color: var(--color-bg);
+		background: var(--accent);
+		color: var(--color-night);
+	}
+
+	::-webkit-scrollbar {
+		width: 0;
+		height: 0;
 	}
 }
 
 @layer utilities {
 	.container-page {
-		width: min(100% - 2 * var(--spacing-page), 110rem);
+		width: min(100% - 2 * var(--spacing-page), 100rem);
 		margin-inline: auto;
+	}
+
+	.text-accent {
+		color: var(--accent);
+	}
+
+	.eyebrow {
+		font-family: var(--font-sans);
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+	}
+
+	/* masque pour les révélations de texte (les lignes montent depuis le bas) */
+	.reveal-mask {
+		overflow: hidden;
+		display: block;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+		transition: none;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
 	}
 }

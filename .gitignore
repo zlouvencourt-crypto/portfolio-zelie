@@ -22,3 +22,6 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 /dist
+
+# Dossier de dépôt des éléments source (vidéos/images lourdes) — local seulement
+WEXX-OI-elements/
