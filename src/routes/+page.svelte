@@ -21,7 +21,7 @@
 	use:accent={'#12d6c6'}
 >
 	<video
-		class="absolute inset-0 h-full w-full object-cover"
+		class="absolute inset-0 h-full w-full object-cover brightness-[0.8]"
 		autoplay
 		muted
 		loop
@@ -76,8 +76,45 @@
 	<Marquee items={keywords} />
 </div>
 
+<!-- ░░░░░░░░ QUI SOMMES-NOUS (teaser) ░░░░░░░░ -->
+<section class="py-32 md:py-48" use:accent={'#ff3d6e'}>
+	<div class="container-page grid gap-10 md:grid-cols-12 md:gap-16">
+		<div class="md:col-span-5">
+			<p class="eyebrow text-[color:var(--color-cream)]/50">[ Qui sommes-nous ]</p>
+			<h2 class="mt-7 max-w-[12ch] font-display text-[length:var(--text-big)]" use:reveal>
+				Un événement réussi, ça se connaît.
+			</h2>
+		</div>
+		<div class="md:col-span-6 md:col-start-7">
+			<div
+				class="space-y-6 text-[clamp(1.05rem,1.3vw,1.25rem)] leading-[1.75] text-[color:var(--color-cream)]/75"
+				use:reveal={{ y: 30, delay: 0.1 }}
+			>
+				<p>
+					À La Réunion, un bon événement ne s’improvise pas. Il se connaît, il se ressent, il se
+					construit avec ceux qui maîtrisent le terrain. Les publics, les lieux, les réseaux, les
+					codes : on les pratique depuis l’intérieur.
+				</p>
+				<p>
+					WEXX OI, c’est la rencontre entre une connaissance fine du territoire et une exigence
+					créative sans compromis. On ne fait pas « comme ailleurs ». On fait comme ici —
+					<span class="text-accent">en mieux.</span>
+				</p>
+			</div>
+			<a
+				href="/esprit"
+				class="group mt-10 inline-flex items-center gap-3 font-sans text-[14px] font-semibold uppercase tracking-[0.1em] transition-colors hover:text-[var(--accent)]"
+				use:reveal={{ y: 20, delay: 0.2 }}
+			>
+				L’esprit WEXX
+				<span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
+			</a>
+		</div>
+	</div>
+</section>
+
 <!-- ░░░░░░░░ POSITIONNEMENT ░░░░░░░░ -->
-<section class="py-32 md:py-52" use:accent={'#ffd23f'}>
+<section class="border-t border-white/10 py-32 md:py-52" use:accent={'#ffd23f'}>
 	<div class="container-page">
 		<p class="eyebrow mb-10 text-[color:var(--color-cream)]/50">[ Notre signature ]</p>
 		<p class="max-w-[18ch] font-display text-[length:var(--text-giant)]">
@@ -146,9 +183,8 @@
 		position: absolute;
 		inset: 0;
 		background:
-			linear-gradient(to top, var(--color-night) 16%, transparent 60%),
-			color-mix(in srgb, var(--accent) 6%, transparent),
-			rgba(10, 10, 10, 0.72);
+			linear-gradient(to top, var(--color-night) 30%, transparent 72%),
+			rgba(8, 8, 8, 0.82);
 	}
 	.hero-title {
 		mix-blend-mode: difference;
