@@ -167,8 +167,9 @@
 	}
 	.plane {
 		display: flex;
+		align-items: center;
 		gap: 0;
-		width: 128vw;
+		width: 122vw;
 		will-change: transform;
 	}
 	.col {
@@ -176,6 +177,7 @@
 		flex: 1 1 0;
 		min-width: 0;
 		flex-direction: column;
+		justify-content: center;
 		gap: 0;
 	}
 	.tile {
