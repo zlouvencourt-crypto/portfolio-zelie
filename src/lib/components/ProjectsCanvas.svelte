@@ -3,16 +3,6 @@
 	import { prefersReducedMotion } from '$utils/motion';
 	import { projects } from '$content/projects';
 
-	// Variations de format pour un rendu « galerie » plutôt qu'une grille rigide.
-	const tiles = projects.map((p, i) => ({
-		...p,
-		ar: i % 3 === 0 ? '4 / 5' : i % 3 === 1 ? '1 / 1' : '5 / 4'
-	}));
-
-	const COLS = 4;
-	const colOffset = ['0vh', '10vh', '-4vh', '7vh'];
-	const columns = Array.from({ length: COLS }, (_, c) => tiles.filter((_, i) => i % COLS === c));
-
 	let stage = $state<HTMLDivElement | null>(null);
 	let plane = $state<HTMLDivElement | null>(null);
 
@@ -42,8 +32,8 @@
 			const sh = stage!.clientHeight;
 			const pw = plane!.scrollWidth;
 			const ph = plane!.scrollHeight;
-			maxX = Math.max(0, (pw - sw) / 2 + 60);
-			maxY = Math.max(0, (ph - sh) / 2 + 60);
+			maxX = Math.max(0, (pw - sw) / 2);
+			maxY = Math.max(0, (ph - sh) / 2);
 		};
 		measure();
 		window.addEventListener('resize', measure);
@@ -75,7 +65,6 @@
 			dragging = false;
 			stage!.classList.remove('dragging');
 		};
-		// Empêche la navigation si on a glissé (drag) plutôt que cliqué.
 		const onClickCapture = (e: MouseEvent) => {
 			if (moved > 8) {
 				e.preventDefault();
@@ -91,7 +80,6 @@
 		let raf = 0;
 		const loop = () => {
 			if (!dragging && !reduce) {
-				// le plan suit la souris (déplacement inverse pour explorer)
 				tx += (-mxNorm * maxX - tx) * 0.05;
 				ty += (-myNorm * maxY - ty) * 0.05;
 			}
@@ -115,21 +103,34 @@
 
 <div bind:this={stage} class="stage">
 	<div bind:this={plane} class="plane">
-		{#each columns as col, c (c)}
-			<div class="col" style="--off:{colOffset[c]}">
-				{#each col as p (p.slug)}
-					<a
-						href={`/realisations/${p.slug}`}
-						class="tile"
-						style="--c:{p.color}; --ar:{p.ar}"
-						data-cursor
-						draggable="false"
-					>
-						<div class="tile-img"><span>{p.title}</span></div>
-						<span class="tile-label">{p.title} <em>— {p.tag}</em></span>
-					</a>
-				{/each}
-			</div>
+		{#each projects as p (p.slug)}
+			<a
+				href={`/realisations/${p.slug}`}
+				class="tile"
+				style="--c:{p.color}"
+				data-cursor
+				draggable="false"
+			>
+				{#if p.cover}
+					<picture>
+						<source srcset={`${p.cover}.avif`} type="image/avif" />
+						<source srcset={`${p.cover}.webp`} type="image/webp" />
+						<img
+							class="tile-media"
+							src={`${p.cover}.jpg`}
+							alt={p.title}
+							loading="lazy"
+							draggable="false"
+						/>
+					</picture>
+				{:else}
+					<div class="tile-ph"><span>{p.title}</span></div>
+				{/if}
+				<div class="tile-overlay">
+					<span class="tile-name">{p.title}</span>
+					<span class="tile-tag">{p.tag}</span>
+				</div>
+			</a>
 		{/each}
 	</div>
 </div>
@@ -144,78 +145,108 @@
 		justify-content: center;
 		cursor: grab;
 		touch-action: none;
+		background: var(--color-black);
 	}
 	.stage:global(.dragging) {
 		cursor: grabbing;
 	}
 	.plane {
-		display: flex;
-		gap: clamp(1rem, 2.2vw, 2.2rem);
-		padding: 10vh 6vw;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-auto-rows: 46vh;
+		width: 132vw;
 		will-change: transform;
-	}
-	.col {
-		display: flex;
-		flex-direction: column;
-		gap: clamp(1rem, 2.2vw, 2.2rem);
-		transform: translateY(var(--off, 0));
 	}
 	.tile {
 		position: relative;
 		display: block;
-		width: clamp(200px, 19vw, 340px);
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
 		user-select: none;
 		-webkit-user-drag: none;
 	}
-	.tile-img {
+	.tile-media,
+	.tile-ph {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.tile-media {
+		object-fit: cover;
+		transition: transform 0.7s var(--ease-out-expo);
+	}
+	.tile-ph {
 		display: grid;
 		place-items: center;
-		aspect-ratio: var(--ar, 4 / 5);
-		overflow: hidden;
-		border-radius: 12px;
-		background: linear-gradient(145deg, color-mix(in srgb, var(--c) 52%, #08070b), #08070b 88%);
-		transition:
-			transform 0.6s var(--ease-out-expo),
-			box-shadow 0.5s ease;
+		background: linear-gradient(145deg, color-mix(in srgb, var(--c) 48%, #08070b), #08070b 88%);
 	}
-	.tile-img span {
+	.tile-ph span {
 		padding: 0 1rem;
 		font-family: var(--font-display);
-		font-size: clamp(1rem, 1.4vw, 1.4rem);
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
 		letter-spacing: 0.03em;
 		text-align: center;
 		text-transform: uppercase;
 		color: color-mix(in srgb, var(--color-cream) 84%, transparent);
-		transition: transform 0.6s var(--ease-out-expo);
 	}
-	.tile:hover .tile-img {
-		transform: scale(1.04);
-		box-shadow: 0 24px 60px -20px color-mix(in srgb, var(--c) 60%, transparent);
+	/* léger assombrissement constant pour l'unité de la grille */
+	.tile::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(8, 7, 11, 0.18);
+		opacity: 1;
+		transition: opacity 0.5s ease;
+		pointer-events: none;
 	}
-	.tile:hover .tile-img span {
+	.tile:hover::after {
+		opacity: 0;
+	}
+	.tile:hover .tile-media {
 		transform: scale(1.06);
 	}
-	.tile-label {
-		display: block;
-		margin-top: 0.7rem;
-		font-family: var(--font-sans);
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: color-mix(in srgb, var(--color-cream) 70%, transparent);
+	.tile-overlay {
+		position: absolute;
+		inset: auto 0 0 0;
+		z-index: 1;
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.75rem;
+		padding: 1.1rem 1.2rem;
+		background: linear-gradient(to top, rgba(8, 7, 11, 0.78), transparent);
 		opacity: 0;
-		transform: translateY(4px);
+		transform: translateY(10px);
 		transition:
 			opacity 0.4s ease,
-			transform 0.4s var(--ease-out-expo);
+			transform 0.5s var(--ease-out-expo);
 	}
-	.tile:hover .tile-label {
+	.tile:hover .tile-overlay {
 		opacity: 1;
 		transform: translateY(0);
 	}
-	.tile-label em {
-		font-style: normal;
+	.tile-name {
+		font-family: var(--font-display);
+		font-size: clamp(1rem, 1.4vw, 1.5rem);
+		line-height: 1;
+		text-transform: uppercase;
+	}
+	.tile-tag {
+		font-family: var(--font-sans);
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		white-space: nowrap;
 		color: var(--c);
+	}
+	@media (max-width: 768px) {
+		.plane {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-auto-rows: 38vh;
+			width: 150vw;
+		}
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.stage {
