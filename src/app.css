@@ -37,9 +37,9 @@
 @layer base {
 	:root {
 		--accent: #12d6c6;
-		/* Fond global du site — devient une teinte sombre de l'accent
-		   quand le visiteur choisit une couleur dans le sélecteur. */
-		--bg: var(--color-night);
+		/* Fond global du site : noir par défaut, devient la couleur choisie
+		   (plus vive) quand le visiteur clique dans le sélecteur. */
+		--bg: var(--color-black);
 	}
 
 	*,

@@ -63,31 +63,34 @@
 		pointer-events: none;
 		z-index: 9999;
 		border-radius: 9999px;
-		mix-blend-mode: difference;
 		will-change: transform;
+		/* léger halo sombre pour rester visible sur fond coloré */
+		filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.45));
 	}
 	.cursor-dot {
-		width: 6px;
-		height: 6px;
-		margin: -3px 0 0 -3px;
-		background: #fff;
+		width: 7px;
+		height: 7px;
+		margin: -3.5px 0 0 -3.5px;
+		background: var(--accent);
+		transition: background 0.4s var(--ease-out-expo);
 	}
 	.cursor-ring {
 		width: 40px;
 		height: 40px;
 		margin: -20px 0 0 -20px;
-		border: 1px solid #fff;
+		border: 1.5px solid var(--accent);
 		transition:
 			width 0.4s var(--ease-out-expo),
 			height 0.4s var(--ease-out-expo),
 			margin 0.4s var(--ease-out-expo),
+			border-color 0.4s var(--ease-out-expo),
 			background 0.4s ease;
 	}
 	.cursor-ring.is-hover {
 		width: 76px;
 		height: 76px;
 		margin: -38px 0 0 -38px;
-		background: rgba(255, 255, 255, 0.12);
+		background: color-mix(in srgb, var(--accent) 16%, transparent);
 	}
 	:global(html.has-cursor),
 	:global(html.has-cursor a),

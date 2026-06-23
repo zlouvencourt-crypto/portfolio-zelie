@@ -13,8 +13,8 @@ export function setLockedAccent(color: string | null) {
 	const root = document.documentElement.style;
 	if (color) {
 		root.setProperty('--accent', color);
-		// Le fond de tout le site devient une teinte sombre de la couleur choisie.
-		root.setProperty('--bg', `color-mix(in srgb, ${color} 22%, #05080d)`);
+		// Le fond de tout le site prend la couleur choisie, bien vive.
+		root.setProperty('--bg', `color-mix(in srgb, ${color} 62%, #08070b)`);
 	} else {
 		// Reprise des couleurs dynamiques : fond par défaut + réévaluation de la section.
 		root.removeProperty('--bg');
