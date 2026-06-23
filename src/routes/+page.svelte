@@ -17,7 +17,7 @@
 
 <!-- ░░░░░░░░ HERO ░░░░░░░░ -->
 <section
-	class="hero relative flex h-[100svh] w-full flex-col justify-end overflow-hidden"
+	class="hero relative flex h-[100svh] w-full flex-col overflow-hidden"
 	use:accent={'#12d6c6'}
 >
 	<video
@@ -34,7 +34,12 @@
 	</video>
 	<div class="hero-veil" aria-hidden="true"></div>
 
-	<div class="container-page relative z-10 pb-[12vh]">
+	<!-- bandeau défilant, sous le menu -->
+	<div class="relative z-10 mt-[clamp(4.6rem,9vh,6.2rem)] border-y border-white/15 bg-[color-mix(in_srgb,var(--color-night)_25%,transparent)] py-3 backdrop-blur-[2px]">
+		<Marquee items={keywords} />
+	</div>
+
+	<div class="container-page relative z-10 mt-auto pb-[12vh]">
 		<p class="eyebrow text-[color:var(--color-cream)]/70" use:reveal={{ y: 40 }}>
 			[ WEXX — Indian Ocean · 21°S ]
 		</p>
@@ -49,9 +54,6 @@
 				<p class="text-[clamp(1.05rem,1.5vw,1.4rem)] leading-[1.6] text-[color:var(--color-cream)]/80">
 					Agence de communication événementielle à La Réunion. On imagine, on orchestre et on fait
 					vivre des événements qui marquent les esprits — et le territoire.
-				</p>
-				<p class="mt-5 font-alt text-[clamp(1rem,1.6vw,1.5rem)] uppercase tracking-tight">
-					Stratégie <span class="text-accent">—</span> Création <span class="text-accent">—</span> Production
 				</p>
 			</div>
 
@@ -77,17 +79,12 @@
 <!-- ░░░░░░░░ POSITIONNEMENT ░░░░░░░░ -->
 <section class="border-t border-white/10 py-32 md:py-52" use:accent={'#ffd23f'}>
 	<div class="container-page">
-		<p class="eyebrow mb-10 text-[color:var(--color-cream)]/50">[ L’océan Indien, notre terrain ]</p>
-		<p class="max-w-[20ch] font-display text-[length:var(--text-giant)]">
-			<span class="reveal-mask"><span class="block" use:reveal>9 000 km</span></span>
-			<span class="reveal-mask"><span class="block text-[color:var(--color-cream)]/35" use:reveal={{ delay: 0.1 }}>nous séparent de l’Hexagone.</span></span>
-			<span class="reveal-mask"><span class="block" use:reveal={{ delay: 0.2 }}>Zéro vous sépare</span></span>
-			<span class="reveal-mask"><span class="block text-accent" use:reveal={{ delay: 0.3 }}>de votre public.</span></span>
+		<p class="eyebrow mb-10 text-[color:var(--color-cream)]/50">[ Notre signature ]</p>
+		<p class="max-w-[18ch] font-display text-[length:var(--text-giant)]">
+			<span class="reveal-mask"><span class="block" use:reveal>On transforme</span></span>
+			<span class="reveal-mask"><span class="block text-[color:var(--color-cream)]/35" use:reveal={{ delay: 0.1 }}>l’ordinaire</span></span>
+			<span class="reveal-mask"><span class="block text-accent" use:reveal={{ delay: 0.2 }}>en extraordinaire.</span></span>
 		</p>
-	</div>
-
-	<div class="mt-24 border-y border-white/10 py-7">
-		<Marquee items={keywords} />
 	</div>
 </section>
 
