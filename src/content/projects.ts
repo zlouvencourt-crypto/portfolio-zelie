@@ -15,7 +15,14 @@ export type Project = {
 export const projects: Project[] = [
 	{ slug: 'chevillard', title: 'Chevillard', tag: 'Marque', color: '#12D6C6' },
 	{ slug: 'dancewell', title: 'Dancewell', tag: 'Événement', color: '#FF3D6E' },
-	{ slug: 'electropicales-2024', title: 'Electropicales 2024', tag: 'Festival', year: '2024', color: '#FFD23F' },
+	{
+		slug: 'electropicales-2024',
+		title: 'Electropicales 2024',
+		tag: 'Festival',
+		year: '2024',
+		color: '#FFD23F',
+		cover: '/realisations/electropicales-2024/cover'
+	},
 	{ slug: 'electropicales-2025', title: 'Electropicales 2025', tag: 'Festival', year: '2025', color: '#9B6CFF' },
 	{
 		slug: 'eklectropicales-rap-dj-culture',
@@ -42,5 +49,11 @@ export const projects: Project[] = [
 		color: '#FFD23F',
 		cover: '/realisations/la-delicieuse/cover'
 	},
-	{ slug: 'carte-blanche', title: 'Carte Blanche', tag: 'Événement', color: '#9B6CFF' }
+	{
+		slug: 'carte-blanche',
+		title: 'Carte Blanche',
+		tag: 'Événement',
+		color: '#9B6CFF',
+		cover: '/realisations/carte-blanche/cover'
+	}
 ];
