@@ -17,11 +17,11 @@
 
 <!-- ░░░░░░░░ HERO ░░░░░░░░ -->
 <section
-	class="hero relative flex h-[100svh] w-full flex-col overflow-hidden"
+	class="hero relative flex h-[100svh] w-full flex-col justify-end overflow-hidden"
 	use:accent={'#12d6c6'}
 >
 	<video
-		class="absolute inset-0 h-full w-full object-cover"
+		class="absolute inset-0 h-full w-full object-cover grayscale"
 		autoplay
 		muted
 		loop
@@ -34,12 +34,7 @@
 	</video>
 	<div class="hero-veil" aria-hidden="true"></div>
 
-	<!-- bandeau défilant, sous le menu -->
-	<div class="relative z-10 mt-[clamp(4.6rem,9vh,6.2rem)] border-y border-white/15 bg-[color-mix(in_srgb,var(--color-night)_25%,transparent)] py-3 backdrop-blur-[2px]">
-		<Marquee items={keywords} />
-	</div>
-
-	<div class="container-page relative z-10 mt-auto pb-[12vh]">
+	<div class="container-page relative z-10 pb-[12vh]">
 		<p class="eyebrow text-[color:var(--color-cream)]/70" use:reveal={{ y: 40 }}>
 			[ WEXX — Indian Ocean · 21°S ]
 		</p>
@@ -76,8 +71,13 @@
 	</div>
 </section>
 
+<!-- bandeau défilant, sous la vidéo -->
+<div class="border-y border-white/10 py-7">
+	<Marquee items={keywords} />
+</div>
+
 <!-- ░░░░░░░░ POSITIONNEMENT ░░░░░░░░ -->
-<section class="border-t border-white/10 py-32 md:py-52" use:accent={'#ffd23f'}>
+<section class="py-32 md:py-52" use:accent={'#ffd23f'}>
 	<div class="container-page">
 		<p class="eyebrow mb-10 text-[color:var(--color-cream)]/50">[ Notre signature ]</p>
 		<p class="max-w-[18ch] font-display text-[length:var(--text-giant)]">
@@ -85,6 +85,18 @@
 			<span class="reveal-mask"><span class="block text-[color:var(--color-cream)]/35" use:reveal={{ delay: 0.1 }}>l’ordinaire</span></span>
 			<span class="reveal-mask"><span class="block text-accent" use:reveal={{ delay: 0.2 }}>en extraordinaire.</span></span>
 		</p>
+
+		<div class="mt-12" use:reveal={{ y: 30, delay: 0.3 }}>
+			<Magnetic strength={0.4}>
+				<a
+					href="/realisations"
+					class="group inline-flex items-center gap-4 rounded-full border border-[color:var(--color-cream)]/30 px-8 py-4 font-sans text-[13px] font-semibold uppercase tracking-[0.1em] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+				>
+					Voir nos réalisations
+					<span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
+				</a>
+			</Magnetic>
+		</div>
 	</div>
 </section>
 
