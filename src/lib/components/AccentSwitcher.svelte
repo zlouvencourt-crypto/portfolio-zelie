@@ -10,25 +10,14 @@
 
 	let active = $state<string | null>(null);
 
-	// Restaure le choix de couleur sauvegardé (et l'applique).
-	$effect(() => {
-		const saved = localStorage.getItem('wexx-accent');
-		if (saved) {
-			active = saved;
-			setLockedAccent(saved);
-		}
-	});
-
 	function pick(color: string) {
 		if (active === color) {
-			// Re-clic sur la couleur active : retour aux couleurs automatiques.
+			// Re-clic sur la couleur active : retour au fond noir / couleurs automatiques.
 			active = null;
 			setLockedAccent(null);
-			localStorage.removeItem('wexx-accent');
 		} else {
 			active = color;
 			setLockedAccent(color);
-			localStorage.setItem('wexx-accent', color);
 		}
 	}
 </script>

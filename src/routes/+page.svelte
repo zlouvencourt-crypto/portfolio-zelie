@@ -2,6 +2,7 @@
 	import { reveal, accent } from '$utils/scroll';
 	import Magnetic from '$components/Magnetic.svelte';
 	import Marquee from '$components/Marquee.svelte';
+	import CursorAura from '$components/CursorAura.svelte';
 
 	const keywords = [
 		'Événementiel',
@@ -22,6 +23,9 @@
 		{ n: '04', titre: 'Communication & médias', desc: 'On fait parler de vous, aux bons endroits.', c: '#9B6CFF' }
 	];
 </script>
+
+<!-- aura lumineuse interactive qui suit la souris -->
+<CursorAura />
 
 <!-- ░░░░░░░░ HERO ░░░░░░░░ -->
 <section
