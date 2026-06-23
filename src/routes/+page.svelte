@@ -21,7 +21,7 @@
 	use:accent={'#12d6c6'}
 >
 	<video
-		class="absolute inset-0 h-full w-full object-cover grayscale"
+		class="absolute inset-0 h-full w-full object-cover"
 		autoplay
 		muted
 		loop
@@ -146,9 +146,9 @@
 		position: absolute;
 		inset: 0;
 		background:
-			linear-gradient(to top, var(--color-night) 3%, transparent 50%),
-			color-mix(in srgb, var(--accent) 14%, transparent),
-			color-mix(in srgb, var(--color-night) 25%, transparent);
+			linear-gradient(to top, var(--color-night) 8%, transparent 60%),
+			color-mix(in srgb, var(--accent) 8%, transparent),
+			rgba(10, 10, 10, 0.45);
 	}
 	.hero-title {
 		mix-blend-mode: difference;
