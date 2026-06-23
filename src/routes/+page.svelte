@@ -13,6 +13,14 @@
 		'Influence',
 		'La Réunion'
 	];
+
+	// Aperçu des expertises — chaque vignette a sa propre couleur de la palette.
+	const apercu = [
+		{ n: '01', titre: 'Stratégie & conseil', desc: 'On réfléchit avant de faire du bruit.', c: '#12D6C6' },
+		{ n: '02', titre: 'Création & direction artistique', desc: 'Une identité forte pour un événement qu’on n’oublie pas.', c: '#FF3D6E' },
+		{ n: '03', titre: 'Production & régie', desc: 'Le spectaculaire, c’est 90 % d’organisation.', c: '#FFD23F' },
+		{ n: '04', titre: 'Communication & médias', desc: 'On fait parler de vous, aux bons endroits.', c: '#9B6CFF' }
+	];
 </script>
 
 <!-- ░░░░░░░░ HERO ░░░░░░░░ -->
@@ -113,6 +121,53 @@
 	</div>
 </section>
 
+<!-- ░░░░░░░░ CE QU'ON FAIT (aperçu expertises) ░░░░░░░░ -->
+<section class="border-t border-white/10 py-32 md:py-48" use:accent={'#12d6c6'}>
+	<div class="container-page">
+		<div class="max-w-[58ch]">
+			<p class="eyebrow text-[color:var(--color-cream)]/50">[ Ce qu’on fait ]</p>
+			<h2 class="mt-7 max-w-[15ch] font-display text-[length:var(--text-big)]" use:reveal>
+				De l’idée à la dernière lumière éteinte.
+			</h2>
+			<p
+				class="mt-8 text-[clamp(1.05rem,1.3vw,1.25rem)] leading-[1.7] text-[color:var(--color-cream)]/75"
+				use:reveal={{ y: 30, delay: 0.1 }}
+			>
+				On vous accompagne sur toute la chaîne. Stratégie, création, production, médias : un seul
+				interlocuteur, du premier brief au dernier applaudissement.
+			</p>
+		</div>
+
+		<div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			{#each apercu as item, i (item.n)}
+				<a
+					href="/expertise"
+					class="exp-card group"
+					style="--c:{item.c}"
+					use:reveal={{ y: 36, delay: i * 0.08 }}
+				>
+					<span class="exp-num">{item.n}</span>
+					<div class="mt-auto">
+						<h3 class="exp-title">{item.titre}</h3>
+						<p class="exp-desc">{item.desc}</p>
+					</div>
+					<span class="exp-arrow" aria-hidden="true">↗</span>
+				</a>
+			{/each}
+		</div>
+
+		<div class="mt-14" use:reveal={{ y: 20, delay: 0.1 }}>
+			<a
+				href="/expertise"
+				class="group inline-flex items-center gap-3 font-sans text-[14px] font-semibold uppercase tracking-[0.1em] transition-colors hover:text-[var(--accent)]"
+			>
+				Découvrir nos expertises
+				<span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
+			</a>
+		</div>
+	</div>
+</section>
+
 <!-- ░░░░░░░░ POSITIONNEMENT ░░░░░░░░ -->
 <section class="border-t border-white/10 py-32 md:py-52" use:accent={'#ffd23f'}>
 	<div class="container-page">
@@ -190,5 +245,76 @@
 	.hero-title {
 		mix-blend-mode: difference;
 		color: #fff;
+	}
+
+	/* Vignettes « Ce qu'on fait » — différenciées par leur couleur (--c) */
+	.exp-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-height: 290px;
+		padding: 1.75rem;
+		border: 1px solid color-mix(in srgb, var(--c) 32%, transparent);
+		border-radius: 14px;
+		background: color-mix(in srgb, var(--c) 5%, transparent);
+		overflow: hidden;
+		transition:
+			transform 0.5s var(--ease-out-expo),
+			background-color 0.5s ease,
+			border-color 0.5s ease;
+	}
+	.exp-card::before {
+		content: '';
+		position: absolute;
+		inset: 0 0 auto 0;
+		height: 3px;
+		background: var(--c);
+		transform-origin: left;
+		transform: scaleX(0.4);
+		transition: transform 0.5s var(--ease-out-expo);
+	}
+	.exp-card:hover {
+		transform: translateY(-6px);
+		background: color-mix(in srgb, var(--c) 14%, transparent);
+		border-color: var(--c);
+	}
+	.exp-card:hover::before {
+		transform: scaleX(1);
+	}
+	.exp-num {
+		font-family: var(--font-display);
+		font-size: clamp(2.4rem, 4vw, 3.4rem);
+		line-height: 1;
+		color: var(--c);
+	}
+	.exp-title {
+		font-family: var(--font-alt);
+		font-weight: 700;
+		font-size: 1.12rem;
+		line-height: 1.15;
+		text-transform: uppercase;
+		letter-spacing: -0.01em;
+	}
+	.exp-desc {
+		margin-top: 0.6rem;
+		font-size: 0.96rem;
+		line-height: 1.5;
+		color: color-mix(in srgb, var(--color-cream) 68%, transparent);
+	}
+	.exp-arrow {
+		position: absolute;
+		top: 1.6rem;
+		right: 1.6rem;
+		font-size: 1.2rem;
+		color: var(--c);
+		opacity: 0;
+		transform: translate(-4px, 4px);
+		transition:
+			opacity 0.4s ease,
+			transform 0.4s var(--ease-out-expo);
+	}
+	.exp-card:hover .exp-arrow {
+		opacity: 1;
+		transform: translate(0, 0);
 	}
 </style>

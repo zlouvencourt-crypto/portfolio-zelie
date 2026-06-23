@@ -86,7 +86,7 @@
 			border-color 0.4s var(--ease-out-expo),
 			background 0.4s ease;
 	}
-	.cursor-ring.is-hover {
+	.cursor-ring:global(.is-hover) {
 		width: 76px;
 		height: 76px;
 		margin: -38px 0 0 -38px;
