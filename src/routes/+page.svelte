@@ -183,8 +183,9 @@
 		position: absolute;
 		inset: 0;
 		background:
-			linear-gradient(to top, var(--color-night) 30%, transparent 72%),
-			rgba(8, 8, 8, 0.82);
+			linear-gradient(to top, var(--bg) 30%, transparent 72%),
+			color-mix(in srgb, var(--accent) 14%, transparent),
+			rgba(8, 8, 8, 0.8);
 	}
 	.hero-title {
 		mix-blend-mode: difference;

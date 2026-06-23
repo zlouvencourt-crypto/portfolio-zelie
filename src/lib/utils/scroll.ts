@@ -10,10 +10,14 @@ let lockedAccent: string | null = null;
 
 export function setLockedAccent(color: string | null) {
 	lockedAccent = color;
+	const root = document.documentElement.style;
 	if (color) {
-		document.documentElement.style.setProperty('--accent', color);
+		root.setProperty('--accent', color);
+		// Le fond de tout le site devient une teinte sombre de la couleur choisie.
+		root.setProperty('--bg', `color-mix(in srgb, ${color} 22%, #05080d)`);
 	} else {
-		// Reprise des couleurs dynamiques : on réévalue la section visible.
+		// Reprise des couleurs dynamiques : fond par défaut + réévaluation de la section.
+		root.removeProperty('--bg');
 		ScrollTrigger.refresh();
 	}
 }

@@ -37,6 +37,9 @@
 @layer base {
 	:root {
 		--accent: #12d6c6;
+		/* Fond global du site — devient une teinte sombre de l'accent
+		   quand le visiteur choisit une couleur dans le sélecteur. */
+		--bg: var(--color-night);
 	}
 
 	*,
@@ -53,9 +56,11 @@
 		text-rendering: optimizeLegibility;
 		font-family: var(--font-sans);
 		color: var(--color-cream);
-		background: var(--color-night);
-		/* transition douce de l'accent quand il change de section */
-		transition: --accent 0.8s var(--ease-out-expo);
+		background-color: var(--bg);
+		/* transition douce de l'accent et du fond quand ils changent */
+		transition:
+			--accent 0.8s var(--ease-out-expo),
+			background-color 0.8s var(--ease-out-expo);
 		scroll-behavior: smooth;
 	}
 
