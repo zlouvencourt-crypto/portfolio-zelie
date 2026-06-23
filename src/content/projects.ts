@@ -35,6 +35,12 @@ export const projects: Project[] = [
 	{ slug: 'bebea', title: 'Bebea', tag: 'Marque', color: '#9B6CFF' },
 	{ slug: 'gayar-lartiste', title: 'Gayar l’Artiste', tag: 'Artiste', color: '#12D6C6' },
 	{ slug: 'denise', title: 'Denise', tag: 'Marque', color: '#FF3D6E' },
-	{ slug: 'la-delicieuse', title: 'La Délicieuse', tag: 'Événement', color: '#FFD23F' },
+	{
+		slug: 'la-delicieuse',
+		title: 'La Délicieuse',
+		tag: 'Événement',
+		color: '#FFD23F',
+		cover: '/realisations/la-delicieuse/cover'
+	},
 	{ slug: 'carte-blanche', title: 'Carte Blanche', tag: 'Événement', color: '#9B6CFF' }
 ];
