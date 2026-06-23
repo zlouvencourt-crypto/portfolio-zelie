@@ -146,9 +146,9 @@
 		position: absolute;
 		inset: 0;
 		background:
-			linear-gradient(to top, var(--color-night) 12%, transparent 65%),
+			linear-gradient(to top, var(--color-night) 32%, transparent 62%),
 			color-mix(in srgb, var(--accent) 7%, transparent),
-			rgba(10, 10, 10, 0.62);
+			rgba(10, 10, 10, 0.42);
 	}
 	.hero-title {
 		mix-blend-mode: difference;
