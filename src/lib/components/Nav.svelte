@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Magnetic from './Magnetic.svelte';
+	import AccentSwitcher from './AccentSwitcher.svelte';
 
 	let open = $state(false);
 	let scrolled = $state(false);
@@ -26,9 +27,12 @@
 	style:background-color={scrolled ? 'color-mix(in srgb, var(--color-night) 75%, transparent)' : 'transparent'}
 >
 	<div class="container-page flex items-center justify-between py-5">
-		<a href="/" class="block shrink-0" aria-label="WEXX OI — accueil">
-			<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" class="h-5 w-auto md:h-6" />
-		</a>
+		<div class="flex items-center gap-5">
+			<a href="/" class="block shrink-0" aria-label="WEXX OI — accueil">
+				<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" class="h-5 w-auto md:h-6" />
+			</a>
+			<AccentSwitcher />
+		</div>
 
 		<nav class="hidden items-center gap-9 md:flex">
 			{#each links as link (link.href)}

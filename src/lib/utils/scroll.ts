@@ -2,6 +2,27 @@ import { ensureGsap, ScrollTrigger } from './gsap';
 import { prefersReducedMotion } from './motion';
 
 /**
+ * Couleur d'accent choisie manuellement par le visiteur (sélecteur de couleur).
+ * Quand elle est définie, elle prend le dessus sur le changement automatique
+ * d'accent au défilement. `null` = couleurs dynamiques par section.
+ */
+let lockedAccent: string | null = null;
+
+export function setLockedAccent(color: string | null) {
+	lockedAccent = color;
+	if (color) {
+		document.documentElement.style.setProperty('--accent', color);
+	} else {
+		// Reprise des couleurs dynamiques : on réévalue la section visible.
+		ScrollTrigger.refresh();
+	}
+}
+
+export function getLockedAccent() {
+	return lockedAccent;
+}
+
+/**
  * Révélation au défilement : l'élément monte depuis le bas (idéalement placé dans
  * un parent `.reveal-mask` en overflow hidden pour l'effet de masque/clip).
  */
@@ -41,7 +62,10 @@ export function reveal(node: HTMLElement, params: { delay?: number; y?: number }
 export function accent(node: HTMLElement, color: string) {
 	ensureGsap();
 	let current = color;
-	const apply = () => document.documentElement.style.setProperty('--accent', current);
+	const apply = () => {
+		if (lockedAccent) return;
+		document.documentElement.style.setProperty('--accent', current);
+	};
 	const st = ScrollTrigger.create({
 		trigger: node,
 		start: 'top 55%',
