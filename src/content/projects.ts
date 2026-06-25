@@ -36,7 +36,16 @@ export const projects: Project[] = [
 		w: 1200,
 		h: 800
 	},
-	{ slug: 'electropicales-2025', title: 'Electropicales 2025', tag: 'Festival', year: '2025', color: '#9B6CFF' },
+	{
+		slug: 'electropicales-2025',
+		title: 'Electropicales 2025',
+		tag: 'Festival',
+		year: '2025',
+		color: '#9B6CFF',
+		cover: '/realisations/electropicales-2025/cover',
+		w: 1200,
+		h: 800
+	},
 	{
 		slug: 'eklectropicales-rap-dj-culture',
 		title: 'Eklectropicales — Rap & DJ Culture',
