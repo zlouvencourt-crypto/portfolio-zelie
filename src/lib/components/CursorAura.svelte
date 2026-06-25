@@ -37,8 +37,16 @@
 		// Apparition en douceur.
 		requestAnimationFrame(() => el!.classList.add('is-visible'));
 
+		// pause de la boucle quand l'onglet est en arrière-plan
+		const onVis = () => {
+			cancelAnimationFrame(raf);
+			if (!document.hidden) raf = requestAnimationFrame(loop);
+		};
+		document.addEventListener('visibilitychange', onVis);
+
 		return () => {
 			window.removeEventListener('pointermove', move);
+			document.removeEventListener('visibilitychange', onVis);
 			cancelAnimationFrame(raf);
 		};
 	});

@@ -41,10 +41,18 @@
 
 		document.documentElement.classList.add('has-cursor');
 
+		// pause de la boucle quand l'onglet est en arrière-plan
+		const onVis = () => {
+			cancelAnimationFrame(raf);
+			if (!document.hidden) raf = requestAnimationFrame(loop);
+		};
+		document.addEventListener('visibilitychange', onVis);
+
 		return () => {
 			window.removeEventListener('pointermove', onMove);
 			document.removeEventListener('pointerover', over);
 			document.removeEventListener('pointerout', out);
+			document.removeEventListener('visibilitychange', onVis);
 			document.documentElement.classList.remove('has-cursor');
 			cancelAnimationFrame(raf);
 		};

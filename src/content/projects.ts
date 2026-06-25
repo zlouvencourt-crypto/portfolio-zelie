@@ -8,6 +8,9 @@ export type Project = {
 	color: string;
 	/** Base de l'image de couverture (sans extension) : .avif/.webp/.jpg. */
 	cover?: string;
+	/** Dimensions réelles de la couverture (réserve la place → pas de saut). */
+	w?: number;
+	h?: number;
 };
 
 // L'ordre ici = l'ordre d'affichage sur la page Réalisations.
@@ -18,7 +21,9 @@ export const projects: Project[] = [
 		title: 'Chevillard',
 		tag: 'Marque',
 		color: '#12D6C6',
-		cover: '/realisations/chevillard/cover'
+		cover: '/realisations/chevillard/cover',
+		w: 1200,
+		h: 660
 	},
 	{ slug: 'dancewell', title: 'Dancewell', tag: 'Événement', color: '#FF3D6E' },
 	{
@@ -27,7 +32,9 @@ export const projects: Project[] = [
 		tag: 'Festival',
 		year: '2024',
 		color: '#FFD23F',
-		cover: '/realisations/electropicales-2024/cover'
+		cover: '/realisations/electropicales-2024/cover',
+		w: 1200,
+		h: 800
 	},
 	{ slug: 'electropicales-2025', title: 'Electropicales 2025', tag: 'Festival', year: '2025', color: '#9B6CFF' },
 	{
@@ -35,14 +42,18 @@ export const projects: Project[] = [
 		title: 'Eklectropicales — Rap & DJ Culture',
 		tag: 'Festival',
 		color: '#12D6C6',
-		cover: '/realisations/eklectropicales-rap-dj-culture/cover'
+		cover: '/realisations/eklectropicales-rap-dj-culture/cover',
+		w: 1200,
+		h: 800
 	},
 	{
 		slug: 'merchandesign',
 		title: 'Merchandesign',
 		tag: 'Merchandising',
 		color: '#FF3D6E',
-		cover: '/realisations/merchandesign/cover'
+		cover: '/realisations/merchandesign/cover',
+		w: 1200,
+		h: 1800
 	},
 	{ slug: 'socopharm', title: 'Socopharm', tag: 'Corporate', color: '#FFD23F' },
 	{ slug: 'bebea', title: 'Bebea', tag: 'Marque', color: '#9B6CFF' },
@@ -52,20 +63,26 @@ export const projects: Project[] = [
 		title: 'Denise',
 		tag: 'Marque',
 		color: '#FF3D6E',
-		cover: '/realisations/denise/cover'
+		cover: '/realisations/denise/cover',
+		w: 1080,
+		h: 1350
 	},
 	{
 		slug: 'la-delicieuse',
 		title: 'La Délicieuse',
 		tag: 'Événement',
 		color: '#FFD23F',
-		cover: '/realisations/la-delicieuse/cover'
+		cover: '/realisations/la-delicieuse/cover',
+		w: 1080,
+		h: 1350
 	},
 	{
 		slug: 'carte-blanche',
 		title: 'Carte Blanche',
 		tag: 'Événement',
 		color: '#9B6CFF',
-		cover: '/realisations/carte-blanche/cover'
+		cover: '/realisations/carte-blanche/cover',
+		w: 1200,
+		h: 675
 	}
 ];

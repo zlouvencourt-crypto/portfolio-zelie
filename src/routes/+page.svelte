@@ -3,6 +3,7 @@
 	import Magnetic from '$components/Magnetic.svelte';
 	import Marquee from '$components/Marquee.svelte';
 	import CursorAura from '$components/CursorAura.svelte';
+	import HeroVideo from '$components/HeroVideo.svelte';
 
 	const keywords = [
 		'Événementiel',
@@ -24,6 +25,10 @@
 	];
 </script>
 
+<svelte:head>
+	<link rel="preload" as="image" href="/videos/hero-poster.jpg" fetchpriority="high" />
+</svelte:head>
+
 <!-- aura lumineuse interactive qui suit la souris -->
 <CursorAura />
 
@@ -32,18 +37,7 @@
 	class="hero relative flex h-[100svh] w-full flex-col justify-end overflow-hidden"
 	use:accent={'#12d6c6'}
 >
-	<video
-		class="absolute inset-0 h-full w-full object-cover brightness-[0.8]"
-		autoplay
-		muted
-		loop
-		playsinline
-		preload="metadata"
-		poster="/videos/hero-poster.jpg"
-	>
-		<source src="/videos/hero.webm" type="video/webm" />
-		<source src="/videos/hero.mp4" type="video/mp4" />
-	</video>
+	<HeroVideo />
 	<div class="hero-veil" aria-hidden="true"></div>
 
 	<div class="container-page relative z-10 pb-[12vh]">
@@ -78,7 +72,7 @@
 		</div>
 	</div>
 
-	<div class="absolute bottom-6 left-1/2 -translate-x-1/2 font-sans text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-cream)]/40">
+	<div class="absolute bottom-6 left-1/2 -translate-x-1/2 font-sans text-[11px] uppercase tracking-[0.25em] text-[color:var(--color-cream)]/60">
 		Scroll
 	</div>
 </section>
@@ -225,14 +219,30 @@
 <!-- ░░░░░░░░ FOOTER ░░░░░░░░ -->
 <footer class="border-t border-white/10 py-14">
 	<div class="container-page flex flex-col items-center justify-between gap-8 md:flex-row">
-		<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" class="h-5 w-auto" />
+		<img
+			src="/brand/wexx-white.png"
+			alt="WEXX Indian Ocean"
+			width="638"
+			height="266"
+			class="h-5 w-auto"
+		/>
 		<p class="font-display text-[clamp(1.5rem,3vw,2.2rem)]">On fait vibrer l’océan Indien.</p>
 		<div class="flex gap-6 font-sans text-[12px] uppercase tracking-[0.15em] text-[color:var(--color-cream)]/55">
-			<a href="#" class="hover:text-[var(--accent)]">LinkedIn ↗</a>
-			<a href="#" class="hover:text-[var(--accent)]">Instagram ↗</a>
+			<a
+				href="https://www.linkedin.com/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="transition-colors hover:text-[var(--accent)]">LinkedIn ↗</a
+			>
+			<a
+				href="https://www.instagram.com/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="transition-colors hover:text-[var(--accent)]">Instagram ↗</a
+			>
 		</div>
 	</div>
-	<p class="container-page mt-10 font-sans text-[11px] uppercase tracking-[0.15em] text-[color:var(--color-cream)]/35">
+	<p class="container-page mt-10 font-sans text-[11px] uppercase tracking-[0.15em] text-[color:var(--color-cream)]/55">
 		© {new Date().getFullYear()} WEXX Indian Ocean — La Réunion
 	</p>
 </footer>

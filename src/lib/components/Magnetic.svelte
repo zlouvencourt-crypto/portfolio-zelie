@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ensureGsap } from '$utils/gsap';
+	import gsap from 'gsap';
 	import { prefersReducedMotion, isTouch } from '$utils/motion';
 
 	type Props = {
@@ -14,7 +14,6 @@
 
 	onMount(() => {
 		if (prefersReducedMotion() || isTouch() || !el) return;
-		const gsap = ensureGsap();
 		const xTo = gsap.quickTo(el, 'x', { duration: 0.5, ease: 'expo.out' });
 		const yTo = gsap.quickTo(el, 'y', { duration: 0.5, ease: 'expo.out' });
 

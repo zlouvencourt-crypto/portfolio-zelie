@@ -29,7 +29,13 @@
 	<div class="container-page flex items-center justify-between py-5">
 		<div class="flex items-center gap-5">
 			<a href="/" class="block shrink-0" aria-label="WEXX OI — accueil">
-				<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" class="h-5 w-auto md:h-6" />
+				<img
+					src="/brand/wexx-white.png"
+					alt="WEXX Indian Ocean"
+					width="638"
+					height="266"
+					class="h-5 w-auto md:h-6"
+				/>
 			</a>
 			<AccentSwitcher />
 		</div>

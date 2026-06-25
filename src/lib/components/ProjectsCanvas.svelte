@@ -101,12 +101,20 @@
 		};
 		raf = requestAnimationFrame(loop);
 
+		// pause de la boucle quand l'onglet est en arrière-plan
+		const onVis = () => {
+			cancelAnimationFrame(raf);
+			if (!document.hidden) raf = requestAnimationFrame(loop);
+		};
+		document.addEventListener('visibilitychange', onVis);
+
 		return () => {
 			window.removeEventListener('resize', measure);
 			stage?.removeEventListener('pointermove', onMove);
 			stage?.removeEventListener('pointerdown', onDown);
 			window.removeEventListener('pointerup', onUp);
 			stage?.removeEventListener('click', onClickCapture, true);
+			document.removeEventListener('visibilitychange', onVis);
 			cancelAnimationFrame(raf);
 		};
 	});
@@ -132,7 +140,10 @@
 									class="tile-media"
 									src={`${p.cover}.jpg`}
 									alt={p.title}
+									width={p.w}
+									height={p.h}
 									loading="lazy"
+									decoding="async"
 									draggable="false"
 								/>
 							</picture>
