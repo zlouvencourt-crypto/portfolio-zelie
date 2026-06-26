@@ -75,7 +75,11 @@ export function accent(node: HTMLElement, color: string) {
 		start: 'top 55%',
 		end: 'bottom 45%',
 		onEnter: apply,
-		onEnterBack: apply
+		onEnterBack: apply,
+		// applique aussi la couleur au chargement si la section est déjà visible
+		onRefresh: (self) => {
+			if (self.isActive) apply();
+		}
 	});
 	return {
 		update(c: string) {

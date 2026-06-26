@@ -37,6 +37,10 @@
 		document.addEventListener('click', onClick);
 
 		ScrollTrigger.refresh();
+		// recalcule les positions une fois les polices chargées (évite des décalages)
+		if (typeof document !== 'undefined' && document.fonts) {
+			document.fonts.ready.then(() => ScrollTrigger.refresh());
+		}
 
 		return () => {
 			document.removeEventListener('click', onClick);
