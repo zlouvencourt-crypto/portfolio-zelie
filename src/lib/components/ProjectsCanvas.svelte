@@ -7,7 +7,7 @@
 	const fallbackAr = ['4 / 5', '1 / 1', '5 / 4', '3 / 4', '4 / 3', '1 / 1'];
 	const items = projects.map((p, i) => ({ ...p, ar: fallbackAr[i % fallbackAr.length] }));
 
-	const COLS = 4;
+	const COLS = 3;
 	const columns = Array.from({ length: COLS }, (_, c) => items.filter((_, i) => i % COLS === c));
 
 	let stage = $state<HTMLDivElement | null>(null);
@@ -180,7 +180,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0;
-		width: 122vw;
+		width: 132vw;
 		will-change: transform;
 	}
 	.col {

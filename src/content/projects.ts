@@ -66,7 +66,15 @@ export const projects: Project[] = [
 	},
 	{ slug: 'socopharm', title: 'Socopharm', tag: 'Corporate', color: '#FFD23F' },
 	{ slug: 'bebea', title: 'Bebea', tag: 'Marque', color: '#9B6CFF' },
-	{ slug: 'gayar-lartiste', title: 'Gayar l’Artiste', tag: 'Artiste', color: '#12D6C6' },
+	{
+		slug: 'gayar-lartiste',
+		title: 'Gayar l’Artiste',
+		tag: 'Artiste',
+		color: '#12D6C6',
+		cover: '/realisations/gayar-lartiste/cover',
+		w: 1200,
+		h: 1600
+	},
 	{
 		slug: 'denise',
 		title: 'Denise',
