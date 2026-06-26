@@ -31,15 +31,11 @@
 
 <!-- aura lumineuse interactive qui suit la souris -->
 <CursorAura />
+<!-- vidéo de fond du hero (calque fixe, descend au scroll puis s'efface) -->
+<HeroVideo />
 
 <!-- ░░░░░░░░ HERO ░░░░░░░░ -->
-<section
-	class="hero relative flex h-[100svh] w-full flex-col justify-end overflow-hidden"
-	use:accent={'#12d6c6'}
->
-	<HeroVideo />
-	<div class="hero-veil" aria-hidden="true"></div>
-
+<section class="hero relative flex h-[100svh] w-full flex-col justify-end" use:accent={'#12d6c6'}>
 	<div class="container-page relative z-10 pb-[12vh]">
 		<p class="eyebrow text-[color:var(--color-cream)]/70" use:reveal={{ y: 40 }}>
 			[ WEXX — Indian Ocean · 21°S ]
@@ -248,14 +244,6 @@
 </footer>
 
 <style>
-	.hero-veil {
-		position: absolute;
-		inset: 0;
-		background:
-			linear-gradient(to top, var(--bg) 30%, transparent 72%),
-			color-mix(in srgb, var(--accent) 14%, transparent),
-			rgba(8, 8, 8, 0.8);
-	}
 	.hero-title {
 		mix-blend-mode: difference;
 		color: #fff;
