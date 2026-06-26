@@ -9,62 +9,41 @@
 		const el = video;
 		if (!el) return;
 
-		const reduce = prefersReducedMotion();
-		const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
-			?.saveData;
-
-		// Parallaxe : la vidéo descend doucement quand la page défile.
-		let st: ScrollTrigger | undefined;
-		if (!reduce) {
-			const gsap = ensureGsap();
-			const section = el.closest('.hero') ?? el.parentElement;
-			st = ScrollTrigger.create({
-				trigger: section as Element,
-				start: 'top top',
-				end: 'bottom top',
-				scrub: true,
-				animation: gsap.fromTo(el, { yPercent: 0 }, { yPercent: 10, ease: 'none' })
-			});
+		// Animations réduites : on fige sur le poster.
+		if (prefersReducedMotion()) {
+			el.removeAttribute('autoplay');
+			el.pause();
+			return;
 		}
 
-		// Lecture seulement quand visible (et jamais en éco. données / animations réduites).
-		let io: IntersectionObserver | undefined;
-		if (!reduce && !saveData) {
-			let loaded = false;
-			const load = () => {
-				if (loaded) return;
-				loaded = true;
-				const mobile = window.matchMedia('(max-width: 767px)').matches;
-				const webm = mobile ? '/videos/hero-mobile.webm' : '/videos/hero.webm';
-				const mp4 = mobile ? '/videos/hero-mobile.mp4' : '/videos/hero.mp4';
-				const s1 = document.createElement('source');
-				s1.src = webm;
-				s1.type = 'video/webm';
-				const s2 = document.createElement('source');
-				s2.src = mp4;
-				s2.type = 'video/mp4';
-				el.append(s1, s2);
-				el.load();
-			};
-			io = new IntersectionObserver(
-				(entries) => {
-					for (const e of entries) {
-						if (e.isIntersecting) {
-							load();
-							el.play().catch(() => {});
-						} else {
-							el.pause();
-						}
-					}
-				},
-				{ threshold: 0.1 }
-			);
-			io.observe(el);
-		}
+		el.play().catch(() => {});
+
+		// Pause quand le hero n'est plus du tout à l'écran (perf), reprise au retour.
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (e.isIntersecting) el.play().catch(() => {});
+					else el.pause();
+				}
+			},
+			{ threshold: 0 }
+		);
+		io.observe(el);
+
+		// Parallaxe : la vidéo descend doucement au défilement, sans déborder du hero.
+		const gsap = ensureGsap();
+		const section = el.closest('.hero') ?? el.parentElement;
+		const st = ScrollTrigger.create({
+			trigger: section as Element,
+			start: 'top top',
+			end: 'bottom top',
+			scrub: true,
+			animation: gsap.fromTo(el, { yPercent: 0 }, { yPercent: 10, ease: 'none' })
+		});
 
 		return () => {
-			io?.disconnect();
-			st?.kill();
+			io.disconnect();
+			st.kill();
 		};
 	});
 </script>
@@ -72,10 +51,14 @@
 <video
 	bind:this={video}
 	class="absolute left-0 top-[-16%] h-[132%] w-full object-cover brightness-[0.8]"
+	autoplay
 	muted
 	loop
 	playsinline
-	preload="none"
+	preload="auto"
 	poster="/videos/hero-poster.jpg"
 	aria-hidden="true"
-></video>
+>
+	<source src="/videos/hero.webm" type="video/webm" />
+	<source src="/videos/hero.mp4" type="video/mp4" />
+</video>
