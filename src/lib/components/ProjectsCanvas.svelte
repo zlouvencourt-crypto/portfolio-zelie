@@ -3,13 +3,6 @@
 	import { prefersReducedMotion } from '$utils/motion';
 	import { projects } from '$content/projects';
 
-	// Formats de repli pour les projets sans image (placeholder), variés pour un effet collage.
-	const fallbackAr = ['4 / 5', '1 / 1', '5 / 4', '3 / 4', '4 / 3', '1 / 1'];
-	const items = projects.map((p, i) => ({ ...p, ar: fallbackAr[i % fallbackAr.length] }));
-
-	const COLS = 3;
-	const columns = Array.from({ length: COLS }, (_, c) => items.filter((_, i) => i % COLS === c));
-
 	let stage = $state<HTMLDivElement | null>(null);
 	let plane = $state<HTMLDivElement | null>(null);
 
@@ -44,10 +37,6 @@
 		};
 		measure();
 		window.addEventListener('resize', measure);
-		// re-mesure quand les images sont chargées (hauteurs naturelles)
-		plane.querySelectorAll('img').forEach((img) => {
-			if (!img.complete) img.addEventListener('load', measure, { once: true });
-		});
 
 		const onMove = (e: PointerEvent) => {
 			if (dragging) {
@@ -122,41 +111,37 @@
 
 <div bind:this={stage} class="stage">
 	<div bind:this={plane} class="plane">
-		{#each columns as col, c (c)}
-			<div class="col">
-				{#each col as p (p.slug)}
-					<a
-						href={`/realisations/${p.slug}`}
-						class="tile"
-						style="--c:{p.color}"
-						data-cursor
-						draggable="false"
-					>
-						{#if p.cover}
-							<picture>
-								<source srcset={`${p.cover}.avif`} type="image/avif" />
-								<source srcset={`${p.cover}.webp`} type="image/webp" />
-								<img
-									class="tile-media"
-									src={`${p.cover}.jpg`}
-									alt={p.title}
-									width={p.w}
-									height={p.h}
-									loading="lazy"
-									decoding="async"
-									draggable="false"
-								/>
-							</picture>
-						{:else}
-							<div class="tile-ph" style="aspect-ratio:{p.ar}"><span>{p.title}</span></div>
-						{/if}
-						<div class="tile-overlay">
-							<span class="tile-name">{p.title}</span>
-							<span class="tile-tag">{p.tag}</span>
-						</div>
-					</a>
-				{/each}
-			</div>
+		{#each projects as p (p.slug)}
+			<a
+				href={`/realisations/${p.slug}`}
+				class="tile"
+				style="--c:{p.color}"
+				data-cursor
+				draggable="false"
+			>
+				{#if p.cover}
+					<picture>
+						<source srcset={`${p.cover}.avif`} type="image/avif" />
+						<source srcset={`${p.cover}.webp`} type="image/webp" />
+						<img
+							class="tile-media"
+							src={`${p.cover}.jpg`}
+							alt={p.title}
+							width={p.w}
+							height={p.h}
+							loading="lazy"
+							decoding="async"
+							draggable="false"
+						/>
+					</picture>
+				{:else}
+					<div class="tile-ph"><span>{p.title}</span></div>
+				{/if}
+				<div class="tile-overlay">
+					<span class="tile-name">{p.title}</span>
+					<span class="tile-tag">{p.tag}</span>
+				</div>
+			</a>
 		{/each}
 	</div>
 </div>
@@ -176,49 +161,42 @@
 	.stage:global(.dragging) {
 		cursor: grabbing;
 	}
+	/* grille régulière qui remplit tout l'espace (aucun vide) */
 	.plane {
-		display: flex;
-		align-items: center;
-		gap: 0;
-		width: 146vw;
-		/* marge intérieure : les tuiles de bord restent entièrement visibles
-		   (dégagées du menu en haut) quand on va aux extrêmes */
-		padding: 16vh 7vw;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 52vh;
+		width: 126vw;
 		will-change: transform;
-	}
-	.col {
-		display: flex;
-		flex: 1 1 0;
-		min-width: 0;
-		flex-direction: column;
-		justify-content: center;
-		gap: 0;
 	}
 	.tile {
 		position: relative;
 		display: block;
-		width: 100%;
 		overflow: hidden;
 		user-select: none;
 		-webkit-user-drag: none;
 	}
-	/* image dans son format naturel (pas de recadrage) */
-	.tile-media {
-		display: block;
+	.tile-media,
+	.tile-ph {
+		position: absolute;
+		inset: 0;
 		width: 100%;
-		height: auto;
+		height: 100%;
+		max-width: none;
+	}
+	.tile-media {
+		object-fit: cover;
 		transition: transform 0.7s var(--ease-out-expo);
 	}
 	.tile-ph {
 		display: grid;
 		place-items: center;
-		width: 100%;
 		background: linear-gradient(145deg, color-mix(in srgb, var(--c) 48%, #08070b), #08070b 88%);
 	}
 	.tile-ph span {
 		padding: 0 1rem;
 		font-family: var(--font-display);
-		font-size: clamp(0.95rem, 1.4vw, 1.5rem);
+		font-size: clamp(1rem, 1.6vw, 1.8rem);
 		letter-spacing: 0.03em;
 		text-align: center;
 		text-transform: uppercase;
@@ -228,7 +206,7 @@
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: rgba(8, 7, 11, 0.18);
+		background: rgba(8, 7, 11, 0.2);
 		transition: opacity 0.5s ease;
 		pointer-events: none;
 	}
@@ -246,8 +224,8 @@
 		align-items: baseline;
 		justify-content: space-between;
 		gap: 0.75rem;
-		padding: 1.1rem 1.2rem;
-		background: linear-gradient(to top, rgba(8, 7, 11, 0.82), transparent);
+		padding: 1.2rem 1.3rem;
+		background: linear-gradient(to top, rgba(8, 7, 11, 0.85), transparent);
 		opacity: 0;
 		transform: translateY(10px);
 		transition:
@@ -260,13 +238,13 @@
 	}
 	.tile-name {
 		font-family: var(--font-display);
-		font-size: clamp(0.95rem, 1.3vw, 1.4rem);
+		font-size: clamp(1.1rem, 1.5vw, 1.7rem);
 		line-height: 1;
 		text-transform: uppercase;
 	}
 	.tile-tag {
 		font-family: var(--font-sans);
-		font-size: 0.68rem;
+		font-size: 0.7rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		white-space: nowrap;
@@ -274,7 +252,9 @@
 	}
 	@media (max-width: 768px) {
 		.plane {
-			width: 200vw;
+			grid-template-columns: repeat(2, 1fr);
+			grid-auto-rows: 40vh;
+			width: 168vw;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {

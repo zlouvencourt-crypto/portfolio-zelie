@@ -93,6 +93,8 @@
 		top: -5%;
 		width: 110%;
 		height: 110%;
+		max-width: none;
+		max-height: none;
 		object-fit: cover;
 		filter: brightness(0.78);
 	}
