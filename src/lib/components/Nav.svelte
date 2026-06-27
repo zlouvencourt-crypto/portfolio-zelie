@@ -12,26 +12,28 @@
 	];
 </script>
 
-<header class="fixed inset-x-0 top-0 z-50">
-	<div class="container-page pt-4 md:pt-5">
-		<div class="frost flex items-center justify-between gap-4 px-4 py-2.5 md:px-6 md:py-3">
-			<!-- logo + sélecteur de couleur -->
-			<div class="flex items-center gap-3 md:gap-4">
-				<a href="/" class="block shrink-0" aria-label="WEXX OI — accueil">
-					<img
-						src="/brand/wexx-white.png"
-						alt="WEXX Indian Ocean"
-						width="638"
-						height="266"
-						class="h-5 w-auto md:h-6"
-					/>
-				</a>
-				<span class="hidden h-5 w-px bg-[color-mix(in_srgb,var(--accent)_45%,transparent)] sm:block"></span>
-				<AccentSwitcher />
-			</div>
+<header class="fixed inset-x-0 top-0 z-50 pt-4 md:pt-5">
+	<div class="container-page relative flex items-center justify-center">
+		<!-- logo à gauche, séparé de la barre -->
+		<a
+			href="/"
+			class="absolute left-0 top-1/2 block -translate-y-1/2 shrink-0 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]"
+			aria-label="WEXX OI — accueil"
+		>
+			<img
+				src="/brand/wexx-white.png"
+				alt="WEXX Indian Ocean"
+				width="638"
+				height="266"
+				class="h-5 w-auto md:h-6"
+			/>
+		</a>
 
-			<!-- liens -->
-			<nav class="hidden items-center gap-7 md:flex">
+		<!-- barre menu compacte, centrée -->
+		<div class="frost hidden items-center gap-4 px-4 py-2 md:flex">
+			<AccentSwitcher />
+			<span class="seg"></span>
+			<nav class="flex items-center gap-6">
 				{#each links as link (link.href)}
 					<a
 						href={link.href}
@@ -41,32 +43,29 @@
 					</a>
 				{/each}
 			</nav>
-
-			<!-- CTA -->
-			<div class="hidden md:block">
-				<Magnetic strength={0.4}>
-					<a
-						href="/contact"
-						class="group inline-flex items-center gap-2 font-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]"
-					>
-						Parlons-en
-						<span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
-					</a>
-				</Magnetic>
-			</div>
-
-			<!-- bouton mobile -->
-			<button
-				class="relative z-[60] flex h-7 w-7 flex-col items-center justify-center gap-[6px] md:hidden"
-				aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
-				aria-expanded={open}
-				onclick={() => (open = !open)}
-			>
-				<span class="block h-px w-5 bg-[color:var(--color-cream)] transition-transform duration-300" class:translate-y-[7px]={open} class:rotate-45={open}></span>
-				<span class="block h-px w-5 bg-[color:var(--color-cream)] transition-opacity duration-300" class:opacity-0={open}></span>
-				<span class="block h-px w-5 bg-[color:var(--color-cream)] transition-transform duration-300" class:-translate-y-[7px]={open} class:-rotate-45={open}></span>
-			</button>
+			<span class="seg"></span>
+			<Magnetic strength={0.4}>
+				<a
+					href="/contact"
+					class="group inline-flex items-center gap-2 font-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]"
+				>
+					Parlons-en
+					<span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
+				</a>
+			</Magnetic>
 		</div>
+
+		<!-- bouton mobile à droite -->
+		<button
+			class="absolute right-0 top-1/2 z-[60] flex h-7 w-7 -translate-y-1/2 flex-col items-center justify-center gap-[6px] md:hidden"
+			aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+			aria-expanded={open}
+			onclick={() => (open = !open)}
+		>
+			<span class="block h-px w-5 bg-[color:var(--color-cream)] transition-transform duration-300" class:translate-y-[7px]={open} class:rotate-45={open}></span>
+			<span class="block h-px w-5 bg-[color:var(--color-cream)] transition-opacity duration-300" class:opacity-0={open}></span>
+			<span class="block h-px w-5 bg-[color:var(--color-cream)] transition-transform duration-300" class:-translate-y-[7px]={open} class:-rotate-45={open}></span>
+		</button>
 	</div>
 
 	{#if open}
@@ -85,7 +84,7 @@
 </header>
 
 <style>
-	/* une seule barre en verre dépoli, teintée par la couleur active */
+	/* barre menu en verre dépoli, teintée par la couleur active */
 	.frost {
 		border-radius: 9999px;
 		border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
@@ -97,5 +96,11 @@
 			border-color 0.8s var(--ease-out-expo),
 			background-color 0.8s var(--ease-out-expo),
 			box-shadow 0.8s var(--ease-out-expo);
+	}
+	/* petit séparateur vertical teinté */
+	.seg {
+		width: 1px;
+		height: 1.1rem;
+		background: color-mix(in srgb, var(--accent) 45%, transparent);
 	}
 </style>
