@@ -4,6 +4,7 @@
 	import Cursor from '$components/Cursor.svelte';
 	import Grain from '$components/Grain.svelte';
 	import Nav from '$components/Nav.svelte';
+	import Preloader from '$components/Preloader.svelte';
 
 	let { children } = $props();
 </script>
@@ -28,6 +29,7 @@
 	<meta name="twitter:image" content="/videos/hero-poster.jpg" />
 </svelte:head>
 
+<Preloader />
 <Grain />
 <Cursor />
 <Nav />
