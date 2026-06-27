@@ -14,6 +14,11 @@
 
 <header class="fixed inset-x-0 top-0 z-50 pt-4 md:pt-5">
 	<div class="container-page relative flex items-center justify-center">
+		<!-- couleurs à gauche, hors de la barre (desktop) -->
+		<div class="frost absolute left-0 top-1/2 hidden -translate-y-1/2 items-center px-3.5 py-2.5 md:flex">
+			<AccentSwitcher />
+		</div>
+
 		<!-- logo mobile (à gauche) -->
 		<a
 			href="/"
@@ -23,19 +28,17 @@
 			<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" width="638" height="266" class="h-5 w-auto" />
 		</a>
 
-		<!-- barre menu compacte, centrée : logo · couleurs · liens · CTA -->
-		<div class="frost hidden items-center gap-3 px-4 py-2 md:flex">
+		<!-- barre menu centrée : logo · liens · CTA -->
+		<div class="frost hidden items-center gap-5 px-6 py-3 md:flex">
 			<a href="/" class="block shrink-0" aria-label="WEXX OI — accueil">
-				<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" width="638" height="266" class="h-5 w-auto" />
+				<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" width="638" height="266" class="h-6 w-auto" />
 			</a>
 			<span class="seg"></span>
-			<AccentSwitcher />
-			<span class="seg"></span>
-			<nav class="flex items-center gap-6">
+			<nav class="flex items-center gap-7">
 				{#each links as link (link.href)}
 					<a
 						href={link.href}
-						class="font-sans text-[13px] font-medium text-[color:var(--color-cream)]/85 transition-colors hover:text-[var(--accent)]"
+						class="font-sans text-[14px] font-medium text-[color:var(--color-cream)]/85 transition-colors hover:text-[var(--accent)]"
 					>
 						{link.label}
 					</a>
@@ -45,7 +48,7 @@
 			<Magnetic strength={0.4}>
 				<a
 					href="/contact"
-					class="group inline-flex items-center gap-2 font-sans text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]"
+					class="group inline-flex items-center gap-2 font-sans text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]"
 				>
 					Parlons-en
 					<span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
@@ -82,7 +85,7 @@
 </header>
 
 <style>
-	/* barre menu en verre dépoli, teintée par la couleur active */
+	/* verre dépoli teinté par la couleur active */
 	.frost {
 		border-radius: 9999px;
 		border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
@@ -97,7 +100,7 @@
 	}
 	.seg {
 		width: 1px;
-		height: 1.1rem;
+		height: 1.2rem;
 		background: color-mix(in srgb, var(--accent) 45%, transparent);
 	}
 </style>
