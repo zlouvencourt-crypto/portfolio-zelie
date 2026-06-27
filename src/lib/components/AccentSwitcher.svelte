@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { setLockedAccent } from '$utils/scroll';
+	import { onMount } from 'svelte';
+	import { setLockedAccent, getLockedAccent } from '$utils/scroll';
 
 	const swatches = [
 		{ name: 'Lagon', color: '#12D6C6' },
@@ -9,6 +10,11 @@
 	];
 
 	let active = $state<string | null>(null);
+
+	// Reflète la couleur déjà choisie (ex. à l'écran de chargement).
+	onMount(() => {
+		active = getLockedAccent();
+	});
 
 	function pick(color: string) {
 		if (active === color) {

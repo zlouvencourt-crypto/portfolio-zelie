@@ -1,10 +1,27 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { prefersReducedMotion } from '$utils/motion';
+	import { setLockedAccent } from '$utils/scroll';
 
 	let loading = $state(true);
 	let isOut = $state(false);
-	let count = $state(0);
+
+	const swatches = [
+		{ name: 'Lagon', color: '#12D6C6' },
+		{ name: 'Corail', color: '#FF3D6E' },
+		{ name: 'Solaire', color: '#FFD23F' },
+		{ name: 'Améthyste', color: '#9B6CFF' }
+	];
+
+	let timer = 0;
+
+	function exit(color: string | null) {
+		window.clearTimeout(timer);
+		if (color) setLockedAccent(color);
+		sessionStorage.setItem('wexx-loaded', '1');
+		isOut = true;
+		document.documentElement.classList.remove('is-loading');
+		window.setTimeout(() => (loading = false), 1000);
+	}
 
 	onMount(() => {
 		// Une seule fois par session (à l'ouverture du site).
@@ -12,81 +29,50 @@
 			loading = false;
 			return;
 		}
-
-		const root = document.documentElement;
-		root.classList.add('is-loading');
+		document.documentElement.classList.add('is-loading');
 		window.scrollTo(0, 0);
 
-		let counterDone = false;
-		let fontsReady = false;
-		let raf = 0;
-
-		const exit = () => {
-			isOut = true;
-			root.classList.remove('is-loading');
-			sessionStorage.setItem('wexx-loaded', '1');
-			window.setTimeout(() => (loading = false), 1000);
-		};
-		const tryExit = () => {
-			if (counterDone && fontsReady) exit();
-		};
-
-		if (document.fonts) {
-			document.fonts.ready.then(() => {
-				fontsReady = true;
-				tryExit();
-			});
-		} else {
-			fontsReady = true;
-		}
-
-		if (prefersReducedMotion()) {
-			count = 100;
-			counterDone = true;
-			tryExit();
-			return () => root.classList.remove('is-loading');
-		}
-
-		const duration = 2000;
-		let t0: number | null = null;
-		const tick = (now: number) => {
-			if (t0 === null) t0 = now;
-			const p = Math.min(1, (now - t0) / duration);
-			count = Math.round((1 - Math.pow(1 - p, 3)) * 100);
-			if (p < 1) {
-				raf = requestAnimationFrame(tick);
-			} else {
-				counterDone = true;
-				tryExit();
-			}
-		};
-		raf = requestAnimationFrame(tick);
+		// Sans choix au bout de 5 s : ouverture par défaut.
+		timer = window.setTimeout(() => exit(null), 5000);
 
 		return () => {
-			cancelAnimationFrame(raf);
-			root.classList.remove('is-loading');
+			window.clearTimeout(timer);
+			document.documentElement.classList.remove('is-loading');
 		};
 	});
 </script>
 
 {#if loading}
-	<div class="preloader" class:is-out={isOut} aria-hidden="true">
-		<div class="pre-top container-page">
-			<span class="eyebrow text-[color:var(--color-cream)]/60">[ WEXX — Indian Ocean · 21°S ]</span>
+	<div class="preloader" class:is-out={isOut}>
+		<div class="pre-inner">
+			<img
+				class="pre-logo"
+				src="/brand/wexx-white.png"
+				alt="WEXX Indian Ocean"
+				width="638"
+				height="266"
+			/>
+
+			<p class="pre-hint">Choisissez votre couleur</p>
+
+			<div class="pre-swatches" role="group" aria-label="Couleur du site">
+				{#each swatches as s (s.color)}
+					<button
+						type="button"
+						class="pre-swatch"
+						style="--c:{s.color}"
+						aria-label={`Entrer le site en ${s.name}`}
+						title={s.name}
+						data-cursor
+						onclick={() => exit(s.color)}
+					></button>
+				{/each}
+			</div>
+
+			<p class="pre-sub">ou patientez…</p>
 		</div>
 
-		<div class="pre-center">
-			<h2 class="pre-sign font-display">
-				<span class="reveal-mask"><span class="pre-line">On fait vibrer</span></span>
-				<span class="reveal-mask"><span class="pre-line pre-line-2">l’océan Indien.</span></span>
-			</h2>
-		</div>
-
-		<div class="pre-bottom container-page">
-			<span class="pre-count font-display">{count}<small>%</small></span>
-		</div>
-
-		<div class="pre-bar"><span style="transform: scaleX({count / 100})"></span></div>
+		<div class="pre-bar"><span></span></div>
 	</div>
 {/if}
 
@@ -95,9 +81,8 @@
 		position: fixed;
 		inset: 0;
 		z-index: 120;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		display: grid;
+		place-items: center;
 		background: var(--color-black);
 		transition: transform 0.95s var(--ease-out-expo);
 		will-change: transform;
@@ -105,72 +90,111 @@
 	.preloader.is-out {
 		transform: translateY(-100%);
 	}
-	.pre-top {
-		padding-top: 2rem;
-	}
-	.pre-center {
-		flex: 1;
-		display: grid;
-		place-items: center;
+	.pre-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2.2rem;
+		padding: 2rem;
 		text-align: center;
-		padding: 1rem;
 	}
-	.pre-sign {
-		font-size: clamp(2.4rem, 8vw, 7rem);
-		line-height: 0.95;
-		text-transform: uppercase;
-	}
-	.reveal-mask {
-		display: block;
-		overflow: hidden;
-	}
-	.pre-line {
-		display: block;
-		transform: translateY(110%);
+	.pre-logo {
+		width: clamp(220px, 42vw, 520px);
+		height: auto;
+		max-width: none;
+		opacity: 0;
+		transform: translateY(12px);
 		animation: pre-rise 1s var(--ease-out-expo) 0.1s forwards;
 	}
-	.pre-line-2 {
-		color: var(--accent);
-		animation-delay: 0.22s;
-	}
-	.pre-bottom {
-		display: flex;
-		justify-content: flex-end;
-		padding-bottom: 1.6rem;
-	}
-	.pre-count {
-		font-size: clamp(3rem, 11vw, 8.5rem);
-		line-height: 1;
-		color: var(--accent);
-	}
-	.pre-count small {
-		font-size: 0.28em;
-		vertical-align: super;
-		margin-left: 0.12em;
+	.pre-hint {
+		margin-top: 0.5rem;
+		font-family: var(--font-sans);
+		font-size: 0.72rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.22em;
 		color: color-mix(in srgb, var(--color-cream) 60%, transparent);
+		opacity: 0;
+		animation: pre-fade 0.8s ease 0.5s forwards;
+	}
+	.pre-swatches {
+		display: flex;
+		gap: 1rem;
+	}
+	.pre-swatch {
+		width: clamp(44px, 6vw, 58px);
+		height: clamp(44px, 6vw, 58px);
+		border-radius: 9px;
+		background: var(--c);
+		opacity: 0;
+		transform: translateY(14px);
+		animation: pre-rise 0.7s var(--ease-out-expo) forwards;
+		transition:
+			transform 0.3s var(--ease-out-expo),
+			box-shadow 0.3s ease;
+	}
+	.pre-swatch:nth-child(1) {
+		animation-delay: 0.6s;
+	}
+	.pre-swatch:nth-child(2) {
+		animation-delay: 0.68s;
+	}
+	.pre-swatch:nth-child(3) {
+		animation-delay: 0.76s;
+	}
+	.pre-swatch:nth-child(4) {
+		animation-delay: 0.84s;
+	}
+	.pre-swatch:hover {
+		transform: translateY(-5px) scale(1.08);
+		box-shadow: 0 14px 34px -8px var(--c);
+	}
+	.pre-sub {
+		font-family: var(--font-sans);
+		font-size: 0.74rem;
+		letter-spacing: 0.04em;
+		color: color-mix(in srgb, var(--color-cream) 38%, transparent);
+		opacity: 0;
+		animation: pre-fade 0.8s ease 0.9s forwards;
 	}
 	.pre-bar {
 		position: absolute;
 		inset: auto 0 0 0;
 		height: 2px;
-		background: rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.1);
 	}
 	.pre-bar span {
 		display: block;
 		height: 100%;
-		transform-origin: left;
-		background: var(--accent);
+		width: 0;
+		background: color-mix(in srgb, var(--color-cream) 55%, transparent);
+		animation: pre-load 5s linear forwards;
 	}
 	@keyframes pre-rise {
 		to {
+			opacity: 1;
 			transform: translateY(0);
+		}
+	}
+	@keyframes pre-fade {
+		to {
+			opacity: 1;
+		}
+	}
+	@keyframes pre-load {
+		to {
+			width: 100%;
 		}
 	}
 	:global(html.is-loading) {
 		overflow: hidden;
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.pre-line {
+		.pre-logo,
+		.pre-hint,
+		.pre-swatch,
+		.pre-sub {
+			opacity: 1;
 			transform: none;
 			animation: none;
 		}
