@@ -180,7 +180,10 @@
 		display: flex;
 		align-items: center;
 		gap: 0;
-		width: 132vw;
+		width: 146vw;
+		/* marge intérieure : les tuiles de bord restent entièrement visibles
+		   (dégagées du menu en haut) quand on va aux extrêmes */
+		padding: 16vh 7vw;
 		will-change: transform;
 	}
 	.col {
