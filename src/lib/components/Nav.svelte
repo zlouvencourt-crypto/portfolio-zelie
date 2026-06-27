@@ -14,23 +14,21 @@
 
 <header class="fixed inset-x-0 top-0 z-50 pt-4 md:pt-5">
 	<div class="container-page relative flex items-center justify-center">
-		<!-- logo à gauche, séparé de la barre -->
+		<!-- logo mobile (à gauche) -->
 		<a
 			href="/"
-			class="absolute left-0 top-1/2 block -translate-y-1/2 shrink-0 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]"
+			class="absolute left-0 top-1/2 block -translate-y-1/2 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)] md:hidden"
 			aria-label="WEXX OI — accueil"
 		>
-			<img
-				src="/brand/wexx-white.png"
-				alt="WEXX Indian Ocean"
-				width="638"
-				height="266"
-				class="h-5 w-auto md:h-6"
-			/>
+			<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" width="638" height="266" class="h-5 w-auto" />
 		</a>
 
-		<!-- barre menu compacte, centrée -->
-		<div class="frost hidden items-center gap-4 px-4 py-2 md:flex">
+		<!-- barre menu compacte, centrée : logo · couleurs · liens · CTA -->
+		<div class="frost hidden items-center gap-3 px-4 py-2 md:flex">
+			<a href="/" class="block shrink-0" aria-label="WEXX OI — accueil">
+				<img src="/brand/wexx-white.png" alt="WEXX Indian Ocean" width="638" height="266" class="h-5 w-auto" />
+			</a>
+			<span class="seg"></span>
 			<AccentSwitcher />
 			<span class="seg"></span>
 			<nav class="flex items-center gap-6">
@@ -97,7 +95,6 @@
 			background-color 0.8s var(--ease-out-expo),
 			box-shadow 0.8s var(--ease-out-expo);
 	}
-	/* petit séparateur vertical teinté */
 	.seg {
 		width: 1px;
 		height: 1.1rem;

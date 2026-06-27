@@ -3,6 +3,25 @@
 	import { prefersReducedMotion } from '$utils/motion';
 	import { projects } from '$content/projects';
 
+	const COLS = 3;
+	// rapport hauteur/largeur de repli pour les projets sans image
+	const fallback = [0.75, 1, 0.8, 1.25, 0.66, 1];
+
+	// chaque tuile garde son format ; on l'ajoute à la colonne la plus courte
+	// (masonry équilibrée) pour bien remplir l'espace.
+	const tiles = projects.map((p, i) => ({
+		...p,
+		ratio: p.cover && p.w && p.h ? p.h / p.w : fallback[i % fallback.length]
+	}));
+	const columns: (typeof tiles)[] = Array.from({ length: COLS }, () => []);
+	const heights = Array(COLS).fill(0);
+	for (const t of tiles) {
+		let m = 0;
+		for (let c = 1; c < COLS; c++) if (heights[c] < heights[m]) m = c;
+		columns[m].push(t);
+		heights[m] += t.ratio;
+	}
+
 	let stage = $state<HTMLDivElement | null>(null);
 	let plane = $state<HTMLDivElement | null>(null);
 
@@ -37,6 +56,9 @@
 		};
 		measure();
 		window.addEventListener('resize', measure);
+		plane.querySelectorAll('img').forEach((img) => {
+			if (!img.complete) img.addEventListener('load', measure, { once: true });
+		});
 
 		const onMove = (e: PointerEvent) => {
 			if (dragging) {
@@ -90,7 +112,6 @@
 		};
 		raf = requestAnimationFrame(loop);
 
-		// pause de la boucle quand l'onglet est en arrière-plan
 		const onVis = () => {
 			cancelAnimationFrame(raf);
 			if (!document.hidden) raf = requestAnimationFrame(loop);
@@ -111,37 +132,43 @@
 
 <div bind:this={stage} class="stage">
 	<div bind:this={plane} class="plane">
-		{#each projects as p (p.slug)}
-			<a
-				href={`/realisations/${p.slug}`}
-				class="tile"
-				style="--c:{p.color}"
-				data-cursor
-				draggable="false"
-			>
-				{#if p.cover}
-					<picture>
-						<source srcset={`${p.cover}.avif`} type="image/avif" />
-						<source srcset={`${p.cover}.webp`} type="image/webp" />
-						<img
-							class="tile-media"
-							src={`${p.cover}.jpg`}
-							alt={p.title}
-							width={p.w}
-							height={p.h}
-							loading="lazy"
-							decoding="async"
-							draggable="false"
-						/>
-					</picture>
-				{:else}
-					<div class="tile-ph"><span>{p.title}</span></div>
-				{/if}
-				<div class="tile-overlay">
-					<span class="tile-name">{p.title}</span>
-					<span class="tile-tag">{p.tag}</span>
-				</div>
-			</a>
+		{#each columns as col, c (c)}
+			<div class="col">
+				{#each col as p (p.slug)}
+					<a
+						href={`/realisations/${p.slug}`}
+						class="tile"
+						style="--c:{p.color}"
+						data-cursor
+						draggable="false"
+					>
+						{#if p.cover}
+							<picture>
+								<source srcset={`${p.cover}.avif`} type="image/avif" />
+								<source srcset={`${p.cover}.webp`} type="image/webp" />
+								<img
+									class="tile-media"
+									src={`${p.cover}.jpg`}
+									alt={p.title}
+									width={p.w}
+									height={p.h}
+									loading="lazy"
+									decoding="async"
+									draggable="false"
+								/>
+							</picture>
+						{:else}
+							<div class="tile-ph" style="aspect-ratio:{(1 / p.ratio).toFixed(4)}">
+								<span>{p.title}</span>
+							</div>
+						{/if}
+						<div class="tile-overlay">
+							<span class="tile-name">{p.title}</span>
+							<span class="tile-tag">{p.tag}</span>
+						</div>
+					</a>
+				{/each}
+			</div>
 		{/each}
 	</div>
 </div>
@@ -161,42 +188,46 @@
 	.stage:global(.dragging) {
 		cursor: grabbing;
 	}
-	/* grille régulière qui remplit tout l'espace (aucun vide) */
+	/* masonry : colonnes alignées en haut, images dans leur format, sans vide */
 	.plane {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: 52vh;
-		width: 126vw;
+		display: flex;
+		align-items: flex-start;
+		gap: 0;
+		width: 120vw;
 		will-change: transform;
+	}
+	.col {
+		display: flex;
+		flex: 1 1 0;
+		min-width: 0;
+		flex-direction: column;
+		gap: 0;
 	}
 	.tile {
 		position: relative;
 		display: block;
+		width: 100%;
 		overflow: hidden;
 		user-select: none;
 		-webkit-user-drag: none;
 	}
-	.tile-media,
-	.tile-ph {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		max-width: none;
-	}
 	.tile-media {
-		object-fit: cover;
+		display: block;
+		width: 100%;
+		height: auto;
+		max-width: none;
 		transition: transform 0.7s var(--ease-out-expo);
 	}
 	.tile-ph {
 		display: grid;
 		place-items: center;
+		width: 100%;
 		background: linear-gradient(145deg, color-mix(in srgb, var(--c) 48%, #08070b), #08070b 88%);
 	}
 	.tile-ph span {
 		padding: 0 1rem;
 		font-family: var(--font-display);
-		font-size: clamp(1rem, 1.6vw, 1.8rem);
+		font-size: clamp(1rem, 1.5vw, 1.7rem);
 		letter-spacing: 0.03em;
 		text-align: center;
 		text-transform: uppercase;
@@ -238,7 +269,7 @@
 	}
 	.tile-name {
 		font-family: var(--font-display);
-		font-size: clamp(1.1rem, 1.5vw, 1.7rem);
+		font-size: clamp(1rem, 1.4vw, 1.6rem);
 		line-height: 1;
 		text-transform: uppercase;
 	}
@@ -252,9 +283,7 @@
 	}
 	@media (max-width: 768px) {
 		.plane {
-			grid-template-columns: repeat(2, 1fr);
-			grid-auto-rows: 40vh;
-			width: 168vw;
+			width: 165vw;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
